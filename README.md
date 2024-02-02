@@ -1,4 +1,4 @@
-# FinLLM-DP-Lora
+# LLM-Data-Privacy
 
 The financial industry has experienced significant strides in Natural Language Processing (NLP) facilitated by Language Model (LM) technologies. However, the escalating concerns regarding data privacy present a formidable barrier to the ongoing enhancement of these models. A notable challenge involves potential adversarial attackers exploiting the weight of Language Models trained by individual banks, thereby jeopardizing user data confidentiality.
 
