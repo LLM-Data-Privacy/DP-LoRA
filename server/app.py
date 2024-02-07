@@ -2,7 +2,7 @@ from flask import Flask, request, send_file,jsonify
 import torch
 from model import ServerCLIPModel
 from io import BytesIO
-from aggregate import aggregate_updates
+from aggregate import aggregate_updates, apply_updates_to_model
 import os
 
 
