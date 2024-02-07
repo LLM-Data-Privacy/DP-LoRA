@@ -1,6 +1,6 @@
 from flask import Flask, request, send_file,jsonify
 import torch
-from model import ServerCLIPModel
+from CNN_model import run_centralised
 from io import BytesIO
 from aggregate import aggregate_updates, apply_updates_to_model
 import os

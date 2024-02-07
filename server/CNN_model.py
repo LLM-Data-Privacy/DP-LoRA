@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch.nn.functional as F
 import torch
-from prepare_dataset import get_mnist
+from ..common.prepare_dataset import get_mnist
 from torch.utils.data import DataLoader
 class Net(nn.Module):
     def __init__(self, num_classes: int) -> None:
