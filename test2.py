@@ -4,6 +4,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import torchvision
 import torchvision.transforms as transforms
+from tqdm import tqdm
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
@@ -21,49 +22,44 @@ testset = torchvision.datasets.MNIST(root='./data', train=False, download=True, 
 trainloader = torch.utils.data.DataLoader(trainset, batch_size=32, shuffle=True)
 testloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False)
 
-class ResNetBlock(nn.Module):
+# Write a ResNet class with the input of 1 channel, 28x28 images and 10 labels
+# Write a ResidualBlock class with 2 convolutional layers and a skip connection
+
+class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, stride=1):
-        super(ResNetBlock, self).__init__()
+        super(ResidualBlock, self).__init__()
         self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(out_channels)
-        self.relu = nn.ReLU(inplace=True)
         self.conv2 = nn.Conv2d(out_channels, out_channels, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn2 = nn.BatchNorm2d(out_channels)
-        self.stride = stride
+        self.shortcut = nn.Sequential()
         if stride != 1 or in_channels != out_channels:
             self.shortcut = nn.Sequential(
                 nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride, bias=False),
                 nn.BatchNorm2d(out_channels)
             )
-        else:
-            self.shortcut = nn.Sequential()
 
     def forward(self, x):
-        residual = x
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.relu(out)
-        out = self.conv2(out)
-        out = self.bn2(out)
-        out += self.shortcut(residual)
-        out = self.relu(out)
+        out = F.relu(self.bn1(self.conv1(x)))
+        out = self.bn2(self.conv2(out))
+        out += self.shortcut(x)
+        out = F.relu(out)
         return out
 
 class ResNet(nn.Module):
-    def __init__(self, block, num_blocks, num_classes=10):
+    def __init__(self, block, layers, num_classes=10):
         super(ResNet, self).__init__()
         self.in_channels = 16
-        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(16)
-        self.relu = nn.ReLU(inplace=True)
-        self.layer1 = self.make_layer(block, 16, num_blocks[0], stride=1)
-        self.layer2 = self.make_layer(block, 32, num_blocks[1], stride=2)
-        self.layer3 = self.make_layer(block, 64, num_blocks[2], stride=2)
-        self.avg_pool = nn.AdaptiveAvgPool2d((1, 1))
+        self.conv = nn.Conv2d(1, 16, kernel_size=3, stride=1, padding=1, bias=False)
+        self.bn = nn.BatchNorm2d(16)
+        self.layer1 = self.make_layer(block, 16, layers[0], stride=1)
+        self.layer2 = self.make_layer(block, 32, layers[1], stride=2)
+        self.layer3 = self.make_layer(block, 64, layers[2], stride=2)
+        self.avg_pool = nn.AvgPool2d(7)
         self.fc = nn.Linear(64, num_classes)
 
-    def make_layer(self, block, out_channels, num_blocks, stride):
-        strides = [stride] + [1] * (num_blocks - 1)
+    def make_layer(self, block, out_channels, blocks, stride=1):
+        strides = [stride] + [1] * (blocks - 1)
         layers = []
         for stride in strides:
             layers.append(block(self.in_channels, out_channels, stride))
@@ -71,9 +67,7 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
-        out = self.conv1(x)
-        out = self.bn1(out)
-        out = self.relu(out)
+        out = F.relu(self.bn(self.conv(x)))
         out = self.layer1(out)
         out = self.layer2(out)
         out = self.layer3(out)
@@ -82,27 +76,25 @@ class ResNet(nn.Module):
         out = self.fc(out)
         return out
 
-# Train function
+# Train Function
 def train(model, trainloader, criterion, optimizer, epochs=5):
-    model.train()
-    for epoch in range(epochs):
+    for epoch in tqdm(range(epochs)):
         running_loss = 0.0
         for i, data in enumerate(trainloader, 0):
             inputs, labels = data
             optimizer.zero_grad()
-
             outputs = model(inputs)
             loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
-
             running_loss += loss.item()
         print(f'Epoch {epoch + 1}, Loss: {running_loss / len(trainloader)}')
+    print('Finished Training')
 
-# Test function
-def test(model, testloader, verbose=True):
-    model.eval()
-    correct, total = 0, 0
+# Test Function
+def test(model, testloader):
+    correct = 0
+    total = 0
     with torch.no_grad():
         for data in testloader:
             images, labels = data
@@ -110,56 +102,58 @@ def test(model, testloader, verbose=True):
             _, predicted = torch.max(outputs.data, 1)
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
+    print(f'Accuracy of the network on the 10000 test images: {100 * correct / total}%')
 
-    if verbose: print(f'Accuracy on test set: {100 * correct / total}%')
-    return 100 * correct / total
+#!=============================================================================
+print("Beginning Model Training")
 
 # Train non-partitioned model
-non_partitioned_model = ResNet(ResNetBlock, [2, 2, 2])
-non_partitioned_optimizer = optim.Adam(non_partitioned_model.parameters(), lr=0.001)
-non_partitioned_criterion = nn.CrossEntropyLoss()
-print("Training non-partitioned model...")
-train(non_partitioned_model, trainloader, non_partitioned_criterion, non_partitioned_optimizer)
-print("Testing non-partitioned model...")
-test(non_partitioned_model, testloader)
+model = ResNet(ResidualBlock, [2, 2, 2, 2])
+criterion = nn.CrossEntropyLoss()
+optimizer = optim.Adam(model.parameters(), lr=0.001)  # Changed optimizer to Adam
+train(model, trainloader, criterion, optimizer, epochs=5)  # Reduced epochs for faster testing
+test(model, testloader)
+print("Concluding Model Training")
+#!=============================================================================
 
-#=============================================================================================
+# Partition the dataset into 5 pieces and train the model on each piece, then combine the models
+# Partition the dataset
+partitioned_trainset = []
+partitioned_trainloader = []
+for i in range(5):
+    partitioned_trainset.append(torch.utils.data.Subset(trainset, list(range(i * 12000, (i + 1) * 12000))))
+    partitioned_trainloader.append(torch.utils.data.DataLoader(partitioned_trainset[i], batch_size=32, shuffle=True))
 
-# Train partitioned model (simulate federated learning)
-num_parts = 5
-partition_size = len(trainset) // num_parts
-data_partitions = [torch.utils.data.Subset(trainset, range(i * partition_size, (i + 1) * partition_size)) for i in range(num_parts)]
-
-partitioned_models, partitioned_optimizers = [], []
-for _ in range(num_parts):
-    model = ResNet(ResNetBlock, [2, 2, 2])
-    optimizer = optim.Adam(model.parameters(), lr=0.001)
+print("Beginning Federated Model Training")
+# Train the models
+models = []
+for i in range(5):
+    model = ResNet(ResidualBlock, [2, 2, 2, 2])
     criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.001)  # Changed optimizer to Adam
+    train(model, partitioned_trainloader[i], criterion, optimizer, epochs=5)  # Reduced epochs for faster testing
+    models.append(model)
 
-    print("Training partitioned model...")
+# Combine the models using weighted averaging based on loss
+losses = []
+for i in range(5):
+    loss = 0
+    for data in partitioned_trainloader[i]:
+        inputs, labels = data
+        outputs = models[i](inputs)
+        loss += criterion(outputs, labels).item()
+    losses.append(loss)
 
-    train(model, torch.utils.data.DataLoader(data_partitions[_], batch_size=32, shuffle=True), criterion, optimizer, epochs=8)
-    partitioned_models.append(model)
-    partitioned_optimizers.append(optimizer)    
-    
-# Computing Weight Averaging
-partition_accuracy = [test(model, testloader, verbose=False) for model in partitioned_models]
-total_accuracy = sum(partition_accuracy)
-weights = [accuracy / total_accuracy for accuracy in partition_accuracy]
+# Calculate weights based on loss
+weights = [loss / sum(losses) for loss in losses]
 
-# Aggregate model updates
-print("Aggregating model updates...")
-for i in range(1, num_parts):
-    weight = weights[i]
-    for params_source, params_target in zip(partitioned_models[i].parameters(), partitioned_models[0].parameters()):
-        params_target.data += weight * params_source.data
+# Combine the models using weighted averaging
+combined_model = ResNet(ResidualBlock, [2, 2, 2, 2])
+combined_model.load_state_dict(models[0].state_dict())  # Initialize combined model with first model
+for i in range(1, 5):
+    for combined_param, param in zip(combined_model.parameters(), models[i].parameters()):
+        combined_param.data += param.data * weights[i]
 
-aggregated_model = partitioned_models[0]
-
-# Test federated model
-print("Testing aggregated model...")
-test(aggregated_model, testloader)
-
-#=============================================================================
-
-print(partition_accuracy)
+# Test the combined model
+test(combined_model, testloader)
+print("Concluding Federated Model Training")
