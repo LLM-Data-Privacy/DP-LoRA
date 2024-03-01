@@ -27,6 +27,17 @@ testloader = torch.utils.data.DataLoader(testset, batch_size=32, shuffle=False)
 
 class ResidualBlock(nn.Module):
     def __init__(self, in_channels, out_channels, stride=1):
+        """
+        Initialize a Residual Block.
+
+        Args:
+        - in_channels (int): Number of input channels to the block.
+        - out_channels (int): Number of output channels from the block.
+        - stride (int): Stride size for the convolutional layers. Default is 1.
+
+        This function sets up the layers for a residual block, which consists of two convolutional
+        layers with batch normalization, along with a shortcut connection to handle different dimensions.
+        """
         super(ResidualBlock, self).__init__()
         self.conv1 = nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=stride, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(out_channels)
@@ -40,14 +51,39 @@ class ResidualBlock(nn.Module):
             )
 
     def forward(self, x):
+        """
+        Forward pass through the Residual Block.
+
+        Args:
+        - x (tensor): Input tensor to the block.
+
+        Returns:
+        - out (tensor): Output tensor from the block.
+
+        This function defines the forward pass operations for the residual block.
+        It applies two convolutional layers with batch normalization and a ReLU activation,
+        along with the shortcut connection, and returns the output.
+        """
         out = F.relu(self.bn1(self.conv1(x)))
         out = self.bn2(self.conv2(out))
         out += self.shortcut(x)
         out = F.relu(out)
         return out
 
+
 class ResNet(nn.Module):
     def __init__(self, block, layers, num_classes=10):
+        """
+        Initialize a ResNet model.
+
+        Args:
+        - block (nn.Module): Type of residual block to use.
+        - layers (list): List specifying the number of residual blocks in each layer.
+        - num_classes (int): Number of output classes. Default is 10.
+
+        This function sets up the layers for a ResNet model, including convolutional layers,
+        residual blocks, average pooling, and fully connected layers for classification.
+        """
         super(ResNet, self).__init__()
         self.in_channels = 16
         self.conv = nn.Conv2d(3, 16, kernel_size=3, stride=1, padding=1, bias=False)  # Update input channels to 3 for CIFAR10
@@ -59,6 +95,21 @@ class ResNet(nn.Module):
         self.fc = nn.Linear(64, num_classes)
 
     def make_layer(self, block, out_channels, blocks, stride=1):
+        """
+        Create a sequence of residual blocks for a layer.
+
+        Args:
+        - block (nn.Module): Type of residual block to use.
+        - out_channels (int): Number of output channels for the layer.
+        - blocks (int): Number of residual blocks in the layer.
+        - stride (int): Stride size for the first block in the layer. Default is 1.
+
+        Returns:
+        - layer (nn.Sequential): Sequence of residual blocks for the layer.
+
+        This function creates a sequence of residual blocks for a layer by repeating the specified
+        number of blocks. It adjusts the stride for the first block based on the specified value.
+        """
         strides = [stride] + [1] * (blocks - 1)
         layers = []
         for stride in strides:
@@ -67,6 +118,19 @@ class ResNet(nn.Module):
         return nn.Sequential(*layers)
 
     def forward(self, x):
+        """
+        Forward pass through the ResNet model.
+
+        Args:
+        - x (tensor): Input tensor to the model.
+
+        Returns:
+        - out (tensor): Output tensor from the model.
+
+        This function defines the forward pass operations for the ResNet model.
+        It applies convolutional layers, residual blocks, average pooling, and fully connected layers
+        to perform classification and returns the output.
+        """
         out = F.relu(self.bn(self.conv(x)))
         out = self.layer1(out)
         out = self.layer2(out)
