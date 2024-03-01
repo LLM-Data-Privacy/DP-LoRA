@@ -110,8 +110,8 @@ print("Beginning Model Training")
 # Train non-partitioned model
 model = ResNet(ResidualBlock, [2, 2, 2, 2], num_classes=10)  # Change num_classes to 10 for CIFAR10
 criterion = nn.CrossEntropyLoss()
-optimizer = optim.RMSprop(model.parameters(), lr=0.001, alpha=0.9)  # Example learning rate (lr) and alpha values
-#optimizer = optim.Adam(model.parameters(), lr=0.001)  # Changed optimizer to Adam
+#optimizer = optim.RMSprop(model.parameters(), lr=0.001, alpha=0.9)  # Example learning rate (lr) and alpha values
+optimizer = optim.Adam(model.parameters(), lr=0.001)  # Changed optimizer to Adam
 train(model, trainloader, criterion, optimizer, epochs=5)  # Reduced epochs for faster testing
 test(model, testloader)
 print("Concluding Model Training")
@@ -131,8 +131,8 @@ models = []
 for i in range(5):
     model = ResNet(ResidualBlock, [2, 2, 2, 2], num_classes=10)  # Change num_classes to 10 for CIFAR10
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.RMSprop(model.parameters(), lr=0.001, alpha=0.9)  # Example learning rate (lr) and alpha values
-    #optimizer = optim.Adam(model.parameters(), lr=0.001)  # Changed optimizer to Adam
+    #optimizer = optim.RMSprop(model.parameters(), lr=0.001, alpha=0.9)  # Example learning rate (lr) and alpha values
+    optimizer = optim.Adam(model.parameters(), lr=0.001)  # Changed optimizer to Adam
     train(model, partitioned_trainloader[i], criterion, optimizer, epochs=5)  # Reduced epochs for faster testing
     models.append(model)
 
