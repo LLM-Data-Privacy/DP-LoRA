@@ -57,3 +57,33 @@ def federated_train(model, device, train_loaders, optimizer, epoch):
                 print(f'Client: {client_idx}, Train Epoch: {epoch} [{batch_idx * len(data)}/{len(train_loader.dataset)}'
                       f' ({100. * batch_idx / len(train_loader):.0f}%)]\tLoss: {loss.item():.6f}')
 
+# Create DataLoader for each subset for federated learning
+train_loaders = [DataLoader(subset, batch_size=64, shuffle=True) for subset in datasets]
+
+# Example: Federated Training of the model on ten different subsets
+optimizer = optim.Adam(model.parameters())
+for epoch in range(1, 11):  # For example, 10 epochs
+    federated_train(model, device, train_loaders, optimizer, epoch)
+
+# Evaluation
+test_dataset = datasets.MNIST(root='./data', train=False, download=True, transform=transform)
+test_loader = DataLoader(test_dataset, batch_size=64, shuffle=False)
+
+def test(model, device, test_loader):
+    model.eval()
+    test_loss = 0
+    correct = 0
+    with torch.no_grad():
+        for data, target in test_loader:
+            data, target = data.to(device), target.to(device)
+            output = model(data)
+            test_loss += nn.CrossEntropyLoss()(output, target).item()
+            pred = output.argmax(dim=1, keepdim=True)
+            correct += pred.eq(target.view_as(pred)).sum().item()
+
+    test_loss /= len(test_loader.dataset)
+    print(f'\nTest set: Average loss: {test_loss:.4f}, Accuracy: {correct}/{len(test_loader.dataset)}'
+          f' ({100. * correct / len(test_loader.dataset):.0f}%)\n')
+
+# Test the model
+test(model, device, test_loader)
