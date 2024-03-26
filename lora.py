@@ -75,3 +75,23 @@ for i in range(min(3, len(first_batch_labels))):  # Print up to 3 examples
 # Define the model
 bert_model = TFBertModel.from_pretrained('bert-base-uncased')
 bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+max_length = 128
+
+# Define the model architecture with BERT
+def create_falcon_model_with_bert():
+    # Define the input layer
+    input_ids = Input(shape=(max_length,), dtype='int32')
+    # Extract BERT's last hidden states
+    bert_output = bert_model(input_ids)[0]
+    # Custom layers on top of BERT
+    x = Dense(64, activation='relu')(bert_output[:, 0, :])  # Use the representation of [CLS] token
+    x = Dense(32, activation='relu')(x)
+    output = Dense(1, activation='sigmoid')(x)  # Binary classification
+    
+    model = Model(inputs=input_ids, outputs=output)
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+    
+    return model
+
+falcon_model = create_falcon_model_with_bert()
+falcon_model.summary()
