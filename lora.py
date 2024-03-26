@@ -2,6 +2,10 @@ import numpy as np
 import tensorflow as tf
 import tensorflow_datasets as tfds
 
+from transformers import TFBertModel, BertTokenizer
+from tensorflow.keras.layers import Input, Dense
+from tensorflow.keras.models import Model
+
 # Load the IMDb movie reviews dataset
 (train_data, test_data), dataset_info = tfds.load(
     'imdb_reviews',
@@ -68,3 +72,6 @@ for i in range(min(3, len(first_batch_labels))):  # Print up to 3 examples
     print('Encoded text:', first_batch_examples[i])
     print('Label:', first_batch_labels.numpy()[i])
 
+# Define the model
+bert_model = TFBertModel.from_pretrained('bert-base-uncased')
+bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
