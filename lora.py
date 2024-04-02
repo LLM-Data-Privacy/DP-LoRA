@@ -115,3 +115,19 @@ class LoRADense(Layer):
         # Compute the output of the layer as inputs * U * V
         return tf.matmul(tf.matmul(inputs, self.U), self.V)
 
+def create_falcon_model_with_lora():
+    input_ids = Input(shape=(max_length,), dtype='int32')
+    bert_output = bert_model(input_ids)[0]
+
+    # Apply LoRA to the output of BERT model
+    lora_output = LoRADense(64, rank=32)(bert_output[:, 0, :])  # Example usage of LoRA layer
+    x = Dense(32, activation='relu')(lora_output)
+    output = Dense(1, activation='sigmoid')(x)
+
+    model = Model(inputs=input_ids, outputs=output)
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+    
+    return model
+
+falcon_model = create_falcon_model_with_lora()
+falcon_model.summary()
