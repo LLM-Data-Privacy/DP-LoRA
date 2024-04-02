@@ -6,6 +6,9 @@ from transformers import TFBertModel, BertTokenizer
 from tensorflow.keras.layers import Input, Dense
 from tensorflow.keras.models import Model
 
+from tensorflow.keras.layers import Dense, Layer
+from tensorflow.keras.models import Model
+
 # Load the IMDb movie reviews dataset
 (train_data, test_data), dataset_info = tfds.load(
     'imdb_reviews',
@@ -68,9 +71,9 @@ first_batch_examples, first_batch_labels = train_datasets[0][0]
 
 # Assuming first_batch_examples is a numpy array of encoded texts,
 # and first_batch_labels is a TensorFlow tensor of labels:
-for i in range(min(3, len(first_batch_labels))):  # Print up to 3 examples
-    print('Encoded text:', first_batch_examples[i])
-    print('Label:', first_batch_labels.numpy()[i])
+# for i in range(min(3, len(first_batch_labels))):  # Print up to 3 examples
+#     print('Encoded text:', first_batch_examples[i])
+#     print('Label:', first_batch_labels.numpy()[i])
 
 # Define the model
 bert_model = TFBertModel.from_pretrained('bert-base-uncased')
@@ -95,3 +98,20 @@ def create_falcon_model_with_bert():
 
 falcon_model = create_falcon_model_with_bert()
 falcon_model.summary()
+
+
+class LoRADense(Layer):
+    def __init__(self, output_dim, rank, **kwargs):
+        super(LoRADense, self).__init__(**kwargs)
+        self.output_dim = output_dim
+        self.rank = rank
+
+    def build(self, input_shape):
+        # Define the low-rank matrices U and V
+        self.U = self.add_weight(name='U', shape=(input_shape[-1], self.rank), initializer='uniform', trainable=True)
+        self.V = self.add_weight(name='V', shape=(self.rank, self.output_dim), initializer='uniform', trainable=True)
+
+    def call(self, inputs):
+        # Compute the output of the layer as inputs * U * V
+        return tf.matmul(tf.matmul(inputs, self.U), self.V)
+
