@@ -96,10 +96,6 @@ def create_falcon_model_with_bert():
     
     return model
 
-falcon_model = create_falcon_model_with_bert()
-falcon_model.summary()
-
-
 class LoRADense(Layer):
     def __init__(self, output_dim, rank, **kwargs):
         super(LoRADense, self).__init__(**kwargs)
@@ -131,3 +127,62 @@ def create_falcon_model_with_lora():
 
 falcon_model = create_falcon_model_with_lora()
 falcon_model.summary()
+
+# def client_update(model, dataset):
+#     # Train the model on the client's dataset
+#     model.fit(dataset, epochs=1, verbose=0)
+#     return model.get_weights()
+
+def client_update(client_model, client_dataset):
+    # Extract inputs from the client dataset
+    for inputs, labels in client_dataset.take(1):  # Take a peek at the first batch
+        print("Input IDs shape:", inputs['input_ids'].shape)
+        print("Attention mask shape:", inputs['attention_mask'].shape)
+        if 'token_type_ids' in inputs:
+            print("Token type IDs shape:", inputs['token_type_ids'].shape)
+        print("Labels shape:", labels.shape)
+
+    # Assuming client_dataset is already in the correct format
+    history = client_model.fit(client_dataset, epochs=1, verbose=1)
+    return client_model.get_weights()
+
+
+def federated_averaging(global_model, client_weights):
+    # Perform federated averaging on the client weights
+    new_global_weights = np.mean(client_weights, axis=0)
+    global_model.set_weights(new_global_weights)
+
+def evaluate_global_model(global_model, test_dataset):
+    # Evaluate the global model on the test dataset
+    loss, accuracy = global_model.evaluate(test_dataset, verbose=0)
+    return loss, accuracy
+
+# Simulating federated learning
+num_clients = len(train_datasets)
+num_rounds = 5
+
+# Create a global model instance
+global_model = create_falcon_model_with_lora()
+
+# Run federated learning for a number of rounds
+for round_num in range(num_rounds):
+    print(f'Starting round {round_num + 1}/{num_rounds}')
+    client_weights = []
+    
+    # Each client trains on their respective dataset
+    for client_id in range(num_clients):
+        print(f'Training on client {client_id + 1}/{num_clients}')
+        client_model = create_falcon_model_with_lora()  # Create a new model instance for the client
+        client_model.set_weights(global_model.get_weights())  # Initialize with global model weights
+        client_dataset = train_datasets[client_id]  # Get the client's dataset
+        client_model_weights = client_update(client_model, client_dataset)
+        # client_weights.append(client_model_weights)
+    
+    # # Perform federated averaging to update the global model
+    # federated_averaging(global_model, client_weights)
+
+    # # Evaluate the global model's performance
+    # loss, accuracy = evaluate_global_model(global_model, test_batches)
+    # print(f'Round {round_num + 1}, Loss: {loss}, Accuracy: {accuracy}')
+
+# print('Federated Learning simulation completed.')
