@@ -1,0 +1,8 @@
+# Ignore mnist data
+mnist
+
+# Ignore data
+data
+
+# Ignore pycache
+__pycache__

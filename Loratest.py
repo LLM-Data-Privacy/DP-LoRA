@@ -2,7 +2,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from torch.optim import Adam
-import loralib as lora
+import loralib as lora  # Assuming this is a library you've defined elsewhere
 from transformers import DataCollatorForSeq2Seq, get_cosine_schedule_with_warmup
 from torch.utils.data import Dataset, DataLoader
 from transformers import AutoModelForSequenceClassification, TrainingArguments, Trainer
@@ -15,15 +15,19 @@ from transformers import AutoTokenizer
 from transformers import AutoModelForSequenceClassification 
 from transformers import CONFIG_MAPPING 
 from transformers import AutoConfig
+from IPython.display import clear_output
+from tqdm.autonotebook import tqdm
+from sklearn.metrics import f1_score
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 #! Lora Functions #
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+
 ## Set max matrix rank
 lora_r = 4
 
 def make_lora_layer(layer, lora_r=4):
+    """Converts a linear layer into a LoRA layer."""
     new_layer = lora.Linear(
         in_features=layer.in_features,
         out_features=layer.out_features,
@@ -31,15 +35,13 @@ def make_lora_layer(layer, lora_r=4):
         r=lora_r,
         merge_weights=False
     )
-    
-    new_layer.weight = nn.Parameter(layer.weight.detach())
-    
+    new_layer.weight = nn.Parameter(layer.weight.detach())    
     if layer.bias is not None:
         new_layer.bias = nn.Parameter(layer.bias.detach())
-    
     return new_layer
 
 def make_lora_replace(model, depth=1, path="", verbose=True):
+    """Replaces linear layers in the model with LoRA layers."""
     if depth > 10:
         return
     depth += 1        
@@ -83,26 +85,19 @@ USE_LORA = True
 model_name = 'roberta-large'
 batch_size = 16
 
-model = AutoModelForSequenceClassification.from_pretrained(
-    model_name,
-    num_labels=num_labels
-)
+model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=num_labels)
 
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 collator = DataCollatorWithPadding(tokenizer)
 if USE_LORA:
-#     first_output = model(**collator([tokenizer('test')]))
     make_lora_replace(model, verbose=True)
 
-#     final_output = model(**collator([tokenizer('test')]))
-## Load omdel onto TPU/GPU
+## Load model onto TPU/GPU
 model = model.to(device)
-# tokenizer = tokenizer.to(device)
 
 #! Apply Lora to Model #
 
 lora_r = 4 ## Try different max matrix ranks for different results
-
 total_trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
 print(f"Total trainable parameters before LoRA: {total_trainable_params}")
 
@@ -114,14 +109,12 @@ print(f"Total trainable parameters after LoRA: {total_trainable_params}")
 for name, param in model.named_parameters():
     if "deberta" not in name:
         print(name)
-#             print(param.shape)
         param.requires_grad = True
-# import wandb
-# wandb.init(project='Lora')
 
 #! Process Training Data #
 
 def preprocess_function(examples):
+    """Tokenizes input examples."""
     return tokenizer(examples[sentence1_key], truncation=True, padding=True)
 
 encoded_dataset = dataset.map(preprocess_function, batched=True)
@@ -133,30 +126,23 @@ dataloaders = {
 #! Batching Helpers #
 
 def predict_loader(dataloader):
+    """Predicts labels for a given dataloader."""
     model.eval()
-    res = []
-    labels = []
-    
+    res, labels = [], []
     for batch in tqdm(dataloader):
         batch = batch_device(batch)
         output = model(**batch).logits.argmax(dim=-1).detach().cpu().numpy()
         res.extend(output)
         labels.extend(batch.labels.detach().cpu().numpy())
-            
     return(res, labels)
 
 def batch_device(batch):
+    """Moves a batch to the appropriate device."""
     for key in list(batch.keys()):
-        batch[key] = batch[key].to(device)
-        
+        batch[key] = batch[key].to(device)        
     return(batch)
-# wandb.watch(model)
 
 #! Training #
-
-from IPython.display import clear_output
-from tqdm.autonotebook import tqdm
-from sklearn.metrics import f1_score
 
 lr = 2e-5
 if USE_LORA:
@@ -176,20 +162,13 @@ for i in range(epochs):
         optimizer.zero_grad()
         output = model(**batch)
         output.loss.backward()
-#         wandb.log({
-#             "train/loss": output.loss.detach().cpu().numpy()
-#         })
         optimizer.step()
         scheduler.step()    
     res, labels = predict_loader(dataloaders['validation'])
     res = np.array(res) 
     labels = np.array(labels)
     f1 = f1_score(labels, res, average='micro')
-#     wandb.log({
-#         "eval/f1": f1
-#     })
-#     print(f1)
-    
+
     if f1 > best_f1:
         best_f1 = f1
         checkpoint_path = "best_lora_checkpoint.pth"        
