@@ -3,6 +3,9 @@ import tensorflow as tf
 import tensorflow_datasets as tfds
 from transformers import TFBertModel, BertTokenizer
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dense, Input
+from tensorflow.keras.models import Model
+from transformers import TFBertModel
 
 
 # Load the IMDb movie reviews dataset
@@ -37,6 +40,24 @@ class LoRADense(tf.keras.layers.Layer):
 
     def call(self, inputs):
         return tf.matmul(tf.matmul(inputs, self.U), self.V)
+    
+# Define the max sequence length
+max_length = 128  # Make sure this is the sequence length you want to use
+
+# Create the Falcon model with the LoRA layer
+def create_falcon_model_with_lora():
+    input_ids = Input(shape=(max_length,), dtype='int32')
+    bert_model = TFBertModel.from_pretrained('bert-base-uncased')
+
+    bert_output = bert_model(input_ids)[0]  # [0] to get the sequence output
+    lora_output = LoRADense(64, rank=32)(bert_output[:, 0, :])  # Apply LoRA to the output of the BERT model
+
+    x = Dense(32, activation='relu')(lora_output)
+    output = Dense(1, activation='sigmoid')(x)
+
+    model = Model(inputs=input_ids, outputs=output)
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+    return model
 
 # Function to encode and prepare dataset
 def encode_and_prepare_data(tokenizer, dataset, sequence_length):
@@ -107,9 +128,33 @@ def evaluate_global_model(model, dataset):
     return loss, accuracy
 
 # Create a global model instance
-global_model = create_model_with_lora()
+global_model = create_falcon_model_with_lora()
 
-# Federated learning simulation
-for round in range(1, 6):
-    print(f"Round {round}")
-    client_weights = []
+# # Federated learning simulation
+# for round in range(1, 6):
+#     print(f"Round {round}")
+#     client_weights = []
+    
+#     # Train on each client
+#     for client_id, client_dataset in enumerate(client_train_datasets):
+#         print(f"Training on client {client_id + 1}")
+#         client_model = create_falcon_model_with_lora()  # Create a new model instance for the client
+#         client_model.set_weights(global_model.get_weights())  # Initialize with global model weights
+#         client_weights.append(client_update(client_model, client_dataset))
+    
+#     # Aggregate client updates at the server
+#     server_aggregate(global_model, client_weights)
+
+#     # Evaluate the global model's performance after aggregation
+#     loss, accuracy = evaluate_global_model(global_model, test_dataset)
+#     print(f"Post-aggregation round {round}: Loss = {loss}, Accuracy = {accuracy}")
+
+global_model = create_falcon_model_with_lora()
+client_model = create_falcon_model_with_lora()
+
+# Check if the weights of both models have the same shape
+global_weights = global_model.get_weights()
+client_weights = client_model.get_weights()
+
+for g_w, c_w in zip(global_weights, client_weights):
+    assert g_w.shape == c_w.shape, "Mismatch in weight shapes"

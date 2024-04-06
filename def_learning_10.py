@@ -19,6 +19,8 @@ subset_sizes = [len(dataset) // num_clients] * num_clients
 subset_sizes[-1] += len(dataset) % num_clients
 datasets = torch.utils.data.random_split(dataset, subset_sizes)
 
+
+
 # Define the Neural Network Model
 class SimpleNN(nn.Module):
     def __init__(self):
