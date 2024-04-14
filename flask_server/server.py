@@ -3,30 +3,31 @@ from threading import Lock
 
 app = Flask(__name__)
 clients_data = {}
-client_count = 3
+client_count = 1
 lock = Lock()
+base_data:float = 20.0
 
 @app.route("/broadcast", methods=["GET"])
 def broadcast():
-    initial_int = 20
-    return jsonify({"number": initial_int}), 200
+    return jsonify({"number": base_data}), 200
 
 @app.route("/collect", methods=["POST"])
-def collect_date():
-    global clients_data
-    data = request.get_json
+def collect_data():
+    global clients_data, base_data, client_count
+    data = request.get_json()
     client_id = data['client_id']
     number = data['number']
     
     with lock:
         clients_data[client_id] = number
         if len(clients_data) == client_count: # all clients have sent their data
-            average_sum = sum(clients_data.values()) / client_count
+            base_data = sum(clients_data.values()) / client_count
             clients_data = {}
-            
-            return jsonify({"sum": sum}), 200
-        
-    return jsonify({"message": "Data received"}), 200
+            print("Sum of numbers: ", base_data)
+            return jsonify({"ready": "aggregation complete"}), 200
+    
+    print("still need to wait for other clients to upload data")        
+    return jsonify({"wait": client_count - len(clients_data.keys())}), 200
 
 if __name__ == "__main__":
-    app.run(debug=True,port=8000)
+    app.run(debug=True,port=3000) 
