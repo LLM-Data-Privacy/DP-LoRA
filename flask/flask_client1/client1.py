@@ -1,8 +1,11 @@
 import requests
 import time
 
-server_url = "http://127.0.0.1:3000"
-
+server_url = "http://flask-server:3000"
+actions = ["get","train","upload","fuck"]
+def enter(i):
+    return actions[i%4]
+    
 def get_broadcast():
     resp = requests.get(f"{server_url}/broadcast")
     number = resp.json()['number']
@@ -20,10 +23,16 @@ def upload(client_id,number):
 if __name__ == "__main__":
     print("Client 1 started")
     client_id = 1
-    own_number = int(input("Enter a number: "))
+    own_number = 1
     received_number = 0
+    choice =0
     while True:
-        action = str(input("action:"))
+        print()
+        print("Enter 0 for get, 1 for train, 2 for upload")
+        action = enter(choice)
+        print(f"Action: {action}")
+        time.sleep(3)
+        
         if action == "get":
             received_number = get_broadcast()
             print(f"Received number: {received_number}")
@@ -31,6 +40,7 @@ if __name__ == "__main__":
             new_number = own_number + received_number
             print(f"New number: {new_number}")
         if action == "upload":
-            resp = upload(client_id,new_number)
+            upload(client_id,new_number)
         if action == "fuck":
             print("go back to fucking work")
+        choice +=1

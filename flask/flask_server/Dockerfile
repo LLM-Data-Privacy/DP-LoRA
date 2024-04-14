@@ -7,6 +7,6 @@ COPY . /server
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8000
+EXPOSE 3000
 
 CMD python ./server.py
