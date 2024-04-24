@@ -130,10 +130,10 @@ def evaluate_global_model(model, dataset):
 # Create a global model instance
 global_model = create_falcon_model_with_lora()
 
-# # Federated learning simulation
-# for round in range(1, 6):
-#     print(f"Round {round}")
-#     client_weights = []
+# Federated learning simulation
+for round in range(1, 6):
+    print(f"Round {round}")
+    client_weights = []
     
 #     # Train on each client
 #     for client_id, client_dataset in enumerate(client_train_datasets):
