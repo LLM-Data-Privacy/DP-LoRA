@@ -134,20 +134,12 @@ global_model = create_falcon_model_with_lora()
 for round in range(1, 6):
     print(f"Round {round}")
     client_weights = []
+    # Client update
+    for client_dataset in client_train_datasets:
+        client_model = create_falcon_model_with_lora()
+        client_model.set_weights(global_model.get_weights())
+        client_weights.append(client_update(client_model, client_dataset))
     
-#     # Train on each client
-#     for client_id, client_dataset in enumerate(client_train_datasets):
-#         print(f"Training on client {client_id + 1}")
-#         client_model = create_falcon_model_with_lora()  # Create a new model instance for the client
-#         client_model.set_weights(global_model.get_weights())  # Initialize with global model weights
-#         client_weights.append(client_update(client_model, client_dataset))
-    
-#     # Aggregate client updates at the server
-#     server_aggregate(global_model, client_weights)
-
-#     # Evaluate the global model's performance after aggregation
-#     loss, accuracy = evaluate_global_model(global_model, test_dataset)
-#     print(f"Post-aggregation round {round}: Loss = {loss}, Accuracy = {accuracy}")
 
 global_model = create_falcon_model_with_lora()
 client_model = create_falcon_model_with_lora()
