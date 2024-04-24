@@ -46,16 +46,16 @@ max_length = 128  # Make sure this is the sequence length you want to use
 
 # Create the Falcon model with the LoRA layer
 def create_falcon_model_with_lora():
-    input_ids = Input(shape=(max_length,), dtype='int32')
+    input_ids = Input(shape=(128,), dtype='int32')
+    attention_mask = Input(shape=(128,), dtype='int32')
     bert_model = TFBertModel.from_pretrained('bert-base-uncased')
+    bert_output = bert_model(input_ids, attention_mask=attention_mask)[0]
 
-    bert_output = bert_model(input_ids)[0]  # [0] to get the sequence output
-    lora_output = LoRADense(64, rank=32)(bert_output[:, 0, :])  # Apply LoRA to the output of the BERT model
-
+    lora_output = LoRADense(64, rank=32)(bert_output[:, 0, :])
     x = Dense(32, activation='relu')(lora_output)
     output = Dense(1, activation='sigmoid')(x)
 
-    model = Model(inputs=input_ids, outputs=output)
+    model = Model(inputs=[input_ids, attention_mask], outputs=output)
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
     return model
 
@@ -139,6 +139,11 @@ for round in range(1, 6):
         client_model = create_falcon_model_with_lora()
         client_model.set_weights(global_model.get_weights())
         client_weights.append(client_update(client_model, client_dataset))
+    
+    # Server aggregate
+    server_aggregate(global_model, client_weights)
+
+
     
 
 global_model = create_falcon_model_with_lora()
