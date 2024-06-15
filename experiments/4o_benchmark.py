@@ -53,6 +53,7 @@ loader = torch.utils.data.DataLoader(data, batch_size=10, collate_fn=collate_fn,
 
 
 start_time = time.time()
+index = 0
 for batch in loader:
     inputs = batch['input_ids']
     masks = batch['attention_mask']
@@ -60,6 +61,8 @@ for batch in loader:
         outputs = model(inputs, attention_mask=masks)
         predictions = torch.argmax(outputs.logits, dim=-1)
     print(predictions)
+    if index == 0:
+        break
     
 end_time = time.time()
 elapsed_time = end_time - start_time
