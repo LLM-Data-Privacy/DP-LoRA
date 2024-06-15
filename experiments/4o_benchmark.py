@@ -42,6 +42,7 @@ dataset_iter = dataset['test'].iter(1)
 
 
 start_time = time.time()
+<<<<<<< HEAD:experiments/40_benchmark.py
 # Prepare the message
 message = [{"role": "user", "content": ""}]
 while True:
@@ -60,6 +61,19 @@ while True:
     except StopIteration:
         break
 
+=======
+index = 0
+for batch in loader:
+    inputs = batch['input_ids']
+    masks = batch['attention_mask']
+    with torch.no_grad():
+        outputs = model(inputs, attention_mask=masks)
+        predictions = torch.argmax(outputs.logits, dim=-1)
+    print(predictions)
+    if index == 0:
+        break
+    
+>>>>>>> 92e9548113b39b794f4df5f22ccc339dd654e338:experiments/4o_benchmark.py
 end_time = time.time()
 
 elapsed_time = end_time - start_time
