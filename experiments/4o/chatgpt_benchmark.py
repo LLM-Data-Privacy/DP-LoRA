@@ -4,14 +4,14 @@ from datasets import load_dataset
 from huggingface_hub import login
 from config import *
 client = OpenAI(api_key=OPENAI_KEY)
-TOKEN = "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"
+
 login(token = TOKEN)
 dataset = load_dataset("TheFinAI/flare-cd",token = TOKEN)
 dataset_iter = dataset['test'].iter(1)
 tp, fp, fn = 0, 0, 0
 iter_count = 0
 
-exit()
+
 def parse_label(answer):
     labels = []
     lines = answer.splitlines()
