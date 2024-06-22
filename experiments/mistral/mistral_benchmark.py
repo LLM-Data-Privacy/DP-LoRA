@@ -1,34 +1,43 @@
 import transformers
 from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
+from huggingface_hub import login
 from datasets import load_dataset
-import time
+from sklearn.metrics import f1_score
+import torch, time
 
-def compute_f1(TP, FP, FN):
-    precision = TP / (TP + FP) if TP + FP > 0 else 0
-    recall = TP / (TP + FN) if TP + FN > 0 else 0
-    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+
+def compute_f1(TP,FP,FN):
+    precision = TP/(TP+FP)
+    recall = TP/(TP+FN)
+    f1 = 2*precision*recall/(precision+recall)
     return f1
 
-def compute_prediction(predictions, references):
-    TP = FP = FN = 0
-    for pred, ref in zip(predictions, references):
-        for p, r in zip(pred, ref):
-            if p == 1 and r == 1:
+def compute_prediction(predictions,references):
+    TP = 0
+    FP = 0
+    FN = 0
+    for i in range(len(predictions)):
+        pred = predictions[i]
+        ref = references[i]
+        for j in range(len(pred)):
+            if pred[j] == 1 and ref[j] == 1:
                 TP += 1
-            elif p == 1 and r == 0:
+            elif pred[j] == 1 and ref[j] == 0:
                 FP += 1
-            elif p == 0 and r == 1:
+            elif pred[j] == 0 and ref[j] == 1:
                 FN += 1
-    return TP, FP, FN
+    return TP,FP,FN
 
-TOKEN = "your-token-here"
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+TOKEN = "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"
+login(token = TOKEN)
+#device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+device = torch.device("cpu")
 print("Using device:", device)
 
+# Load the model and tokenizer
 model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2", token=TOKEN).to(device) 
 tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2", token=TOKEN)
-
 dataset = load_dataset("TheFinAI/flare-cd", token=TOKEN)
 dataset_iter = dataset['test'].iter(1)
 
@@ -43,11 +52,21 @@ try:
         data = next(dataset_iter)
         query = data['query'][0]
         message[0]["content"] = query
-
+        
         encodeds = tokenizer.apply_chat_template(message, return_tensors="pt", padding="max_length", max_length=512, return_attention_mask=True)
         model_inputs = encodeds.to(device)
 
-        generated_ids = model.generate(**model_inputs, max_new_tokens=1000, do_sample=True, pad_token_id=tokenizer.pad_token_id)
+        # Debug: Print input shapes
+        print("Input IDs shape:", model_inputs["input_ids"].shape)
+        print("Attention Mask shape:", model_inputs["attention_mask"].shape)
+
+        # Attempt to generate text with minimal parameters
+        generated_ids = model.generate(
+            input_ids=model_inputs["input_ids"],
+            attention_mask=model_inputs["attention_mask"]
+        )
+
+        print("Generated IDs shape:", generated_ids.shape)
         decoded = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
         print(decoded[0])
 
@@ -56,5 +75,5 @@ except StopIteration:
     print("Processing complete.")
     print(f"Total processing time: {end_time - start_time:.2f} seconds.")
 except Exception as e:
-    print(f"An error occurred: {e}")
+    print("An error occurred:", e)
 
