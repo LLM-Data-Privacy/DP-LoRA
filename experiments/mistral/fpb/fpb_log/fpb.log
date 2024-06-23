@@ -1,0 +1,40 @@
+Transformer Version: 4.37.2
+Device: cuda
+Token is valid (permission: fineGrained).
+[1m[31mCannot authenticate through git-credential as no helper is defined on your machine.
+You might have to re-authenticate when pushing to the Hugging Face Hub.
+Run the following command in your terminal in case you want to set the 'store' credential helper as default.
+
+git config --global credential.helper store
+
+Read https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage for more details.[0m
+Token has not been saved to git credential helper.
+Your token has been saved to /gpfs/u/home/FNAI/FNAIchpn/scratch/huggingface/token
+Login successful
+Loading model...
+Model loaded successfully
+Loading tokenizer...
+Tokenizer loaded successfully
+
+
+Prompt example:
+Analyze the sentiment of this statement extracted from a financial news article. Provide your answer as either negative, positive, or neutral.
+Text: The new agreement , which expands a long-established cooperation between the companies , involves the transfer of certain engineering and documentation functions from Larox to Etteplan .
+Answer:
+
+
+Total len: 970. Batchsize: 8. Total steps: 122
+                                                 query  ... new_output
+0    Analyze the sentiment of this statement extrac...  ...    neutral
+1    Analyze the sentiment of this statement extrac...  ...    neutral
+2    Analyze the sentiment of this statement extrac...  ...    neutral
+3    Analyze the sentiment of this statement extrac...  ...   positive
+4    Analyze the sentiment of this statement extrac...  ...    neutral
+..                                                 ...  ...        ...
+965  Analyze the sentiment of this statement extrac...  ...    neutral
+966  Analyze the sentiment of this statement extrac...  ...    neutral
+967  Analyze the sentiment of this statement extrac...  ...    neutral
+968  Analyze the sentiment of this statement extrac...  ...    neutral
+969  Analyze the sentiment of this statement extrac...  ...    neutral
+
+[970 rows x 5 columns]
