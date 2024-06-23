@@ -8,4 +8,4 @@ remote_dir="barn/kaiqi_bei"
 
 
 scp "$local_file" ${username}@${remote_host}:${remote_dir}
-scp "$script_file" ${username}@${remote_host}:${remote_dir}
+#scp "$script_file" ${username}@${remote_host}:${remote_dir}

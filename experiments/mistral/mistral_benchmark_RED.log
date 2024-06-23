@@ -1,0 +1,4144 @@
+The token has not been saved to the git credentials helper. Pass `add_to_git_credential=True` in this function directly or `--add-to-git-credential` if using via `huggingface-cli` if you want to set the git credential as well.
+Token is valid (permission: read).
+Your token has been saved to /gpfs/u/home/FNAI/FNAIkqbe/scratch/huggingface/token
+Login successful
+Using device: cuda
+Setting pad_token to eos_token
+Iteration: 0
+API      : ['Triplet 1: Rimini Street', 'Oracle Corporation', 'legal_form:litigation']
+Correct  : ['PeopleSoft', 'JD Edwards', 'subsidiary']
+
+Iteration: 1
+API      : ['The Daily Show with Trevor Noah', 'Comedy Central', 'legal_form']
+Correct  : ['VH1', 'Viacom', 'owned_by']
+
+Iteration: 2
+API      : ['Michael Corbat', 'Citigroup', 'said']
+Correct  : ['Michael Corbat', 'Citigroup', 'employer']
+
+Iteration: 3
+API      : ['flynas', ':profit: true', ':year: "this year"', '.']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 4
+API      : ['Arnold family', 'First Eagle', 'owned_by']
+Correct  : ['TA Associates', 'private equity', 'industry']
+
+Iteration: 5
+API      : ['Marijn Dekkers', 'Bayer', 'chief_executive_officer.']
+Correct  : ['Covestro', 'Bayer', 'owned_by']
+
+Iteration: 6
+API      : ['Apple TV', 'HBO Max', 'distributed_by']
+Correct  : ['Chromecast', 'Google', 'manufacturer\nChromecast', 'Google', 'developer']
+
+Iteration: 7
+API      : ['']
+Correct  : ['Harcourts', 'company', 'legal_form']
+
+Iteration: 8
+API      : ['Eni', 'Saipem', 'owner_of']
+Correct  : ['Saipem', 'Eni', 'parent_organization']
+
+Iteration: 9
+API      : ['']
+Correct  : ['Frozen', 'single', 'distribution_format']
+
+Iteration: 10
+API      : ['Royal Dutch Shell (Xetra: R6C1.DE)', 'BG Group (LSE: BG.L)', 'acquired_by']
+Correct  : ['BG Group', 'Royal Dutch Shell', 'parent_organization']
+
+Iteration: 11
+API      : ['Eurogroup President', 'Jeroen Dijsselbloem', 'head']
+Correct  : ['Eurogroup', 'Jeroen Dijsselbloem', 'chairperson']
+
+Iteration: 12
+API      : ['Man Group', 'China business of Man Group', 'taken into custody by authorities']
+Correct  : ['Man Group', 'hedge fund', 'industry']
+
+Iteration: 13
+API      : ['P&G', 'maker of', 'Tide']
+Correct  : ['CoverGirl', 'cosmetics', 'product_or_material_produced']
+
+ERROR:   There is no triplet present in the given sentence. The sentence is making a statement about the expectations of the Wall Street community regarding the rank of 3D Systems among the largest 3D printing companies by revenue in the coming years.
+
+Iteration: 15
+API      : ['Seattle Times', '2012', 'began_report']
+Correct  : ['VAST', 'Seattle', 'location_of_formation']
+
+Iteration: 16
+API      : ['MYOB', 'none', 'none']
+Correct  : ['MYOB', 'accounting software', 'product_or_material_produced']
+
+Iteration: 17
+API      : ['Lookers', 'None', 'None']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 18
+API      : ['company', 'GM', 'opponent']
+Correct  : ['Lexus', 'Toyota', 'parent_organization\nLexus', 'Toyota', 'owned_by']
+
+Iteration: 19
+API      : ['Ultratech', 'Singapore', 'location_of_formation']
+Correct  : ['Ultratech', 'San Jose', 'headquarters_location']
+
+Iteration: 20
+API      : ['NetSuite Inc.', "industry's leading provider", 'provider']
+Correct  : ['NetSuite', 'software', 'product_or_material_produced']
+
+Iteration: 21
+API      : ['Dalian Wanda Commercial Properties', "China's richest man Wang Jianlin", 'controlled_by']
+Correct  : ['Wanda Commercial', 'Dalian', 'headquarters_location']
+
+Iteration: 22
+API      : ['Andrew Trotman', 'Telegraph', 'publisher']
+Correct  : ['Google Glass', 'Google', 'developer']
+
+ERROR:   There is no triplet present in the given sentence as it does not contain entities and relations as per the given list.
+
+Iteration: 24
+API      : ['Chicago Tribune', 'event (fan festival tied to the 2015 draft)', 'reports']
+Correct  : ['Chicago Tribune', 'Chicago', 'headquarters_location']
+
+Iteration: 25
+API      : ['Premier Farnell', 'LSE: PFL.L', 'stock_exchange']
+Correct  : ['Premier Farnell', 'electronics', 'industry']
+
+Iteration: 26
+API      : ['Andrew Lilley', 'Erin Jonasson', 'owner_of']
+Correct  : ['phd', 'Google', 'operator']
+
+Iteration: 27
+API      : ['Kering', 'Gucci', 'owner_of']
+Correct  : ['Gucci', 'Kering', 'parent_organization']
+
+Iteration: 28
+API      : ['Marissa Mayer', 'Yahoo', 'posted']
+Correct  : ['Marissa Mayer', 'Yahoo', 'employer']
+
+Iteration: 29
+API      : ['']
+Correct  : ['Gears', 'Google', 'developer\nGears', 'Google', 'creator\nGoogle Search', 'Google', 'owned_by\nGears', 'Google', 'owned_by']
+
+Iteration: 30
+API      : ['Dr. Mace Rothenberg', 'FDA', 'legal_form (or: collaborates_with)']
+Correct  : ['Avelumab', 'Pfizer', 'manufacturer']
+
+Iteration: 31
+API      : ['Belulah', 'iiNet', 'has_internet_service_provider']
+Correct  : ['iiNet', 'Internet service provider', 'industry']
+
+Iteration: 32
+API      : ['Steve Zuckerman', 'Tech Roundup', 'writer_of']
+Correct  : ['Twitter', 'San Francisco', 'headquarters_location']
+
+Iteration: 33
+API      : ['Glencore', 'none', 'none  (This is the subject of the sentence and does not form a triplet.)']
+Correct  : ['Glencore', 'mining', 'industry']
+
+ERROR:   There is no explicit triplet relation in the given sentence. The sentence only contains a greeting and an announcement for a call participation. Therefore, there is no head, tail, or relation to identify.
+
+Iteration: 35
+API      : ['David Gonski', 'UNSW', 'chancellor.']
+Correct  : ['Belinda Hutchinson', 'University of Sydney', 'employer']
+
+Iteration: 36
+API      : ['']
+Correct  : ['Chromecast', 'Google', 'manufacturer\nChromecast', 'Google', 'developer']
+
+Iteration: 37
+API      : ['Aegean', 'three Airbus A320ceos', 'added']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 38
+API      : ['Anheuser-Busch InBev', 'SABMiller', 'acquired']
+Correct  : ['SABMiller', 'Anheuser-Busch InBev', 'parent_organization\nSABMiller', 'beer', 'product_or_material_produced\nSABMiller', 'Anheuser-Busch InBev', 'owned_by']
+
+ERROR:   This sentence does not contain any explicit triplet relationship with the given relations. The sentence only describes some actions performed by Eurozone leaders and officials, but it does not specify any entities or relationships between them with the provided relations. Therefore, there is no answer for this question.
+
+Iteration: 40
+API      : ['Bank of America', 'Brian Moynihan', 'CEO_of']
+Correct  : ['Brian Moynihan', 'Bank of America', 'employer']
+
+Iteration: 41
+API      : ['Finns Party', 'Finland', 'location_of_formation.']
+Correct  : ['Finns Party', 'Timo Soini', 'chairperson\nFinns Party', 'Timo Soini', 'founded_by']
+
+ERROR:   There is no clear triplet relation in the given sentence as it only contains comparative information about electric utility rates without mentioning specific entities or their relations.
+
+Iteration: 43
+API      : ['COLES', 'news.com.au', 'publisher.']
+Correct  : ['Extra', 'Nine', 'original_broadcaster']
+
+Iteration: 44
+API      : ['ShareCast', "David Cameron's government", 'suffered_defeat']
+Correct  : ['Tories', 'London', 'headquarters_location']
+
+Iteration: 45
+API      : ['Glencore PLC', 'GLEN, GLNCY', 'stock_exchange', '']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 46
+API      : ['Mattel', '$601.8 million', 'sales']
+Correct  : ['Mattel', 'Barbie', 'owner_of']
+
+Iteration: 47
+API      : ['Metro Bank', 'event of launching', 'legal_form : new_high_street_bank']
+Correct  : ['Metro Bank', 'London', 'headquarters_location']
+
+Iteration: 48
+API      : ['SAIL, JSW, JSPL', 'none', 'legal_form (as major steel companies)']
+Correct  : ['Tata Steel', 'steel', 'product_or_material_produced']
+
+Iteration: 49
+API      : ['company', 'North American retail arm', 'legal_form (or owner_of)']
+Correct  : ['Prime', 'retail', 'industry\nFresh', 'retail', 'industry']
+
+Iteration: 50
+API      : ['Microsoft', 'Windows 10', 'legal_form: operating_system']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 51
+API      : ['Oxford Business Group', '21', 'number_of_years_in_operation']
+Correct  : ['Global 500', 'Fortune', 'creator']
+
+Iteration: 52
+API      : ['Mercedes', 'Niki Lauda', 'dismissed']
+Correct  : ['Niki Lauda', 'Mercedes', 'employer']
+
+Iteration: 53
+API      : ['Stratasys', 'presentation', 'None (This is an action or event description, not a triplet.)']
+Correct  : ['Stratasys', 'rapid prototyping', 'industry']
+
+Iteration: 54
+API      : ['performance', 'Kering', 'outpaced_sales_growth']
+Correct  : ['Gucci', 'Kering', 'parent_organization']
+
+Iteration: 55
+API      : ['']
+Correct  : ['Taser', 'Axon', 'manufacturer']
+
+ERROR:   I'm sorry but there are no explicit triples mentioned in the given sentence as it doesn't provide sufficient information to establish the head, tail, and relation for each triplet. The sentence only discusses the absence of a CEO in a company named Barclays and some uncertainty about delivering shareholder value under the previous CEO, Antony Jenkins. To make a valid triplet, we need more specific information about the entities involved and the relationships between them.
+
+Iteration: 57
+API      : ['Abu Dhabi Commercial Bank', 'none', 'head']
+Correct  : ['Mashreq', 'Dubai', 'headquarters_location']
+
+Iteration: 58
+API      : ['Rite Aid Corporation', ':retail_drugstore_chain:']
+Correct  : ['Rite Aid', 'retail', 'industry']
+
+Iteration: 59
+API      : ['Mattel', 'Barbie brand', 'legal_form: brand']
+Correct  : ['Mattel', 'Barbie', 'owner_of']
+
+Iteration: 60
+API      : ['Mrs Joyce Esi Boakye', 'Ghana Stock Exchange (GAX)', 'manager_of']
+Correct  : ['stock market', 'stock exchange', 'operator']
+
+Iteration: 61
+API      : ['Boeing', 'Insitu Pacific', 'owner_of']
+Correct  : ['Insitu', 'Boeing', 'parent_organization\nBoeing', 'Insitu', 'subsidiary']
+
+Iteration: 62
+API      : ['FedEx Ground', 'null', 'commercial_volumes:down']
+Correct  : ['FedEx', 'FedEx Ground', 'subsidiary\nFedEx Ground', 'FedEx', 'parent_organization']
+
+Iteration: 63
+API      : ['Sergio Marchionne', 'Fiat Chrysler Automobiles NV', 'chief_executive_officer.']
+Correct  : ['Sergio Marchionne', 'Fiat', 'employer']
+
+Iteration: 64
+API      : ['Casino Group', 'number 1 retailer', 'domain: retail_industry, relation: industry, head.']
+Correct  : ['Casino Group', 'Jean-Charles Naouri', 'director_/_manager']
+
+Iteration: 65
+API      : ['General Motors', ':competitor_in_passenger_cars', '.']
+Correct  : ['Chevrolet Cruze', 'General Motors', 'manufacturer']
+
+Iteration: 66
+API      : ['Hasbro Pulse', 'our D2C channel', 'owned_by']
+Correct  : ['Pure', 'Channel', 'original_broadcaster']
+
+Iteration: 67
+API      : ['Cemena Investment Company', 'FCC', 'owns']
+Correct  : ['cement plant', 'cement', 'product_or_material_produced']
+
+Iteration: 68
+API      : ['Thomson Reuters Foundation', 'Thomson Reuters (Dusseldorf: TOC.DU)', 'legal_form/charitable_arm_of']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 69
+API      : ['Capella Education Company (CPLA)', 'Capella University', 'owned_by']
+Correct  : ['Capella University', 'Capella Education Company', 'parent_organization']
+
+Iteration: 70
+API      : ['Gucci', ': brand', '.']
+Correct  : ['Gucci', 'fashion', 'industry']
+
+Iteration: 71
+API      : ['JK Shin', 'Samsung Electronics', 'Announcer of event']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 72
+API      : ['Lloyd Blankfein', 'Goldman Sachs Group Inc', 'chief_executive_officer.']
+Correct  : ['Lloyd Blankfein', 'Goldman Sachs', 'employer\nGoldman Sachs', 'Lloyd Blankfein', 'chief_executive_officer\nLloyd Blankfein', 'chief executive officer', 'position_held']
+
+Iteration: 73
+API      : ['Jean-Claude Juncker', 'EC', 'head of']
+Correct  : ['Eurogroup', 'Jean-Claude Juncker', 'chairperson\nEurogroup', 'Jeroen Dijsselbloem', 'chairperson']
+
+Iteration: 74
+API      : ['Alpha Natural Resources Inc.', 'nil', 'legal_form (or filed_for_bankruptcy)']
+Correct  : ['Walter Energy', 'coal', 'product_or_material_produced\nPatriot Coal', 'coal', 'product_or_material_produced']
+
+Iteration: 75
+API      : ['Ms Rochet', 'French-Bulgarian national', 'nationality_or_citizenship']
+Correct  : ['Sciences Po', 'Paris', 'headquarters_location']
+
+ERROR:   No triplets can be identified from the given sentence as it does not contain any entities or explicit relations between them. The sentence only describes an action taken by a "ransomware" program without mentioning any specific entities or their relationships.
+
+Iteration: 77
+API      : ['Google Inc', 'EU', 'charged_by']
+Correct  : ['eu', 'European Union', 'operator']
+
+Iteration: 78
+API      : ['Worldpay', 'London Stock Exchange', 'listed_on']
+Correct  : ['WorldPay', 'London', 'headquarters_location']
+
+Iteration: 79
+API      : ['GE', 'financial services', 'moves_away_from']
+Correct  : ['GE Capital', 'financial services', 'industry']
+
+Iteration: 80
+API      : ['Lufthansa Group', 'Kay Kratky', 'chief_executive_officer of : Austrian Airlines.']
+Correct  : ['Lufthansa', 'Austrian Airlines', 'subsidiary\nKay Kratky', 'Austrian Airlines', 'employer']
+
+Iteration: 81
+API      : ['I. Ivo Boscarol', "Germany's Siemens", "not_certified_over_water (relation: 'legal_form')"]
+Correct  : ['Pipistrel', 'Ivo Boscarol', 'chief_executive_officer\nPipistrel', 'Ivo Boscarol', 'founded_by']
+
+Iteration: 82
+API      : ['']
+Correct  : ['program', 'computer', 'platform']
+
+Iteration: 83
+API      : ['Yum China', 'publicly traded company', 'legal_form']
+Correct  : ['Yum China', 'Pizza Hut', 'brand\nYum Brands', 'Pizza Hut', 'subsidiary\nYum Brands', 'Pizza Hut', 'owner_of']
+
+Iteration: 84
+API      : ['Gazprom Neft', '600 of its retail locations', 'owned_by or operated_by']
+Correct  : ['Gazprom Neft', 'retail', 'industry']
+
+Iteration: 85
+API      : ['partnership', 'SABMiller', 'owner_of']
+Correct  : ['SABMiller', 'London', 'headquarters_location']
+
+Iteration: 86
+API      : ['Report', 'India Sugar Market Outlook to 2019- R&D Advancements and Government Support to Propel Market', 'title_of_report']
+Correct  : ['sugar industry', 'sugar', 'product_or_material_produced']
+
+Iteration: 87
+API      : ['EBay', 'PayPal payments unit', 'planned_spinoff.']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 88
+API      : ['Rupert Murdoch', 'News Corp', 'survived_vote']
+Correct  : ['News Corp', 'Rupert Murdoch', 'founded_by\nNews Corp', 'Rupert Murdoch', 'director_/_manager']
+
+Iteration: 89
+API      : ['Airbus Group', 'Thomson Reuters', 'neither of these entities have a clear relationship with any other entity in the sentence based on the given relations. Therefore, there are no valid triplets in this sentence.']
+Correct  : ['Airbus Group', 'Airbus', 'subsidiary\nAirbus', 'Airbus Group', 'parent_organization']
+
+Iteration: 90
+API      : ['UNITED NATIONS', 'Thomson Reuters Foundation', 'publisher']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 91
+API      : ['Lexmark', 'Perceptive Software', 'acquired_by (or: owned_by)']
+Correct  : ['Lexmark', 'software', 'product_or_material_produced']
+
+Iteration: 92
+API      : ['Samsung Electronics', '005930', 'stock_exchange']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 93
+API      : ['HT Correspondent', 'Hindustan Times', 'creator']
+Correct  : ['Hindustan Times', 'New Delhi', 'headquarters_location']
+
+Iteration: 94
+API      : ['Capella Education Company', '1991', 'founded_by']
+Correct  : ['Capella University', 'Capella Education Company', 'parent_organization']
+
+Iteration: 95
+API      : ['FTSE 100', 'ARM Holdings (ARM)', 'faller_of']
+Correct  : ['Glencore', 'mining', 'industry\nLonmin', 'mining', 'industry']
+
+Iteration: 96
+API      : ['DISH Network', 'decline', 'legal_form (estimated loss)']
+Correct  : ['DirecTV', 'AT', 'owned_by\nSling TV', 'Dish Network', 'parent_organization']
+
+Iteration: 97
+API      : ['CHASER', 'White House press secretary Josh Earnest', 'communicated_through']
+Correct  : ['Josh Earnest', 'White House Press Secretary', 'position_held']
+
+Iteration: 98
+API      : ['Suez', 'Rugby, Britain', 'owner_of, operator']
+Correct  : ['Cemex', 'cement', 'product_or_material_produced']
+
+Iteration: 99
+API      : ['Fiat Chrysler', 'vehicles (Ram pickup trucks and others)', 'offer_to_buy_back']
+Correct  : ['Ram Pickup', 'Chrysler', 'manufacturer']
+
+ERROR:   There are no explicit triplets in the given sentence. The sentence describes the benefits of bringing Xandr and WarnerMedia or Turner together, but it does not provide enough information to identify specific entities and relations as heads, tails, and relations.
+
+Iteration: 101
+API      : ['Analog Devices Inc.', 'ADI.N', 'manufacturer']
+Correct  : ['Analog Devices', 'semiconductor', 'product_or_material_produced']
+
+Iteration: 102
+API      : ['']
+Correct  : ['Raghuram Rajan', 'Reserve Bank of India', 'employer']
+
+Iteration: 103
+API      : ['Mercedes-Benz truck unit', 'Daimler AG', 'owned_by']
+Correct  : ['Daimler AG', 'Mercedes-Benz', 'owner_of\nDaimler AG', 'Mercedes-Benz', 'brand']
+
+Iteration: 104
+API      : ['Marissa Mayer', 'CEO of Yahoo', '-']
+Correct  : ['Marissa Mayer', 'Yahoo', 'employer']
+
+Iteration: 105
+API      : ['Nathan Bomey', 'USA TODAY', 'publisher']
+Correct  : ['Buick Envision', 'Buick', 'brand']
+
+Iteration: 106
+API      : ['GlaxoSmithKline plc, Direct Line Insurance Group PLC, SSE PLC', 'None', 'type: stock_company']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 107
+API      : ['Dalian Wanda Group', 'Ironman organiser', 'bought']
+Correct  : ['Wanda Group', 'Dalian', 'location_of_formation\nWanda Group', 'conglomerate', 'industry']
+
+Iteration: 108
+API      : ['Ivan Glasenberg', 'CEO of Glencore', '--']
+Correct  : ['Glencore', 'Ivan Glasenberg', 'chief_executive_officer\nGlencore', 'Ivan Glasenberg', 'owned_by\nIvan Glasenberg', 'Glencore', 'owner_of']
+
+Iteration: 109
+API      : ['Fly Wheels', ': line_of_proprietary_Action_Vehicles', 'legal_form']
+Correct  : ['Super Mario', 'Nintendo', 'distributed_by\nSuper Mario', 'Nintendo', 'publisher']
+
+Iteration: 110
+API      : ['Lavasoft', 'award-winning free security and privacy software', 'offers']
+Correct  : ['Lavasoft', 'software', 'product_or_material_produced']
+
+Iteration: 111
+API      : ['Tarun Chugh', 'MD and CEO of PNB MetLife', 'head']
+Correct  : ['MetLife', 'insurance', 'product_or_material_produced']
+
+Iteration: 112
+API      : ['Sony Pictures Entertainment', 'Sandler', 'producer or publisher of']
+Correct  : ['Sony Pictures', 'entertainment', 'industry']
+
+Iteration: 113
+API      : ['Amaya Inc', 'PokerStars', 'acquired_by']
+Correct  : ['PokerStars', 'online poker', 'industry']
+
+Iteration: 114
+API      : ['']
+Correct  : ['Bitstamp', 'bitcoin', 'industry']
+
+Iteration: 115
+API      : ['Eni', 'Saipem', 'owned_by']
+Correct  : ['Saipem', 'Eni', 'parent_organization']
+
+Iteration: 116
+API      : ['Gail Kelly', 'Westpac CEO', 'head_of_organization']
+Correct  : ['Gail Kelly', 'Westpac', 'employer']
+
+Iteration: 117
+API      : ['Aircel', 'Vodafone or Idea', 'traded_with']
+Correct  : ['Bharti Airtel', 'Vodafone', 'owned_by']
+
+Iteration: 118
+API      : ['comScore', 'Rentrak', 'come_together']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 119
+API      : ['Glencore', 'mining and trading company', 'legal_form.']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 120
+API      : ['Stratasys Ltd.', 'HASCO', 'manufacturer']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\nStratasys', '3D printing', 'industry']
+
+Iteration: 121
+API      : ['film', 'Adolf Hitler came to power', 'legal_form (or: released_year)']
+Correct  : ['Edward VIII', 'king', 'position_held']
+
+Iteration: 122
+API      : ['Glenn Stevens', 'Reserve Bank of Australia', 'governor_of']
+Correct  : ['Glenn Stevens', 'Reserve Bank of Australia', 'employer']
+
+Iteration: 123
+API      : ['']
+Correct  : ['Because', 'Spotify', 'distributed_by\nShow', 'Spotify', 'distributed_by']
+
+Iteration: 124
+API      : ['Sergio Marchionne', 'Fiat Chrysler Automobiles (FCA)', 'announced_plans_to_give_shares']
+Correct  : ['Sergio Marchionne', 'Fiat', 'employer']
+
+Iteration: 125
+API      : ['Interbrand', 'Alcantara', 'brand_value']
+Correct  : ['Interbrand', 'brand', 'industry']
+
+Iteration: 126
+API      : ['']
+Correct  : ['Airbnb', 'San Francisco', 'headquarters_location']
+
+Iteration: 127
+API      : ['California', 'AB5 legislation', 'legislation']
+Correct  : ['Initiative', 'advertising', 'industry']
+
+Iteration: 128
+API      : ['Caterpillar Inc', 'industry leaders', 'legal_form']
+Correct  : ['Volvo', 'truck', 'product_or_material_produced\nMack Trucks', 'truck', 'product_or_material_produced']
+
+Iteration: 129
+API      : ['José Carvalho da Rocha', 'Luanda', 'location_of_announcement']
+Correct  : ['Movicel', 'Luanda', 'headquarters_location']
+
+Iteration: 130
+API      : ['Unilever', 'Procter & Gamble', 'provider_of']
+Correct  : ['Unilever', 'Bovril', 'subsidiary']
+
+Iteration: 131
+API      : ['National Geographic', 'a global nonprofit membership organization', 'organization_type : "global nonprofit membership organization"']
+Correct  : ['National Geographic Society', 'National Geographic', 'owner_of']
+
+Iteration: 132
+API      : ['Paladin Energy', 'John Borshoff', 'founder_of']
+Correct  : ['Paladin Energy', 'uranium', 'product_or_material_produced']
+
+Iteration: 133
+API      : ['Steve Milligan', 'Western Digital', 'chief_executive_officer.']
+Correct  : ['SanDisk', 'Western Digital', 'owned_by\nWestern Digital', 'SanDisk', 'owner_of\nSanDisk', 'Western Digital', 'parent_organization\nWestern Digital', 'SanDisk', 'subsidiary']
+
+Iteration: 134
+API      : ['NFU', 'dairy farming industry', 'faces_crisis']
+Correct  : ['Dairy Farmers', 'dairy', 'product_or_material_produced']
+
+Iteration: 135
+API      : ['R Baskar Babu', 'Cholamandalam', 'employed_by']
+Correct  : ['HDFC Bank', 'Finance', 'industry']
+
+Iteration: 136
+API      : ['Apple', '"Music Store"', 'legal_form']
+Correct  : ['iPod', 'Steve Jobs', 'manufacturer']
+
+Iteration: 137
+API      : ['Arundhati Bhattacharya', 'SBI', 'chairperson.']
+Correct  : ['Arundhati Bhattacharya', 'chairperson', 'position_held']
+
+Iteration: 138
+API      : ['Assa Abloy', 'nothing', 'legal_form : Other OTC: ASAZY']
+Correct  : ['Assa Abloy', 'lock', 'product_or_material_produced']
+
+Iteration: 139
+API      : ['Glencore Xstrata', 'London', 'location_of_event']
+Correct  : ['Xstrata', 'Glencore', 'owned_by']
+
+Iteration: 140
+API      : ['Avon Institute', 'this quarter', 'participated_in']
+Correct  : ['We', 'Avon', 'publisher']
+
+Iteration: 141
+API      : ['Sergio Marchionne', "Fiat Chrysler's US plants", 'chief_executive_officer.']
+Correct  : ['Sergio Marchionne', 'Fiat', 'employer']
+
+Iteration: 142
+API      : ['Merlin Entertainments', 'Legoland (Shanghai)', 'expansion_to_location']
+Correct  : ['Merlin Entertainments', 'Legoland', 'owner_of']
+
+Iteration: 143
+API      : ['ir.comscore.com', 'comScore', 'provider_of']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 144
+API      : ['Element Financial', 'Ge Capital', 'owned_by']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 145
+API      : ['Fidelity National Information Services Inc.', 'SunGard', 'owned_by']
+Correct  : ['SunGard', 'software', 'product_or_material_produced\nSunGard', 'Fidelity National Information Services', 'owned_by']
+
+ERROR:   There is no triplet exist in the given sentence. The sentence is describing an action taken by the Los Angeles Daily News office in response to a question from one of its reporters. It does not provide any information about relationships between specific entities.
+
+Iteration: 147
+API      : ['investors', 'Ivan Glasenberg', 'legal_form: CEO_of']
+Correct  : ['Glencore', 'Ivan Glasenberg', 'chief_executive_officer\nGlencore', 'Ivan Glasenberg', 'owned_by\nIvan Glasenberg', 'Glencore', 'owner_of']
+
+Iteration: 148
+API      : ['BHP Billiton', 'NYSE : BBL', 'listed_on']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 149
+API      : ['']
+Correct  : ['Wii', 'Nintendo', 'manufacturer\nWii', 'Nintendo', 'developer']
+
+Iteration: 150
+API      : ['Alcoa Inc', 'NYSE: AA', 'legal_form']
+Correct  : ['Alcoa', 'aluminium', 'product_or_material_produced']
+
+Iteration: 151
+API      : ['Lavastorm Analytics', 'none', 'none (This sentence does not contain any triplets with relations identified in the question.)']
+Correct  : ['Lavastorm', 'analytics', 'industry']
+
+Iteration: 152
+API      : ['Triplet 1: Mattel Girls & Boys Brands ($1,171.1)', 'Barbie ($160.8)', 'legal_form (2015)']
+Correct  : ['Mattel', 'Fisher-Price', 'owner_of\nMattel', 'American Girl', 'subsidiary\nMattel', 'Barbie', 'owner_of\nMattel', 'Fisher-Price', 'subsidiary']
+
+ERROR:   In the given sentence, there is no explicit triplet relationship mentioned. Hence, no answer is applicable for this sentence.
+
+Iteration: 154
+API      : ['Ultra Electronics', 'nothing', 'legal_form: internationally successful energy, defense, security and transport company']
+Correct  : ['Ultra Electronics', 'transport', 'industry']
+
+Iteration: 155
+API      : ['Stratasys Ltd.', 'SSYS', 'legal_form']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\nStratasys', '3D printing', 'industry']
+
+Iteration: 156
+API      : ['Intel', 'Altera', 'acquired_by']
+Correct  : ['Altera', 'Intel', 'parent_organization']
+
+Iteration: 157
+API      : ['Chevrolet Malibu sedan', 'General Motors', 'manufactures.']
+Correct  : ['Chevrolet Malibu', 'General Motors', 'manufacturer']
+
+Iteration: 158
+API      : ['A2 Milk', 'null', 'null']
+Correct  : ['Dean Foods', 'milk', 'product_or_material_produced']
+
+Iteration: 159
+API      : ['EDF', 'Areva NP', 'owned_by']
+Correct  : ['Areva', 'France', 'parent_organization\nAreva', 'France', 'owned_by']
+
+Iteration: 160
+API      : ['Reuters', 'GE Co.', 'reports_on']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 161
+API      : ['Deloitte', 'report', 'creator']
+Correct  : ['Deloitte', 'tax', 'product_or_material_produced']
+
+Iteration: 162
+API      : ['General Electric Company', 'GE Capital', 'owned_by']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 163
+API      : ['Tim Cook', 'Apple', 'CEO']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 164
+API      : ['Triplet 1: Restaurant', 'Chick-fil-A', 'score_in_August_2015']
+Correct  : ['Starbucks', 'coffee', 'product_or_material_produced']
+
+Iteration: 165
+API      : ['price', '$20', 'can_dip_to']
+Correct  : ['Goldman Sachs', 'investment bank', 'product_or_material_produced']
+
+ERROR:   There is no clear triplet relation in the given sentence. The sentence is describing an event (losing a month of shaft sinking) that affected a specific project (4 Shaft), but it does not provide any explicit information about the relation between specific entities (heads and tails), such as 'legal_form', 'publisher', 'owner_of', etc. The only potential relation in the sentence could be 'progressing_well' as the relation, but that would require an additional entity to complete the triplet, such as 'project' or 'company'. Without further context or details, it is not possible to determine the exact triplet relations from the given sentence.
+
+Iteration: 167
+API      : ['Fonterra', 'nothing', 'nothing (No triplets in the given sentence)']
+Correct  : ['Fonterra', 'milk', 'product_or_material_produced']
+
+Iteration: 168
+API      : ['Apple Website', 'none', 'none']
+Correct  : ['Baidu', 'software', 'product_or_material_produced']
+
+Iteration: 169
+API      : ['Samsung Electronics Co.', 'Vietnam', 'investment_location']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 170
+API      : ['Barrick', 'Pueblo Viejo mine', 'producer_of']
+Correct  : ['Pueblo Viejo mine', 'gold', 'product_or_material_produced']
+
+Iteration: 171
+API      : ['Emirates NBD', 'Wholesale Banking Division', 'awarded', 'UAE Domestic Cash Management Bank of the Year']
+Correct  : ['Emirates NBD', 'Finance', 'industry']
+
+Iteration: 172
+API      : ['Margaret McQuaile', 'senior correspondent for Platts', 'speaker.']
+Correct  : ['Platts', 'Global', 'parent_organization\nPlatts', 'Global', 'owned_by']
+
+Iteration: 173
+API      : ['Craig Meller', 'AMP Ltd', 'CEO_of']
+Correct  : ['Brian Hartzer', 'Westpac', 'employer']
+
+Iteration: 174
+API      : ['']
+Correct  : ['Merlin Entertainments', 'Legoland', 'owner_of']
+
+Iteration: 175
+API      : ['Thomson Reuters', 'Eikon', 'platform']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 176
+API      : ['Investec', 'Centrica', 'upgraded']
+Correct  : ['Investec', 'London', 'headquarters_location']
+
+Iteration: 177
+API      : ['General Motor', 'Chevrolet, Buick, GMC, Cadillac', 'owner_of']
+Correct  : ['GMC', 'Detroit', 'headquarters_location']
+
+Iteration: 178
+API      : ['LVMH', 'Hennessy', "produced_product_or_material : The sentence mentions that LVMH produced Hennessy, but it does not explicitly state which product or material, so we assume it's referring to the cognac."]
+Correct  : ['LVMH', 'Hennessy', 'owner_of']
+
+Iteration: 179
+API      : ['Chevrolet Impala', 'Oshawa assembly line', 'manufacturer']
+Correct  : ['Buick', 'General Motors', 'parent_organization\nChevrolet Camaro', 'General Motors', 'manufacturer\nBuick', 'General Motors', 'owned_by\nChevrolet Camaro', 'Chevrolet', 'brand']
+
+Iteration: 180
+API      : ['SocietyOne', 'Reinventure', 'owned_by']
+Correct  : ['Coinbase', 'bitcoin', 'industry']
+
+Iteration: 181
+API      : ['Intel', 'Analyst Day in Jerusalem', 'held (This triplet can be inferred as Intel is the head, Analyst Day in Jerusalem is the tail, and held is the relation, as a day or event is typically considered as something that is held or organized by an entity.)']
+Correct  : ['Intel', 'Mobileye', 'subsidiary\nMobileye', 'Intel', 'parent_organization\nMobileye', 'Jerusalem', 'headquarters_location\nMobileye', 'Intel', 'legal_form']
+
+Iteration: 182
+API      : ['Covestro', 'offering', 'type: capital_increase, legal_form: capital_increase']
+Correct  : ['Covestro', 'Bayer', 'owned_by']
+
+Iteration: 183
+API      : ['Triplet 1: FTSE 100', '6,732.92', 'has_value']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 184
+API      : ['Brent Hoberman', 'she', 'mentor']
+Correct  : ['Brent Hoberman', 'lastminute.com', 'founded_by']
+
+Iteration: 185
+API      : ['Asda', 'Leeds', 'location_of_formation']
+Correct  : ['Asda', 'Leeds', 'location_of_formation\nAsda', 'Leeds', 'headquarters_location']
+
+Iteration: 186
+API      : ['Dennis Muilenburg', 'Boeing', 'ceiling : CEO']
+Correct  : ['Boeing', 'Dennis Muilenburg', 'chief_executive_officer\nDennis Muilenburg', 'Boeing', 'employer']
+
+Iteration: 187
+API      : ["South Korea's stock exchange", 'Samsung Electronics', 'asked']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 188
+API      : ['']
+Correct  : ['Fluor Corporation', 'construction', 'industry']
+
+Iteration: 189
+API      : ['Chennakeshu', 'BTS', 'take_over_as_president.']
+Correct  : ['QNX', 'BlackBerry', 'developer']
+
+Iteration: 190
+API      : ['American Express Co.', "Sam's Club", 'owned_by (or: owned_by', "Sam's Club", 'American Express Co.)']
+Correct  : ['amex', 'American Express', 'operator']
+
+Iteration: 191
+API      : ['bull', 'experience', 'legal_form: "must have"']
+Correct  : ['Minimal', 'retail', 'industry']
+
+Iteration: 192
+API      : ['eBay', 'PayPal', 'owned_by']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 193
+API      : ['Granite', 'New York Stock Exchange', 'listed_on']
+Correct  : ['MSCI', 'New York Stock Exchange', 'stock_exchange\nRussell 2000', 'New York Stock Exchange', 'stock_exchange']
+
+Iteration: 194
+API      : ['JPMorgan', 'OneBeacon Insurance Group Ltd.', 'had_interest']
+Correct  : ['OneBeacon', 'insurance', 'industry']
+
+Iteration: 195
+API      : ['Cameco', 'Canadian uranium producer', 'producer']
+Correct  : ['Cameco', 'uranium', 'product_or_material_produced']
+
+ERROR:   This sentence does not contain any explicit triplet relations with the given list. It's just a simple statement made by the Mayor of Louisville.
+
+Iteration: 197
+API      : ['']
+Correct  : ['Red Hat', 'IBM', 'parent_organization\nAnsible', 'Red Hat', 'developer\nAnsible', 'Red Hat', 'owned_by']
+
+Iteration: 198
+API      : ['food and agricultural companies', 'opponents', 'adversary_relation']
+Correct  : ['food industry', 'food', 'product_or_material_produced']
+
+Iteration: 199
+API      : ['Tribune Publishing Co.', 'Austin Beutter', 'fired']
+Correct  : ['Los Angeles Times', 'Tribune Publishing', 'owned_by']
+
+Iteration: 200
+API      : ['Starbucks', 'Square', 'payment_processor', 'Square', 'Starbucks', 'transaction_fees', 'Square', 'Starbucks', 'lower_than']
+Correct  : ['Starbucks', 'coffee', 'product_or_material_produced']
+
+Iteration: 201
+API      : ['Boko Haram', 'new video', 'released']
+Correct  : ['Boko Haram', 'Abubakar Shekau', 'chairperson']
+
+Iteration: 202
+API      : ['Google Pixel 4', 'Fingerprints', 'manufacturer']
+Correct  : ['Pixel', 'Google', 'developer\nPixel', 'Google', 'manufacturer']
+
+Iteration: 203
+API      : ['"The Conshohocken, Pennsylvania, company"', 'IKEA AB', 'owned_by']
+Correct  : ['IKEA', 'furniture', 'product_or_material_produced']
+
+Iteration: 204
+API      : ['']
+Correct  : ['Vodafone', 'Verizon', 'subsidiary\nVerizon', 'Vodafone', 'parent_organization']
+
+Iteration: 205
+API      : ['Ivan Glasenberg', 'Glencore', 'CEO']
+Correct  : ['Glencore', 'Ivan Glasenberg', 'chief_executive_officer\nGlencore', 'Ivan Glasenberg', 'owned_by\nIvan Glasenberg', 'Glencore', 'owner_of']
+
+Iteration: 206
+API      : ['Altice', '29.7 billion euros', 'value:']
+Correct  : ['Altice', 'Amsterdam', 'headquarters_location']
+
+Iteration: 207
+API      : ['Samsung Electronics', '8%', 'fall']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 208
+API      : ['National Geographic Society', "National Geographic Society's yellow-bordered magazine", 'revive']
+Correct  : ['National Geographic Society', 'National Geographic', 'owner_of']
+
+Iteration: 209
+API      : ['']
+Correct  : ['Poundland', 'retail', 'industry\nIndivior', 'Investments', 'owned_by']
+
+Iteration: 210
+API      : ['Abbott Laboratories', 'none', 'none (This is not a triplet as it is just a mention of the entity)']
+Correct  : ['Discover', 'IBM', 'manufacturer']
+
+Iteration: 211
+API      : ['']
+Correct  : ['Scott Farquhar', 'Atlassian', 'employer\nAtlassian', 'Scott Farquhar', 'founded_by']
+
+Iteration: 212
+API      : ['Fidelity National Information Services', 'SunGard Data Systems Inc', 'acquired_by']
+Correct  : ['SunGard', 'software', 'product_or_material_produced\nSunGard', 'Fidelity National Information Services', 'owned_by']
+
+Iteration: 213
+API      : ['Nissan', 'total sales', 'rose']
+Correct  : ['Infiniti', 'Nissan', 'owned_by\nInfiniti', 'Nissan', 'parent_organization']
+
+Iteration: 214
+API      : ['motor insurance business', 'last year', 'had_fallen_in_gross_written_premiums']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 215
+API      : ['Tribhovandas Bhimji Zaveri', 'Snapdeal', 'tied_up_with']
+Correct  : ['Snapdeal', 'e-commerce', 'industry']
+
+ERROR:   There is no triplet relation present in the given sentence. The sentence is just providing information about a company (Miner Glencore) and its stock price movement.
+
+Iteration: 217
+API      : ['Thrillist', 'map', 'creator.']
+Correct  : ['Apartment', 'London', 'location_of_formation']
+
+Iteration: 218
+API      : ['Josh Earnest', 'New York Stock Exchange, United Airlines', 'no indication of any sort of malicious activity']
+Correct  : ['Josh Earnest', 'White House Press Secretary', 'position_held']
+
+Iteration: 219
+API      : ['Xpeng Motors', 'none', 'legal_form : IPO, filed_on : New York Stock Exchange.']
+Correct  : ['Xpeng', 'New York Stock Exchange', 'stock_exchange']
+
+Iteration: 220
+API      : ['1) discount retail industry', 'Wal-Mart Stores ( NYSE:WMT )', 'publisher or mentioned_in']
+Correct  : ['Costco', 'retail', 'industry']
+
+Iteration: 221
+API      : ['Hastings Insurance', 'IPO', 'legal_form']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced\nEsure', 'insurance', 'industry']
+
+Iteration: 222
+API      : ['ICICI Bank', 'Chanda Kochhar', 'CEO']
+Correct  : ['Chanda Kochhar', 'ICICI Bank', 'employer']
+
+ERROR:   There is no clear triplet structure in the given sentence as it does not involve any entities and relations related to the provided list. The sentence only contains statements and opinions about Greece being a European Union member and staying in the EU.
+
+Iteration: 224
+API      : ['Albertsons', 'the Albertsons deal', 'no relation identified in the given sentence.']
+Correct  : ['grocery', 'Walmart', 'operator']
+
+Iteration: 225
+API      : ['London', 'Paris, Vienna, Berlin, New York', 'before_1914', 'played_second_fiddle_in_forex_to']
+Correct  : ['British Empire', 'pound sterling', 'currency']
+
+Iteration: 226
+API      : ['AusNet', 'Singapore Power', 'owned_by (31%)']
+Correct  : ['Singapore Power', 'Singapore', 'headquarters_location']
+
+Iteration: 227
+API      : ['Starbucks', ': highest_value_bidder', 'legal_form: SBUX.SW']
+Correct  : ['Starbucks', 'coffee', 'product_or_material_produced']
+
+Iteration: 228
+API      : ['Narendra Modi government', 'BJP', 'promised']
+Correct  : ['Narendra Modi', 'Bharatiya Janata Party', 'member_of']
+
+Iteration: 229
+API      : ['Fiat Chrysler', '1.4 million cars and trucks (in the U.S.)', 'recall']
+Correct  : ['Jeep Cherokee', 'Chrysler', 'manufacturer']
+
+Iteration: 230
+API      : ['Endeavour Silver Corp.', 'EXK', 'legal_form : Corporation']
+Correct  : ['Fresnillo plc', 'mining', 'industry']
+
+Iteration: 231
+API      : ['Jeff Bezos', 'Amazon', 'founder']
+Correct  : ['Jeff Bezos', 'Amazon', 'employer\nJeff Bezos', 'Amazon', 'owner_of']
+
+Iteration: 232
+API      : ['Ankit Nagori', 'e-commerce company Flipkart', 'chief business officer.']
+Correct  : ['Flipkart', 'e-commerce', 'industry']
+
+Iteration: 233
+API      : ['Giraffic', 'LG', 'legal_form: implementation']
+Correct  : ['webOS', 'LG Electronics', 'developer']
+
+Iteration: 234
+API      : ['AMC', 'Universal', 'has_agreement_on_theatrical_release_exclusivity.']
+Correct  : ['Talk', 'AMC', 'original_broadcaster']
+
+Iteration: 235
+API      : ['Admiral Group', 'none', 'none (This is a list of entities and does not have a triplet relationships.)']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 236
+API      : ['Eurogroup', 'Jeroen Dijsselbloem', 'chairperson.']
+Correct  : ['Eurogroup', 'Jeroen Dijsselbloem', 'chairperson']
+
+Iteration: 237
+API      : ['Vodafone', 'telecom service provider', 'is allset to comply with : roll-out']
+Correct  : ['Vodafone India', 'Vodafone', 'parent_organization\nVodafone', 'Vodafone India', 'subsidiary']
+
+Iteration: 238
+API      : ['George Osborne', 'Chancellor of the Exchequer', '--']
+Correct  : ['George Osborne', 'Chancellor of the Exchequer', 'position_held']
+
+Iteration: 239
+API      : ['Fidelity National Information Services', 'NYSE:FIS', 'legal_form']
+Correct  : ['SunGard', 'software', 'product_or_material_produced\nSunGard', 'Fidelity National Information Services', 'owned_by']
+
+Iteration: 240
+API      : ['American Express', 'Express Checkout', 'payment_method_or_service', 'Express Checkout', 'American Express', 'provider']
+Correct  : ['amex', 'American Express', 'operator']
+
+Iteration: 241
+API      : ['Royal Mail', 'City Link', 'exited_by_Royal_Mail']
+Correct  : ['Whistl', 'mail', 'industry']
+
+Iteration: 242
+API      : ['Flipkart', 'e-commerce major', 'type_of_business :']
+Correct  : ['Flipkart', 'e-commerce', 'industry']
+
+Iteration: 243
+API      : ['company', 'Middleton, WI', 'location_of_formation']
+Correct  : ['Chapters', 'Indigo', 'parent_organization\nChapters', 'retail', 'industry']
+
+Iteration: 244
+API      : ['Yu', 'Alcoa', 'explained']
+Correct  : ['Alcoa', 'public company', 'legal_form']
+
+Iteration: 245
+API      : ['eBay', 'PayPal', 'owned_by (or: was_owned_by)']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 246
+API      : ['Australian Securities Exchange', 'Insurance Australia Group', 'granted', 'legal_form']
+Correct  : ['Berkshire Hathaway', 'insurance', 'industry']
+
+Iteration: 247
+API      : ['Exxon Mobil Corp', 'Exxon Valdez', 'event : oil_spill']
+Correct  : ['Exxon Valdez', 'Exxon', 'owned_by']
+
+Iteration: 248
+API      : ['Morgan Stanley', 'study', 'legal_form:report']
+Correct  : ['Hindustan Times', 'New Delhi', 'headquarters_location']
+
+Iteration: 249
+API      : ['Uniqlo', 'Fast Retailing', 'expectation_of_having_more_outlets']
+Correct  : ['Fast Retailing', 'UNIQLO', 'subsidiary\nUNIQLO', 'Fast Retailing', 'parent_organization\nUNIQLO', 'Fast Retailing', 'owned_by']
+
+Iteration: 250
+API      : ['Prosecutor General Rodrigo Janot', 'Cunha', 'received_payoffs_relating_to']
+Correct  : ['Rodrigo Janot', 'prosecutor', 'position_held']
+
+Iteration: 251
+API      : ['Canadian cannabis industry', 'expectations', 'has_positive_steps']
+Correct  : ['cannabis industry', 'cannabis', 'product_or_material_produced']
+
+ERROR:   There are no identified entities or relations in the given text according to the provided list of possible relations. The text only mentions companies (Google, Yelp, Twitter) and describes their current situation, but it doesn't specify any particular relation or connection between these entities.
+
+Iteration: 253
+API      : ['CEO Mary Barra', 'company', 'has_not_altered_expectations']
+Correct  : ['Mary Barra', 'chief executive officer', 'position_held']
+
+Iteration: 254
+API      : ['Texas Attorney General', 'Ken Paxton', 'head']
+Correct  : ['Ken Paxton', 'Texas Attorney General', 'position_held']
+
+Iteration: 255
+API      : ['F-35', 'Boeing Co', 'manufacturer']
+Correct  : ['Rafale', 'Dassault Aviation', 'developer\nRafale', 'Dassault Aviation', 'manufacturer']
+
+Iteration: 256
+API      : ['ComScore', 'Rentrak', 'bought', 'owner_of']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 257
+API      : ['Stratasys', 'Booth No.B16', 'exhibitor_at']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\nStratasys', '3D printing', 'industry']
+
+Iteration: 258
+API      : ['Buffett', 'Munich Re', 'owner_of']
+Correct  : ['Munich Re', 'reinsurance', 'product_or_material_produced']
+
+Iteration: 259
+API      : ['EVRAZ', "One of Russia's largest steelmakers", 'legal_form: corporation']
+Correct  : ['Evraz', 'steel', 'product_or_material_produced']
+
+Iteration: 260
+API      : ['sundarpichai (@sundarpichai)', 'India’s tech scene', 'elated']
+Correct  : ['Larry Page', 'Google', 'employer']
+
+Iteration: 261
+API      : ['Apple', 'iPhone 6S, iPhone 6S Plus', 'legal_form']
+Correct  : ['iBall', 'smartphone', 'product_or_material_produced']
+
+Iteration: 262
+API      : ['General Electric Company', 'Ge Capital', 'legal_form']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 263
+API      : ['Cardinal Marcantonio Barbarigo', 'the seminary', 'founded_by.']
+Correct  : ['Marcantonio Barbarigo', 'cardinal', 'position_held']
+
+Iteration: 264
+API      : ['West Kendall Baptist Hospital', 'an average 33-minute emergency room wait time', 'has_average_wait_time']
+Correct  : ['Yelp', 'Jeremy Stoppelman', 'chief_executive_officer\nYelp', 'Jeremy Stoppelman', 'founded_by']
+
+Iteration: 265
+API      : ['OCEANAGOLD Corp', 'none', 'none (This sentence does not contain any triplet relationship. It is a simple statement)']
+Correct  : ['gold mine', 'gold', 'product_or_material_produced']
+
+Iteration: 266
+API      : ['Amazon Prime Day sale', 'items', 'product_or_material_produced']
+Correct  : ['Amazon Prime', 'Amazon', 'owned_by']
+
+Iteration: 267
+API      : ['Singapore Exchange', 'MSCI Singapore Index', 'listing']
+Correct  : ['Singapore Exchange', 'Singapore', 'headquarters_location']
+
+Iteration: 268
+API      : ['Tourism Accommodation Australia', 'Airbnb', 'has_called_for :regulations']
+Correct  : ['Airbnb', 'tourism', 'industry']
+
+Iteration: 269
+API      : ['European shares', 'Novozymes', 'legal_form:retreated']
+Correct  : ['Novozymes', 'enzyme', 'product_or_material_produced']
+
+Iteration: 270
+API      : ['Royal Dutch Shell', 'BG Group', 'acquired_by']
+Correct  : ['BG Group', 'Royal Dutch Shell', 'parent_organization']
+
+Iteration: 271
+API      : ['Rannazzisi', 'Merrill Lynch', 'worked_for.']
+Correct  : ['Merrill Lynch', 'New York City', 'headquarters_location']
+
+Iteration: 272
+API      : ['Phillips 66', '$79.01', 'price']
+Correct  : ['Berkshire Hathaway', 'Phillips 66', 'owner_of\nPhillips 66', 'Berkshire Hathaway', 'owned_by']
+
+Iteration: 273
+API      : ['Prime Minister Narendra Modi', 'Independent Day', 'announcement_event_of']
+Correct  : ['Ensure Insurance', 'insurance', 'industry']
+
+Iteration: 274
+API      : ['Triplet 1: 922.50p', 'Associated British Foods (ABF)', 'price_of_share']
+Correct  : ['Poundland', 'retail', 'industry']
+
+Iteration: 275
+API      : ['SK Group', 'SK Holdings Co.', 'owned_by']
+Correct  : ['SK Group', 'SK', 'owned_by']
+
+Iteration: 276
+API      : ['Samsung Electronics', 'Korean War Veterans Memorial Foundation', 'donates_money_to']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 277
+API      : ['Bank of England', 'David Miles', 'speaker']
+Correct  : ['Resolution Foundation', 'London', 'headquarters_location']
+
+Iteration: 278
+API      : ['David Gilmour', 'Pink Floyd', 'music_group_member']
+Correct  : ['David Gilmour', 'Pink Floyd', 'member_of']
+
+Iteration: 279
+API      : ['Raj Badiani', 'senior economist', 'occupation_of_position']
+Correct  : ['Eurozone', 'euro', 'currency']
+
+Iteration: 280
+API      : ['local radio station apps', 'We', 'listened_to']
+Correct  : ['radio station', 'radio', 'industry']
+
+Iteration: 281
+API      : ['Mexican federal and state agencies', 'Hacking Team', 'spent_money_on']
+Correct  : ['Hacking Team', 'software', 'product_or_material_produced']
+
+Iteration: 282
+API      : ['IBM', 'Red Hat', 'owned_by (or: acquired_by)']
+Correct  : ['Red Hat', 'IBM', 'parent_organization\nOpenShift', 'Red Hat', 'developer\nRed Hat', 'software', 'product_or_material_produced']
+
+Iteration: 283
+API      : ['Bucca di Beppo', 'none', 'legal_form']
+Correct  : ['OfficeMax', 'Office Depot', 'parent_organization']
+
+Iteration: 284
+API      : ['Retail segment', 'record sales', 'nobody (head, no relation defined in given sentence for this triplet)']
+Correct  : ['Free People', 'retail', 'industry']
+
+Iteration: 285
+API      : ['Equinix, Inc.', 'EQIX', 'legal_form']
+Correct  : ['Equinix', 'data center', 'product_or_material_produced']
+
+Iteration: 286
+API      : ['Foxconn', 'India', 'investing_in']
+Correct  : ['Foxconn', 'electronics', 'industry']
+
+Iteration: 287
+API      : ['Lafazanis', 'Syriza Higher-ups', 'has_surrounded_by']
+Correct  : ['SYRIZA', 'Athens', 'headquarters_location']
+
+Iteration: 288
+API      : ['It', 'Dean Foods', 'partner']
+Correct  : ['Dean Foods', 'milk', 'product_or_material_produced']
+
+Iteration: 289
+API      : ['Alibaba Group Holding', 'MYbank', 'legal_form (or founder, as it is the entity that brought MYbank into existence)']
+Correct  : ['Tencent', 'WeBank', 'owner_of\nWeBank', 'Tencent', 'owned_by']
+
+Iteration: 290
+API      : ['']
+Correct  : ['Resolution Foundation', 'London', 'headquarters_location']
+
+Iteration: 291
+API      : ['3D Systems', '$653.7 million', 'total_sales']
+Correct  : ['3D Systems', '3D printing', 'industry']
+
+Iteration: 292
+API      : ['Hewlett-Packard Co.', 'Compaq', 'owned_by']
+Correct  : ['Compaq', 'Hewlett-Packard', 'owned_by']
+
+Iteration: 293
+API      : ['Intel', 'none', 'none (This sentence does not contain any triplet information)']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 294
+API      : ['Dixons Carphone', 'Dixons Retail, Carphone Warehouse', 'merged_into']
+Correct  : ['Dixons', 'retail', 'industry']
+
+Iteration: 295
+API      : ['Lexus', 'Toyota', 'same_legal_form.']
+Correct  : ['Lexus', 'Toyota', 'parent_organization\nLexus', 'Toyota', 'owned_by']
+
+Iteration: 296
+API      : ['500 Startups', 'Capabiliti', 'investor_or_investor_in']
+Correct  : ['Snapdeal', 'Kunal Bahl', 'founded_by\nSnapdeal', 'Rohit Bansal', 'founded_by']
+
+Iteration: 297
+API      : ['Arundhati Bhattacharya', 'SBI (SBI is the head for this triplet as it is the entity performing the action in the sentence)', 'told']
+Correct  : ['Arundhati Bhattacharya', 'chairperson', 'position_held']
+
+Iteration: 298
+API      : ['Coffee', '2.9%', 'has_sales_growth']
+Correct  : ['Starbucks', 'coffee', 'product_or_material_produced']
+
+ERROR:   I'm unable to identify any triplets from the given sentence as it doesn't provide enough information for the required entities and relationships to be established. The sentence only discusses a possible outcome from Lyft and a statement made by their CEO, but it does not provide any information about the entites and their relationships using the given relations.
+
+Iteration: 300
+API      : ['Food For Health', 'Dubai', 'sells_most_in']
+Correct  : ['Spinneys', 'Dubai', 'headquarters_location']
+
+Iteration: 301
+API      : ['']
+Correct  : ['Moving', 'Spotify', 'distributed_by\nFuture', 'Spotify', 'distributed_by\nBecause', 'Spotify', 'distributed_by\nRemains', 'Spotify', 'distributed_by']
+
+Iteration: 302
+API      : ['Brian Moynihan', 'Bank of America', 'chief_executive_officer.']
+Correct  : ['Brian Moynihan', 'Bank of America', 'employer']
+
+Iteration: 303
+API      : ['Wonder', 'strong player', 'legal_form: company']
+Correct  : ['Loaf', 'company', 'legal_form']
+
+Iteration: 304
+API      : ['Rentrak', 'comScore', 'received_shares_for_shares_owned']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 305
+API      : ['Foxtel', 'subscribers to Presto', 'included_as']
+Correct  : ['Presto', 'Foxtel', 'owned_by']
+
+Iteration: 306
+API      : ['Tata Steel', 'cheap Chinese imports', 'legal_form: "_imports"']
+Correct  : ['Tata Steel', 'steel', 'product_or_material_produced']
+
+Iteration: 307
+API      : ['Other Articles', '63 Moons Technologies', 'legal_form']
+Correct  : ['Mastek', 'software', 'industry']
+
+Iteration: 308
+API      : ['INTERIMS', 'LiDCO Group', 'legal_form']
+Correct  : ['Intertek', 'public limited company', 'legal_form']
+
+Iteration: 309
+API      : ['Germany', 'Greece', 'creditor']
+Correct  : ['Merkel', 'Germany', 'headquarters_location']
+
+Iteration: 310
+API      : ['']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 311
+API      : ['Twitter', 'a microblogging service', 'struggles_to_realize_its_potential']
+Correct  : ['Twitter', 'microblogging', 'product_or_material_produced']
+
+Iteration: 312
+API      : ['Warren Buffett', 'Berkshire Hathaway', 'head']
+Correct  : ['Berkshire Hathaway', 'insurance', 'industry']
+
+Iteration: 313
+API      : ['Lawcock', 'nobody', 'says']
+Correct  : ['S11D', 'iron ore', 'product_or_material_produced\nRoy Hill', 'iron ore', 'product_or_material_produced']
+
+ERROR:   This sentence does not contain enough information to form any triplet with the given relations.
+
+Iteration: 315
+API      : ['Codelco', 'none', 'none']
+Correct  : ['Codelco', 'copper', 'product_or_material_produced']
+
+Iteration: 316
+API      : ['Unesco World Heritage Centre', 'proposal', 'legal_form (studies_conducted)']
+Correct  : ['UNESCO', 'World Heritage Centre', 'headquarters_location']
+
+Iteration: 317
+API      : ['Paul Firth', 'Amazon Music UK', 'head.']
+Correct  : ['Restrictions', 'music streaming', 'distribution_format\nPlay', 'music streaming', 'distribution_format']
+
+Iteration: 318
+API      : ['Panasonic', 'Panasonic Corporation', 'industry']
+Correct  : ['Technics', 'Panasonic Corporation', 'owned_by\nPanasonic Corporation', 'Technics', 'owner_of\nPanasonic Corporation', 'electronics', 'industry\nPanasonic Corporation', 'Panasonic', 'owner_of']
+
+Iteration: 319
+API      : ['Verizon', 'Go90 service', 'launched']
+Correct  : ['go90', 'Verizon', 'owned_by']
+
+Iteration: 320
+API      : ['']
+Correct  : ['Berkshire Hathaway', 'insurance', 'industry']
+
+Iteration: 321
+API      : ['APJ Abdul Kalam', 'University of Waterloo', 'recipient_of_honorary_doctorate']
+Correct  : ['David Johnston', 'University of Waterloo', 'employer']
+
+Iteration: 322
+API      : ['Ingenico Group', 'Worldpay', 'potentially_a_bidder_for']
+Correct  : ['WorldPay', 'London', 'headquarters_location']
+
+Iteration: 323
+API      : ['Ms Jackson', 'Health Services Union', 'sued_by.']
+Correct  : ['Health Services Union', 'Melbourne', 'headquarters_location']
+
+Iteration: 324
+API      : ['Mohammad Wajid Kamran', 'Emirates NBD Capital', 'CEO']
+Correct  : ['Emirates NBD', 'Finance', 'industry']
+
+Iteration: 325
+API      : ['Fonterra Co-operative Group', 'The New Zealand dollar', 'currency']
+Correct  : ['Fonterra', 'milk', 'product_or_material_produced']
+
+Iteration: 326
+API      : ['Anheuser-Busch InBev', 'SABMiller (SABMiller.DE)', 'urges']
+Correct  : ['SABMiller', 'beer', 'product_or_material_produced']
+
+Iteration: 327
+API      : ['Buckle', '465 retail stores', 'operated']
+Correct  : ['Buckle', 'retail', 'industry']
+
+Iteration: 328
+API      : ['Triplet 1: Fletcher Building', '$8.27', 'price_of_stock']
+Correct  : ['Fletcher Building', 'construction', 'industry']
+
+Iteration: 329
+API      : ['Jason Ader', 'Bwin.party', 'launched_fight']
+Correct  : ['888 Holdings', 'Gibraltar', 'headquarters_location']
+
+Iteration: 330
+API      : ['South32', 'Australian and South African manganese operations', 'potential_write_downs (or fair_value_write_downs)']
+Correct  : ['South32', 'manganese', 'product_or_material_produced']
+
+Iteration: 331
+API      : ['Microsoft', 'Surface Book', 'manufacturer.']
+Correct  : ['Surface Book', 'Microsoft', 'developer']
+
+Iteration: 332
+API      : ['Glencore Xstrata', 'shares', 'listed_on']
+Correct  : ['Glencore', 'mining', 'industry\nXstrata', 'Glencore', 'owned_by']
+
+ERROR:   This text is a list of vehicles and does not contain any defined triples with the given relations. Therefore, there is no answer for this sentence.
+
+Iteration: 334
+API      : ['Tourism Minister Richard Colbeck', 'head of the push', 'leading']
+Correct  : ['Lead', 'Japan', 'location_of_formation']
+
+Iteration: 335
+API      : ['Movers', 'Glencore PLC', 'mentioned']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 336
+API      : ['Professor Timothy Guinnane', 'Yale University', 'head.']
+Correct  : ['Timothy Guinnane', 'Yale University', 'employer']
+
+Iteration: 337
+API      : ['Rob Gunstone', 'Jared Lynch', 'writer_of']
+Correct  : ['Saputo', 'Lino Saputo', 'founded_by\nSaputo', 'Lino Saputo', 'director_/_manager']
+
+Iteration: 338
+API      : ['Wall Street', '00:58', 'legal_form (or: topic)']
+Correct  : ['SanDisk', 'Western Digital', 'owned_by\nWestern Digital', 'SanDisk', 'owner_of\nSanDisk', 'Western Digital', 'parent_organization\nWestern Digital', 'SanDisk', 'subsidiary']
+
+Iteration: 339
+API      : ['Birla Corporation', 'Lafarge India', 'owned_by']
+Correct  : ['Lafarge', 'cement', 'product_or_material_produced']
+
+Iteration: 340
+API      : ['The largest U.S. aluminum producer', 'nil', 'producer']
+Correct  : ['Klaus Kleinfeld', 'chief executive officer', 'position_held']
+
+Iteration: 341
+API      : ['Twitter Inc', '336 employees', 'lay_off']
+Correct  : ['Twitter', 'microblogging', 'product_or_material_produced']
+
+Iteration: 342
+API      : ['CEO Indra Nooyi', 'Pepsi', 'worked_on']
+Correct  : ['Indra Nooyi', 'chief executive officer', 'position_held']
+
+Iteration: 343
+API      : ['GETTY', 'China', 'legal_form: economic_condition']
+Correct  : ['Glencore', 'Ivan Glasenberg', 'chief_executive_officer\nGlencore', 'Ivan Glasenberg', 'owned_by\nIvan Glasenberg', 'Glencore', 'owner_of']
+
+ERROR:   This text does not contain any explicit triplets with the given relations. The text is just mentioning a softening trend in the Los Angeles Orange County area, but it does not provide any information about specific entities and their relationships.
+
+Iteration: 345
+API      : ['Stratasys', '[an entity representing "Stratasys" as a company]', 'selling', '[an entity representing "more 3D printers"]']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\nStratasys', '3D printing', 'industry']
+
+Iteration: 346
+API      : ['Pemex', '$US5.2 billion ($A7.16 billion)', 'loss']
+Correct  : ['Pemex', 'petroleum', 'product_or_material_produced\nPemex', 'Mexico City', 'headquarters_location']
+
+Iteration: 347
+API      : ['Diageo', 'LSE: DGE', 'listed_company_with_tickers_on']
+Correct  : ['Diageo', 'alcoholic beverage', 'product_or_material_produced']
+
+ERROR:   There are no explicit triples in the given sentence. It is just mentioning two entities, Office 365 and Microsoft 365, without providing any relation or connections between them.
+
+Iteration: 349
+API      : ['Triplet 1: First Premier Bank Credit Card', 'First Premier Bank', 'legal_form (or: owner_of or: publisher)']
+Correct  : ['Mastercard', 'credit card', 'product_or_material_produced']
+
+Iteration: 350
+API      : ['LIC', 'lowest rejection ratio (1.10%)', 'legal_form : has_lowest_rejection_ratio']
+Correct  : ['HDFC Life', 'life insurance', 'product_or_material_produced']
+
+Iteration: 351
+API      : ['Indian Railways', '34 unions', "had (past tense of 'have')", 'number_of_unions']
+Correct  : ['Indian Railways', 'India', 'owned_by\nIndian Railways', 'India', 'location_of_formation']
+
+Iteration: 352
+API      : ['Apple', 'European Union, Spotify', 'not_immediately_available_for_comment', 'outside_regular_US_business_hours.']
+Correct  : ['Available', 'Spotify', 'distributed_by']
+
+Iteration: 353
+API      : ['They', 'European project', 'discussing_suggestions.']
+Correct  : ['Eurozone', 'euro', 'currency']
+
+Iteration: 354
+API      : ['Aer Lingus', 'International Airline Group', 'owned_by']
+Correct  : ['Aer Lingus', 'Dublin', 'location_of_formation']
+
+Iteration: 355
+API      : ['Fiat Chrysler Automobiles', 'Contract', 'legal_form']
+Correct  : ['Chrysler', 'Fiat Chrysler Automobiles', 'owned_by']
+
+Iteration: 356
+API      : ['Berlin', 'null', '_ :']
+Correct  : ['Bild', 'Berlin', 'headquarters_location']
+
+ERROR:   I'm unable to identify any specific triplets from the given sentence based on the provided relations as the sentence only mentions companies and their transitions without explicitly stating the relations between them. To identify the head, tail, and relation of each triplet, we need clear and specific information connecting the entities in a relationship.
+
+Iteration: 358
+API      : ['Steve Ballmer', 'Microsoft', 'chief_executive_officer.']
+Correct  : ['Steve Ballmer', 'Microsoft', 'employer\nSteve Ballmer', 'Microsoft', 'owner_of']
+
+Iteration: 359
+API      : ['Badri', "Russia's Interfax news agency", 'quoted_by']
+Correct  : ['Interfax', 'news agency', 'product_or_material_produced']
+
+Iteration: 360
+API      : ['MoneyGram', 'NASDAQ:MGI', 'legal_form']
+Correct  : ['MoneyGram', 'Dallas', 'headquarters_location']
+
+Iteration: 361
+API      : ['RSA Insurance Group plc', 'Martin Scicluna', 'chairman_of']
+Correct  : ['WorldPay', 'London', 'headquarters_location']
+
+Iteration: 362
+API      : ['Microsoft', 'Windows 10', 'launched']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 363
+API      : ['The fund', 'Reynolds American', 'owns_by']
+Correct  : ['Altria', 'tobacco', 'product_or_material_produced']
+
+Iteration: 364
+API      : ['Walmart', 'Yihadian', 'invested_in']
+Correct  : ['grocery', 'Walmart', 'operator']
+
+Iteration: 365
+API      : ['Shoppers Stop', 'Snapdeal', 'strategic_partnership.']
+Correct  : ['Snapdeal', 'e-commerce', 'industry']
+
+Iteration: 366
+API      : ['']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 367
+API      : ['aQuantive', 'Microsoft', 'acquired_by']
+Correct  : ['aQuantive', 'Microsoft', 'parent_organization']
+
+ERROR:   No triplets can be identified from the given sentence as it does not contain any mention of specific entities and their relationships.
+
+Iteration: 369
+API      : ['Rupert', 'Brasil Biotech (Bristol)', 'owner_of']
+Correct  : ['ARRAY', 'company', 'legal_form']
+
+Iteration: 370
+API      : ['LVMH', 'Hennessy', 'legal_form (or owner_of, if Hennessy is considered a sub-brand)']
+Correct  : ['LVMH', 'Hennessy', 'owner_of']
+
+Iteration: 371
+API      : ['City', 'New York City', 'location_of_shop']
+Correct  : ['Liberty', 'gasoline', 'product_or_material_produced']
+
+Iteration: 372
+API      : ['Western Digital Corp', 'SanDisk Corp', 'owned_by']
+Correct  : ['SanDisk', 'Western Digital', 'owned_by\nWestern Digital', 'SanDisk', 'owner_of\nSanDisk', 'Western Digital', 'parent_organization\nWestern Digital', 'SanDisk', 'subsidiary']
+
+Iteration: 373
+API      : ['I. Satoru Iwata', 'CEO', 'head']
+Correct  : ['Nintendo', 'Satoru Iwata', 'chief_executive_officer']
+
+Iteration: 374
+API      : ['Nintendo', 'DeNA Co.', 'developer.']
+Correct  : ['Nintendo', 'DeNA', 'owner_of']
+
+Iteration: 375
+API      : ['Minister of Transport Mahmoud Ben Romdhane', 'meeting', 'chairperson.']
+Correct  : ['Tunisair', 'Tunis', 'headquarters_location\nTunisair', 'Tunis', 'location_of_formation']
+
+Iteration: 376
+API      : ['Spotify', 'significant player', 'have ability']
+Correct  : ['Product', 'Spotify', 'distributed_by']
+
+Iteration: 377
+API      : ['Brian Hartzer', 'Westpac', 'chief_executive_officer.']
+Correct  : ['Brian Hartzer', 'Westpac', 'employer']
+
+Iteration: 378
+API      : ['Great Lakes NeuroTech', '1.9M', 'receives_funding']
+Correct  : ['Great Lakes NeuroTechnologies', 'Cleveland', 'headquarters_location']
+
+ERROR:   There are no explicit triplets in the given text. The sentence describes an event (halting of talks on the Greek bailout deal) and the involvement of certain entities (divided eurozone ministers, Athens, euroarea), but it does not establish any explicit triplet relations between them using the given relations.
+
+Iteration: 380
+API      : ['Lockheed Martin', 'Orion program', 'legal_form (or: uses_technology)']
+Correct  : ['Lockheed Martin', 'Orion', 'product_or_material_produced']
+
+Iteration: 381
+API      : ['Barrick Gold Corp.', ': producer', '.']
+Correct  : ['Goldcorp', 'gold', 'product_or_material_produced']
+
+Iteration: 382
+API      : ['Amy Hood', 'Microsoft', 'said']
+Correct  : ['Amy Hood', 'chief financial officer', 'position_held\nWindows 10', 'Microsoft', 'developer\nAmy Hood', 'Microsoft', 'employer']
+
+Iteration: 383
+API      : ['Aluminium', '$US1549.50', 'price']
+Correct  : ['Alcoa', 'aluminium', 'product_or_material_produced']
+
+Iteration: 384
+API      : ["Dixons Carphone's Connected World Services", 'Sprint', 'owns_and_manages']
+Correct  : ['Dixons', 'retail', 'industry']
+
+Iteration: 385
+API      : ['Zacks Investment Research', 'iRobot Corporation', 'publisher']
+Correct  : ['Roomba', 'iRobot', 'owned_by\niRobot', 'Roomba', 'owner_of\nRoomba', 'iRobot', 'manufacturer']
+
+Iteration: 386
+API      : ['Koudai Gouwu', '$1.4 billion', 'total_funding']
+Correct  : ['WeChat', 'Tencent', 'developer\nTencent', 'WeChat', 'subsidiary']
+
+Iteration: 387
+API      : ['Sitix', 'she', 'employer']
+Correct  : ['Lead', 'Japan', 'location_of_formation']
+
+Iteration: 388
+API      : ['Snom Technology AG', 'Berlin, Germany', 'location_of_formation.']
+Correct  : ['snom', 'Berlin', 'headquarters_location']
+
+Iteration: 389
+API      : ['Xetra : A1JAGV', 'Glencore', 'listed_under']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 390
+API      : ['General Motors India', 'Chevrolet Trailblazer', 'manufacturer']
+Correct  : ['Chevrolet Trailblazer', 'General Motors', 'manufacturer']
+
+Iteration: 391
+API      : ['comScore, Inc.', 'SCOR', 'legal_form']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+ERROR:   There is no triplet relation in the given sentence. The sentence describes an action (researchers asked people) in the context of a specific program on Channel 4 (Dispatches). No specific entities or relations are mentioned.
+
+Iteration: 393
+API      : ['labour commissioner', 'Uber driver', 'legal_form : employee']
+Correct  : ['Commissioner', 'California', 'location_of_formation']
+
+Iteration: 394
+API      : ['Citigroup', 'Banamex USA', 'owned_by']
+Correct  : ['banamex', 'Citigroup', 'operator']
+
+Iteration: 395
+API      : ['Adobe', 'eLearning Brothers', 'owned_by']
+Correct  : ['Adobe Captivate', 'Adobe', 'developer']
+
+Iteration: 396
+API      : ['Columbus Coffee Roaster', 'Crimson Cup Coffee & Tea', 'owner_of']
+Correct  : ['coffee roaster', 'coffee', 'product_or_material_produced']
+
+ERROR:   There is no explicit triplet in the given sentence based on the provided relations. The sentence is just reporting some facts without explicitly stating any triplet relationship.
+
+Iteration: 398
+API      : ['Navantia', 'new corporate vehicle', 'establishing']
+Correct  : ['Navantia', 'shipbuilding', 'industry']
+
+Iteration: 399
+API      : ['iiNet', 'TPG', 'owned_by (or: owned_by reversed: TPG', 'iiNet)']
+Correct  : ['iiNet', 'Perth', 'location_of_formation']
+
+Iteration: 400
+API      : ['Occidental Petroleum Corporation', ':organization:', 'head.']
+Correct  : ['Occidental Petroleum', 'petroleum', 'product_or_material_produced']
+
+Iteration: 401
+API      : ['Bats Chi-X Europe', 'inititative', 'will_unveil']
+Correct  : ['PREPARE', 'European Union', 'operator']
+
+Iteration: 402
+API      : ['131', 'Shopko stores', 'retail_format']
+Correct  : ['Shopko', 'retail', 'industry']
+
+ERROR:   There is no triplet relationship in the given sentence as it is not making any explicit statements about specific entities and their relations.
+
+Iteration: 404
+API      : ['SABMiller', 'a global beer behemoth', 'created_by']
+Correct  : ['SABMiller', 'beer', 'product_or_material_produced']
+
+Iteration: 405
+API      : ['Gavin Newsom', 'Nasdaq', 'owner_of']
+Correct  : ['Golden State Warriors', 'San Francisco', 'headquarters_location']
+
+Iteration: 406
+API      : ['PayPal Holdings Inc.', 'EBay Inc.', 'separated_from']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary\nPayPal', 'public company', 'legal_form']
+
+Iteration: 407
+API      : ['CIT Group', 'IMB Holdco LLC', 'owned_by']
+Correct  : ['CIT Group', 'OneWest Bank', 'subsidiary']
+
+Iteration: 408
+API      : ['Boeing', '777 production', 'essentially_sold_out_through']
+Correct  : ['Boeing', 'Dennis Muilenburg', 'chief_executive_officer\nDennis Muilenburg', 'Boeing', 'employer']
+
+Iteration: 409
+API      : ['Britain', '[entity not mentioned]', 'struggled']
+Correct  : ['Nimrod MRA4', 'BAE Systems', 'manufacturer']
+
+Iteration: 410
+API      : ['Our', 'selling, general and administrative expenses', 'increased']
+Correct  : ['Initiative', 'marketing', 'industry']
+
+ERROR:   There is no triplet relationship identified in the given sentence. The sentence is describing the acquisition of Lafarge and Holcim's cement assets by an unnamed firm and the impact on the firm's growth. To identify triplet relationships, we need specific entities and their relationships expressed in the sentence.
+
+Iteration: 412
+API      : ['Troy Pickard', 'Australian Local Government Association', 'publisher']
+Correct  : ['Will Hodgman', 'Premier of Tasmania', 'position_held']
+
+Iteration: 413
+API      : ['Twitter', 'layoff about 8 percent of its workforce', 'head (or source)']
+Correct  : ['Omid Kordestani', 'Google', 'employer']
+
+Iteration: 414
+API      : ['Timmins Gold Corp.', 'Goldcorp Inc.', 'owned_by']
+Correct  : ['Goldcorp', 'gold', 'product_or_material_produced']
+
+Iteration: 415
+API      : ['Arun Jaitley', 'Bandhan Bank', 'inaugurates.']
+Correct  : ['Bandhan Bank', 'Kolkata', 'headquarters_location']
+
+Iteration: 416
+API      : ['Vodafone Ghana', 'Vodafone Business Solutions (VBS)', 'platform']
+Correct  : ['Vodafone Ghana', 'Vodafone', 'parent_organization\nVodafone', 'Vodafone Ghana', 'subsidiary']
+
+ERROR:   There is no clear triplet relation in the given sentence. While it mentions 'North America water treatment products' and 'sales growth', it does not provide specific entities or relations for a triplet. Please check if there is more context or information that could help identify entities and their relations.
+
+Iteration: 418
+API      : ['Fundbox', '2012', 'launched']
+Correct  : ['Jeff Bezos', 'Amazon', 'employer\nJeff Bezos', 'Amazon', 'owner_of']
+
+Iteration: 419
+API      : ['Raghuram Rajan', 'Indian Railways', 'warnings_given_by']
+Correct  : ['Indian Railways', 'India', 'owned_by\nAbout Us', 'Global', 'publisher\nIndian Railways', 'India', 'location_of_formation\nRaghuram Rajan', 'Reserve Bank of India', 'employer']
+
+Iteration: 420
+API      : ['Nestle', 'National Commission', 'wants_recall_order_from']
+Correct  : ['Nexus 6P', 'Google', 'developer']
+
+Iteration: 421
+API      : ['Sundar Pichai', 'CEO of Google', 'ceo']
+Correct  : ['Satya Nadella', 'Microsoft', 'employer']
+
+Iteration: 422
+API      : ['Chubb', 'Ace Limited (NYSE: ACE - news)', 'legal_form: acquired_by']
+Correct  : ['Willis Group', 'insurance broker', 'industry']
+
+Iteration: 423
+API      : ['The Altech Node', 'September 2014', 'launched']
+Correct  : ['TO', 'video on demand', 'distribution_format']
+
+Iteration: 424
+API      : ['Alexis Tsipras', 'Greek Prime Minister', 'legal_form:head']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 425
+API      : ['Media24', 'The Media24 group', 'owned_by', 'Naspers.']
+Correct  : ['City Press', 'Naspers', 'owned_by']
+
+Iteration: 426
+API      : ['Avon', 'Brazil', 'location_of_relevance']
+Correct  : ['We', 'Avon', 'publisher']
+
+Iteration: 427
+API      : ['Moon Studios', '2010', 'founded_by.']
+Correct  : ['Moon Studios', 'Thomas Mahler', 'founded_by\nMoon Studios', 'Ori and the Blind Forest', 'product_or_material_produced\nThomas Mahler', 'Moon Studios', 'employer\nMoon Studios', 'Gennadiy Korol', 'founded_by']
+
+Iteration: 428
+API      : ['Governor Elvira Nabiullina', '[null]', 'setting_course_for']
+Correct  : ['Elvira Nabiullina', 'governor', 'position_held']
+
+ERROR:   There is no triplets present in the given sentence. The sentence is a simple statement and does not contain any subject-predicate-object structure with clear head, tail, and relation components.
+
+Iteration: 430
+API      : ['Alexis Tsipras', 'parliament', 'secures_vote']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 431
+API      : ['Associated British Foods', 'ABF.L', 'listed_on']
+Correct  : ['Primark', 'Associated British Foods', 'parent_organization\nPrimark', 'Associated British Foods', 'owned_by']
+
+Iteration: 432
+API      : ['Glencore', 'none', "none (This sentence does not contain any triples as it is just a single statement about Glencore's plans.)"]
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 433
+API      : ['Berkshire Hathaway', 'Duracell battery unit', 'owned_by']
+Correct  : ['Duracell', 'Berkshire Hathaway', 'owned_by\nDuracell', 'battery', 'product_or_material_produced\nDuracell', 'Berkshire Hathaway', 'parent_organization']
+
+Iteration: 434
+API      : ['Grocery', "Walmart US, Sam's Club", 'sales_percentage']
+Correct  : ['grocery', 'Walmart', 'operator']
+
+Iteration: 435
+API      : ['Prime Minister Narendra Modi', 'Fortune 500 CEOs', 'met_with']
+Correct  : ['Twitter', 'San Francisco', 'headquarters_location']
+
+Iteration: 436
+API      : ['']
+Correct  : ['Fibria', 'pulp', 'industry']
+
+Iteration: 437
+API      : ['Pooled Assets', 'Bertelsmann, Pearson', 'created']
+Correct  : ['Random House', 'Bertelsmann', 'owned_by\nBertelsmann', 'Penguin Random House', 'owner_of\nBertelsmann', 'Penguin Random House', 'business_division\nBertelsmann', 'Random House', 'owner_of']
+
+Iteration: 438
+API      : ['UK steel industry', 'perilous state', ':subset_of:']
+Correct  : ['Tata Steel', 'steel', 'product_or_material_produced']
+
+Iteration: 439
+API      : ['Caesars Entertainment Corp.', 'main operating unit', 'operated_by']
+Correct  : ['Caesars Entertainment', 'gambling', 'industry']
+
+Iteration: 440
+API      : ['AT&T', 'DirecTV', 'owned_by']
+Correct  : ['DirecTV', 'AT', 'owned_by']
+
+Iteration: 441
+API      : ['Danone', 'Evian brand', 'legal_form:partnership']
+Correct  : ['Evian', 'Danone', 'parent_organization\nEvian', 'Danone', 'owned_by']
+
+Iteration: 442
+API      : ['marketing_industry', ':', 'preparing_itself']
+Correct  : ['Cornerstone', 'marketing', 'industry']
+
+Iteration: 443
+API      : ['Baidu Inc', 'Internet search company', 'legal_form']
+Correct  : ['Baidu', 'Internet', 'industry']
+
+Iteration: 444
+API      : ['Microsoft 365', 'Office 365', 'has_seats_moving']
+Correct  : ['Office 365', 'Microsoft', 'developer']
+
+Iteration: 445
+API      : ['Eldorado Gold Corporation', ':organizer', 'Second Quarter 2020 Conference Call.']
+Correct  : ['Eldorado Gold', 'corporation', 'legal_form']
+
+Iteration: 446
+API      : ['Ally Corporate Finance', 'Ally Financial Inc.', 'subsidiary.']
+Correct  : ['Ally Financial', 'Ally Bank', 'subsidiary']
+
+Iteration: 447
+API      : ['Disney', 'Hamilton, Artemis Fowl, Mulan', 'took']
+Correct  : ['Artemis Fowl', 'Disney+', 'distributed_by']
+
+Iteration: 448
+API      : ['Julius Owusu-Kyerematen', 'Vodafone Ghana', 'launched']
+Correct  : ['Vodafone Ghana', 'Vodafone', 'parent_organization\nVodafone', 'Vodafone Ghana', 'subsidiary']
+
+Iteration: 449
+API      : ['Adam Schefter', 'New York Giants defensive end Jason Pierre-Paul', 'tweeted_photo_of']
+Correct  : ['Adam Schefter', 'ESPN', 'employer']
+
+Iteration: 450
+API      : ['Triplet 1: Samsung Electronics Co.', 'Galaxy S6 smartphones', 'sales']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 451
+API      : ['negotiations', 'Cayman government', 'legal_form:retail_license_agreement']
+Correct  : ['water treatment', 'water', 'product_or_material_produced']
+
+Iteration: 452
+API      : ['Google', 'China', 'block_by_country']
+Correct  : ['Gmail', 'Google', 'developer\nGmail', 'Google', 'owned_by']
+
+Iteration: 453
+API      : ['']
+Correct  : ['PeopleSoft', 'JD Edwards', 'subsidiary']
+
+Iteration: 454
+API      : ['Ghana National Petroleum Corporation', '13.64 percent', 'owned_by']
+Correct  : ['Anadarko Petroleum', 'petroleum', 'product_or_material_produced']
+
+Iteration: 455
+API      : ['Yu', "McDonald's", 'spoke_about']
+Correct  : ['Origus', 'Beijing', 'headquarters_location']
+
+Iteration: 456
+API      : ['']
+Correct  : ['LaFerrari', 'Ferrari', 'brand\nLaFerrari', 'Ferrari', 'manufacturer']
+
+Iteration: 457
+API      : ['Goldman Sachs Group Inc.', 'Goldman Sachs (Shenzhen) Financial Leasing Co.', 'same_name']
+Correct  : ['Goldman Sachs', 'financial services', 'industry']
+
+Iteration: 458
+API      : ['BlueKai', 'Oracle', 'owned_by']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+ERROR:   The given text does not contain enough information to identify any triplets with the given relations. There are no named entities or clear relations expressed in the sentence.
+
+Iteration: 460
+API      : ['Microsoft Lumia 535', 'latest quad-core smartphone', 'type : legal_form (or model)']
+Correct  : ['Xbox', 'Microsoft', 'owned_by']
+
+Iteration: 461
+API      : ['You and John Lewis Partnership', 'John Lewis Partnership', 'possesses_card']
+Correct  : ['John Lewis Partnership', 'John Lewis', 'founded_by\nJohn Lewis Partnership', 'John Lewis', 'subsidiary']
+
+Iteration: 462
+API      : ['CEC', 'Zesco', 'legal_form:purchaser_and_seller']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 463
+API      : ['We', 'Dev Tools', 'product_or_material_produced.']
+Correct  : ['Blazor', 'Microsoft', 'developer']
+
+Iteration: 464
+API      : ['']
+Correct  : ['Intel', 'server', 'product_or_material_produced']
+
+Iteration: 465
+API      : ['Triplet 1: GFS', 'TFSE 250', 'is_part_of (or: belongs_to)']
+Correct  : ['G4S', 'London', 'headquarters_location\nbetfair', 'London', 'headquarters_location\nSmiths Group', 'London', 'headquarters_location']
+
+Iteration: 466
+API      : ['Larry Page', 'Alphabet', 'head']
+Correct  : ['Larry Page', 'Google', 'employer']
+
+Iteration: 467
+API      : ['Donald Trump', 'Trump University', 'legal_form.  (This triplet indicates that Donald Trump is the head of the legal_form entity identified as Trump University.)']
+Correct  : ['Trump University', 'Donald Trump', 'founded_by']
+
+Iteration: 468
+API      : ['The Grand Coalition', 'Justice Minister Ngosa Simbyakula', 'petitioner']
+Correct  : ['Ngosa Simbyakula', 'justice minister', 'position_held']
+
+Iteration: 469
+API      : ['I. I', 'Jamf team', 'Thanks for commitment']
+Correct  : ['Jamf', 'Minneapolis', 'headquarters_location']
+
+Iteration: 470
+API      : ['Ivan Glasenberg', 'chief executive of Glencore', 'declared']
+Correct  : ['Glencore', 'Ivan Glasenberg', 'chief_executive_officer\nGlencore', 'Ivan Glasenberg', 'owned_by\nIvan Glasenberg', 'Glencore', 'owner_of']
+
+Iteration: 471
+API      : ['Intel', 'Mobileye', 'publisher or owner_of']
+Correct  : ['Intel', 'Mobileye', 'subsidiary\nMobileye', 'Intel', 'parent_organization\nMobileye', 'Intel', 'legal_form']
+
+Iteration: 472
+API      : ['Tourism Accommodation Australia', 'Jesse Marlow', 'says']
+Correct  : ['Airbnb', 'tourism', 'industry']
+
+ERROR:   This sentence does not contain triples with the provided relations. It is a simple welcome message for a conference call and webcast event related to the Kinross Gold Corporation's second quarter 2020 results.
+
+Iteration: 474
+API      : ['Kingsoft Office Group', 'office software and licensing business', 'maintains']
+Correct  : ['Kingsoft', 'software', 'industry']
+
+Iteration: 475
+API      : ['Rahul Bajaj', 'Narendra Modi government', 'criticised']
+Correct  : ['Narendra Modi', 'Bharatiya Janata Party', 'member_of']
+
+Iteration: 476
+API      : ['Singaporés Airlines', 'nothing', 'nothing (This is not a triplet as it is just a subject in the sentence)']
+Correct  : ['A350', 'Singapore Airlines', 'operator']
+
+Iteration: 477
+API      : ['Health Care Industry', 'Stratasys', 'industry']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\nStratasys', '3D printing', 'industry']
+
+Iteration: 478
+API      : ['LafargeHolcim Ltd.', 'null', 'null']
+Correct  : ['Lafarge', 'LafargeHolcim', 'parent_organization']
+
+Iteration: 479
+API      : ['Mr. Talamo', 'OSI (Before 2000)', 'worked_for : This triplet represents that Mr. Talamo worked for OSI before the year 2000.']
+Correct  : ['KPMG', 'audit', 'product_or_material_produced']
+
+Iteration: 480
+API      : ['Xandr', 'WarnerMedia', 'operated_by']
+Correct  : ['Xandr', 'WarnerMedia', 'owned_by']
+
+Iteration: 481
+API      : ['HBO Now', 'over the top HBO offer', 'offering_of']
+Correct  : ['HBO', 'HBO Now', 'owner_of\nHBO Now', 'HBO', 'owned_by']
+
+Iteration: 482
+API      : ['Boris Johnson', 'Mayor of London', 'legal_form : head']
+Correct  : ['Boris Johnson', 'Mayor of London', 'position_held']
+
+Iteration: 483
+API      : ['Brothers William and Frederick Koch', 'Koch Industries', 'sold_shares']
+Correct  : ['Koch Industries', 'David Koch', 'owned_by']
+
+Iteration: 484
+API      : ['Goldman Sachs (NYSE: GS)', '[head]', 'investor_or_owner']
+Correct  : ['Goldman Sachs', 'investment bank', 'product_or_material_produced']
+
+Iteration: 485
+API      : ['Weatherford International plc ("Weatherford Ireland")', 'a public limited company organized under the laws of Ireland', 'legal_form.']
+Correct  : ['Weatherford International', 'Limited Company', 'legal_form']
+
+Iteration: 486
+API      : ['CFPB', 'Ally Financial Inc.', 'ordered_by']
+Correct  : ['Ally Financial', 'Ally Bank', 'subsidiary']
+
+Iteration: 487
+API      : ['George Osborne', 'Britain', 'announcement_of_spending_cut']
+Correct  : ['George Osborne', 'Chancellor of the Exchequer', 'position_held']
+
+Iteration: 488
+API      : ['Aimco', 'Ernie Freedman', 'resigned']
+Correct  : ['Aimco', 'apartment', 'product_or_material_produced']
+
+Iteration: 489
+API      : ['Suzuki', 'Baleno', 'has_product_or_material_produced.']
+Correct  : ['Maruti Suzuki', 'Suzuki', 'owned_by\nSuzuki', 'Maruti Suzuki', 'owner_of\nMaruti Suzuki', 'Suzuki', 'parent_organization\nSuzuki', 'Maruti Suzuki', 'subsidiary']
+
+Iteration: 490
+API      : ['Paypal', 'eBay', 'operated_by (or operated_as_subsidiary_of)']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 491
+API      : ['We', 'U.S. hair care space', 'fierce competitive dynamics']
+Correct  : ['Clairol', 'Coty', 'parent_organization\nWella', 'hair care', 'product_or_material_produced\nWella', 'Coty', 'owned_by\nWella', 'Coty', 'parent_organization']
+
+Iteration: 492
+API      : ['David Jones', 'Sue Mitchell', 'creator']
+Correct  : ['Myer', 'Melbourne', 'headquarters_location']
+
+Iteration: 493
+API      : ['Arun Jaitley', 'Bandhan Bank', 'inaugurates.']
+Correct  : ['Bandhan Bank', 'Kolkata', 'headquarters_location']
+
+Iteration: 494
+API      : ['Sanefi Genzyme', 'pioneered', '__pioneered__']
+Correct  : ['Genzyme', 'Sanofi', 'owned_by\nGenzyme', 'Sanofi', 'parent_organization\nSanofi', 'Genzyme', 'subsidiary']
+
+Iteration: 495
+API      : ['Syriza', 'Popular Unity', 'formed_by']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 496
+API      : ['I. IAG', 'Aer Lingus', 'owned_by (or: acquires)']
+Correct  : ['Aer Lingus', 'Dublin Airport', 'headquarters_location\nAer Lingus', 'Dublin', 'location_of_formation\nRyanair', 'Dublin Airport', 'headquarters_location']
+
+Iteration: 497
+API      : ['FireEye', 'products and services', 'provides_product_or_material_to']
+Correct  : ['Mandiant', 'FireEye', 'parent_organization\nFireEye', 'Mandiant', 'subsidiary']
+
+Iteration: 498
+API      : ['Warren Buffett', 'Berkshire Hathaway (BRKa.N)', 'owner_of']
+Correct  : ['Berkshire Hathaway', 'insurance', 'industry']
+
+Iteration: 499
+API      : ['Triplet 1: UBM', 'LSE: UBM.L', 'legal_form']
+Correct  : ['Lonmin', 'mining', 'industry']
+
+Iteration: 500
+API      : ['Wynn Resorts Ltd', 'Shares of Wynn Resorts', 'value_lost']
+Correct  : ['Wynn Resorts', 'Las Vegas', 'headquarters_location']
+
+Iteration: 501
+API      : ['None of them', 'they', 'making_a_return : 0.5']
+Correct  : ['Aurizon', 'coal', 'product_or_material_produced']
+
+Iteration: 502
+API      : ['Josh Earnest', 'White House Press Secretary', 'head.']
+Correct  : ['Josh Earnest', 'White House Press Secretary', 'position_held']
+
+Iteration: 503
+API      : ['Mark Wiedman', 'iShares unit', 'had (functioned_properly false:1)']
+Correct  : ['iShares', 'BlackRock', 'operator']
+
+Iteration: 504
+API      : ['Blogs', 'top earners', 'have_one']
+Correct  : ['Cornerstone', 'marketing', 'industry']
+
+Iteration: 505
+API      : ['Sea-Tac', 'none', 'none']
+Correct  : ['Millions', 'Chicago', 'location_of_formation']
+
+Iteration: 506
+API      : ['Mr. Don Kayne', 'Canfor Corporation', 'chief_executive_officer.']
+Correct  : ['Canfor', 'corporation', 'legal_form']
+
+Iteration: 507
+API      : ['Rahul Sharma', 'founder of Yu Televentures', '.']
+Correct  : ['YU Televentures', 'Rahul Sharma', 'founded_by']
+
+ERROR:   I'm sorry but there are no triplets present in the given sentence as it does not contain information about entities and their relationships using the given relations. The sentence is simply a question asking for more information.
+
+Iteration: 509
+API      : ['GFN', 'leading digital game stores', 'partner_of']
+Correct  : ['Ubisoft', 'game', 'member_of']
+
+Iteration: 510
+API      : ['']
+Correct  : ['Mecca Bingo', 'Bingo', 'product_or_material_produced']
+
+Iteration: 511
+API      : ['Embraer', 'Phenom 300', 'manufacturer']
+Correct  : ['Phenom 300', 'Embraer', 'manufacturer']
+
+Iteration: 512
+API      : ['Hammering', "Jordan's Jumpman image", 'legal_form']
+Correct  : ['Jumpman', 'Nike', 'owned_by']
+
+Iteration: 513
+API      : ['']
+Correct  : ['grocery', 'Walmart', 'operator']
+
+Iteration: 514
+API      : ['HBO', 'Veep', 'winner_of_award']
+Correct  : ['Olive Kitteridge', 'HBO', 'original_broadcaster']
+
+Iteration: 515
+API      : ['Plaintiff', 'holder of the promissory note', 'legal_form']
+Correct  : ['certiorari', 'court', 'creator']
+
+Iteration: 516
+API      : ['Arun Jaitley', 'Bandhan Bank', 'legal_form (inaugurator)']
+Correct  : ['Bandhan Bank', 'Kolkata', 'headquarters_location']
+
+Iteration: 517
+API      : ['1) ATA Inc.', 'KPMG Huazhen LLP', 'replacement_of_auditor']
+Correct  : ['KPMG', 'audit', 'product_or_material_produced']
+
+Iteration: 518
+API      : ['Comcast Corp.', 'NBCUniversal', 'owner_of']
+Correct  : ['NBCUniversal', 'Comcast', 'parent_organization\nNBCUniversal', 'Comcast', 'owned_by\nComcast', 'NBCUniversal', 'subsidiary\nNBCUniversal', 'Comcast', 'founded_by']
+
+ERROR:   This sentence does not contain any triplet relation in the given format. It is just a simple sentence expressing approval for a merger event.
+
+Iteration: 520
+API      : ['Penn West Petroleum', 'ConocoPhillips', 'eliminated_jobs']
+Correct  : ['ConocoPhillips', 'petroleum', 'product_or_material_produced']
+
+Iteration: 521
+API      : ['Nintendo', 'Nintendo DS', 'legal_form']
+Correct  : ['Nintendo DS', 'Nintendo', 'developer\nNintendo DS', 'Nintendo', 'manufacturer']
+
+ERROR:   I'm unable to find any triplets from the given sentence based on the provided relations. The sentence describes an event of reporting fourth-quarter figures by Costco and mentions potential profit losses for banks due to tech disrupters. However, it doesn't include any clear relationships between specific entities or concepts defined by the given relations.
+
+Iteration: 523
+API      : ['Gina Rinehart', 'Roy Hill mine', 'owner_of']
+Correct  : ['Roy Hill', 'iron ore', 'product_or_material_produced']
+
+ERROR:   There are no explicit triplets in the given sentence as it does not contain any clear subject-predicate-object structures that represent relations between specific entities. The sentence only conveys an idea or a concept and lacks formally defined relationships between named entities.
+
+Iteration: 525
+API      : ['QIC', 'AustralianSuper', 'assisted']
+Correct  : ['AustralianSuper', 'pension', 'product_or_material_produced']
+
+Iteration: 526
+API      : ['Bank of America', 'Glencore PLC', 'lended']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 527
+API      : ['Sportech (SPO.L)', '.', 'receiver_of_takeover_proposal']
+Correct  : ['Sportech', 'online gambling', 'industry']
+
+Iteration: 528
+API      : ['Microsoft Windows 10', 'updated code', 'none (This sentence does not contain a triplet relationship with the provided relations.)']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 529
+API      : ['Site', 'Airbus', 'production_output_of']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 530
+API      : ['Flipkart', 'she', 'cited_example']
+Correct  : ['Flipkart', 'e-commerce', 'industry']
+
+Iteration: 531
+API      : ['DLG', '364.10p', 'difference_in_prices']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 532
+API      : ['Sergio Marchionne', 'FCA', 'spoke_on']
+Correct  : ['Sergio Marchionne', 'Fiat', 'employer']
+
+Iteration: 533
+API      : ['Codelco', 'nothing', 'legal_form : "Chilean state-owned copper miner"']
+Correct  : ['Codelco', 'copper', 'product_or_material_produced']
+
+Iteration: 534
+API      : ['IVECO', 'order book', 'type: legal_form or product_or_material_produced or distribution_format (More context is needed to determine the exact relation)']
+Correct  : ['Iveco', 'truck', 'product_or_material_produced']
+
+Iteration: 535
+API      : ['Jeff Kennett', 'Hawthorn club', 'former_premier_of']
+Correct  : ['Jeff Kennett', 'president', 'position_held']
+
+Iteration: 536
+API      : ['Glenn Stevens', 'Reserve Bank of Australia', 'governor']
+Correct  : ['Glenn Stevens', 'Reserve Bank of Australia', 'employer']
+
+ERROR:   There is no triplets existence in the given sentence. The sentence is only stating a fact about the three redesigned trucks (Chevrolet Silverado and GMC Sierra) in the strategy without mentioning any relation between them or with any other entities.
+
+Iteration: 538
+API      : ['Origines', 'Europe', 'continent_of_expansion.']
+Correct  : ['Origines', 'France', 'original_broadcaster']
+
+Iteration: 539
+API      : ['Spotify', 'experience of Spotify as a podcast player', '?']
+Correct  : ['VersuS', 'Spotify', 'distributed_by']
+
+Iteration: 540
+API      : ['']
+Correct  : ['Balfour Beatty', 'construction', 'industry']
+
+Iteration: 541
+API      : ['fast food industry', 'fast food board', 'regulatory_oversight (or: industry', 'fast food board', 'governed_by)']
+Correct  : ['food industry', 'food', 'product_or_material_produced\nfast food industry', 'fast food', 'product_or_material_produced']
+
+Iteration: 542
+API      : ['Investors', 'Petrobras', 'purchased']
+Correct  : ['Petrobras', 'New York Stock Exchange', 'stock_exchange']
+
+ERROR:   There is no explicit triplet in the given sentence. The sentence is mainly discussing the dynamics and growth drivers in the wholesale business and retail stores without mentioning any specific entities and their relations.
+
+Iteration: 544
+API      : ['Unilever', 'emerging market', 'has_driven_growth_by']
+Correct  : ['Unilever', 'Dove', 'owner_of\nUnilever', 'Cornetto', 'owner_of']
+
+Iteration: 545
+API      : ['Western Digital (WDC)', 'SanDisk (SNDK)', 'owned_by']
+Correct  : ['SanDisk', 'Western Digital', 'owned_by\nWestern Digital', 'SanDisk', 'owner_of\nSanDisk', 'Western Digital', 'parent_organization\nWestern Digital', 'SanDisk', 'subsidiary']
+
+Iteration: 546
+API      : ['PayPal', 'eBay', 'gone_separate_ways.']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 547
+API      : ['Dialog Semiconductor', 'Atmel', 'acquired_by']
+Correct  : ['Dialog Semiconductor', 'semiconductor', 'product_or_material_produced']
+
+Iteration: 548
+API      : ['Neil', 'southern sales team', 'spoke_about.']
+Correct  : ['Southern', 'London', 'headquarters_location']
+
+Iteration: 549
+API      : ['Western Digital', 'SanDisk', 'has_access_to (or: needs_access_to)']
+Correct  : ['Western Digital', 'solid-state drive', 'product_or_material_produced']
+
+Iteration: 550
+API      : ['EPH', 'Unipetrol', 'owned_by (or) acquired_by']
+Correct  : ['Unipetrol', 'oil', 'product_or_material_produced']
+
+Iteration: 551
+API      : ['HBO', 'Sesame Street', 'legal_form: deal']
+Correct  : ['Sesame Street', 'HBO', 'original_broadcaster']
+
+Iteration: 552
+API      : ['Richard Yu', 'Huawei Consumer Business Group', 'CEO']
+Correct  : ['Nexus 6P', 'Huawei', 'developer\nNexus 6P', 'Huawei', 'manufacturer\nNexus 6P', 'Google', 'developer']
+
+Iteration: 553
+API      : ['He', 'our customer facing software business', 'has_global_responsibility.']
+Correct  : ['Software Solutions', 'software', 'product_or_material_produced']
+
+Iteration: 554
+API      : ['Credit Suisse', 'Report', 'published']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 555
+API      : ['Amazon', 'music streaming service', 'launched']
+Correct  : ['Launched', 'music streaming', 'distribution_format']
+
+Iteration: 556
+API      : ['Triplet 1: IMSS', '4Imprint Group', 'legal_form (or publisher)']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+ERROR:   There is no clear triplet relation in the given text. The text only contains descriptive information about the market and does not establish any specific relationship between entities. There are no mentions of any legal forms, publishers, owners, employers, manufacturers, positions held, chairpersons, industries, business divisions, creators, original broadcasters, CEOs, locations of formation, operators, parent organizations, members, products or materials produced, brands, headquarters locations, directors or managers, distribution formats, distributors, platforms, currencies, subsidiaries, stock exchanges, or developers.
+
+Iteration: 558
+API      : ['Geoff Gill', 'Australian Taxation Office', 'said']
+Correct  : ['Deloitte', 'tax', 'product_or_material_produced']
+
+Iteration: 559
+API      : ['Petrobras Argentina SA', 'Rolls-Royce Holdings Plc', 'relation']
+Correct  : ['Petrobras', 'gas', 'product_or_material_produced']
+
+Iteration: 560
+API      : ['Andrea Boragno', 'Alcantara', 'chairperson, CEO']
+Correct  : ['Interbrand', 'brand', 'industry']
+
+ERROR:   The sentence does not contain enough information to form a triplet with the given relations. The entities mentioned are Iowa Sen. Chuck Grassley and NBC News, but there is no relation specified between them. Therefore, no answer can be provided in the requested format.
+
+Iteration: 562
+API      : ['London', 'ITM Power (LSE: ITM.L)', 'manufacturer']
+Correct  : ['Boris Johnson', 'Mayor of London', 'position_held']
+
+Iteration: 563
+API      : ['Statistics Canada', 'August', 'wholesale_trade_value : fell']
+Correct  : ['Statistics Canada', 'Ottawa', 'headquarters_location']
+
+Iteration: 564
+API      : ['Jennifer Westacott', 'Business Council of Australia', 'chief_executive_officer.']
+Correct  : ['Jennifer Westacott', 'Business Council of Australia', 'employer']
+
+Iteration: 565
+API      : ['NetSuite', 'financials/ERP software suites', 'offers']
+Correct  : ['NetSuite', 'software', 'product_or_material_produced']
+
+Iteration: 566
+API      : ['Golden Gate Capital', 'BMC Software Inc', 'legal_form: acquisition']
+Correct  : ['BMC Software', 'software', 'product_or_material_produced']
+
+Iteration: 567
+API      : ['Mr Moir', "It's fair to say that there was significant underinvestment in the systems in David Jones", 'told']
+Correct  : ['Fairfax Media', 'Sydney', 'headquarters_location']
+
+Iteration: 568
+API      : ['Alexis Tsipras', 'Greek Government', 'legal_form']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 569
+API      : ['Scott Rader', 'General Manager of Medical Solutions at Stratasys', 'says.']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\nStratasys', '3D printing', 'industry']
+
+ERROR:   There is no triplet present in the given sentence. The sentence only mentions "Another initiative within marketing is personalization", which does not explicitly state any head, tail, and relation.
+
+ERROR:   This sentence does not contain any explicit triples with the given relations. It is a statement expressing a probability or opinion, and does not have a clear subject-object-relation structure.
+
+Iteration: 572
+API      : ['theme : Affordable housing']
+Correct  : ['Dubai World', 'Dubai', 'location_of_formation\nDubai World', 'Dubai', 'headquarters_location']
+
+Iteration: 573
+API      : ['IAG', 'Iberia', 'owned_by']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 574
+API      : ['sales_and_marketing_teams', 'opportunities', 'driving']
+Correct  : ['Initiative', 'marketing', 'industry']
+
+Iteration: 575
+API      : ['Hilton Worldwide (NYSE: HLT)', 'The Spa Club', 'has_launched (or: introduced)']
+Correct  : ['Hilton Worldwide', 'hotel', 'product_or_material_produced']
+
+Iteration: 576
+API      : ['Airbus', 'Concorde Mark 2', 'legal_form (or: planning_for_or_designing)']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 577
+API      : ['German Economy Ministry', 'K+S', 'spoke_with']
+Correct  : ['KfW', 'Germany', 'owned_by']
+
+Iteration: 578
+API      : ['triplet 1: CapitaLand', 'England, India, Singapore, Australia', 'location_of_formation (or headquarters_location)']
+Correct  : ['CapitaLand', 'Singapore', 'headquarters_location']
+
+Iteration: 579
+API      : ['Mark Cuban', 'Dallas Mavericks', 'owner_of.']
+Correct  : ['Mark Cuban', 'Dallas Mavericks', 'owner_of\nDallas Mavericks', 'Mark Cuban', 'owned_by']
+
+Iteration: 580
+API      : ['New India Assurance', 'each of the seven elevated deputy GMs', 'owner_of or employer (implying that New India Assurance is the employer of the seven deputy GMs)']
+Correct  : ['New India Assurance', 'insurance', 'industry']
+
+Iteration: 581
+API      : ['GM', 'August 3, 2015', 'publishes.']
+Correct  : ['GMC Sierra', 'GMC', 'brand\nGMC Sierra', 'GMC', 'manufacturer']
+
+Iteration: 582
+API      : ['Mr Gurria', 'none', 'none']
+Correct  : ['eu', 'European Union', 'operator']
+
+Iteration: 583
+API      : ['Thomson Reuters', 'Morgan Stanley', 'publisher']
+Correct  : ['Morgan Stanley', 'New York City', 'location_of_formation\nMorgan Stanley', 'New York City', 'headquarters_location']
+
+Iteration: 584
+API      : ['Gulf Oil Corporation', 'GOCL Corporation', 'legal_form']
+Correct  : ['incorporation', 'corporation', 'product_or_material_produced']
+
+Iteration: 585
+API      : ['Mercedes-Benz', 'Daimler AG', 'owner_of.']
+Correct  : ['Daimler AG', 'Mercedes-Benz', 'owner_of\nDaimler AG', 'Mercedes-Benz', 'brand']
+
+Iteration: 586
+API      : ['Thomson Reuters', '$2.98 billion', 'revenues']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 587
+API      : ['Rimini Street, Inc.', 'Oracle Agile PLM products', 'has_support_service']
+Correct  : ['PeopleSoft', 'JD Edwards', 'subsidiary']
+
+Iteration: 588
+API      : ['Kavanaugh', 'OneWest Bank', 'chairman_of']
+Correct  : ['Universal Pictures', 'company', 'legal_form']
+
+Iteration: 589
+API      : ['it', 'Google', 'parent_organization.']
+Correct  : ['Google TV', 'Google', 'developer']
+
+Iteration: 590
+API      : ['Mr Charles Murito', 'Google', 'said']
+Correct  : ['Google Maps', 'Google', 'developer']
+
+Iteration: 591
+API      : ['Nasdaq', 'nothing', 'nothing (This sentence does not contain any triplets as it is just reporting a fact and does not involve any specific entities or relations.)']
+Correct  : ['Celgene', 'NASDAQ', 'stock_exchange']
+
+Iteration: 592
+API      : ['HSBC', 'Mehta', 'stepped_down_as_ceo']
+Correct  : ['HSBC Finance', 'HSBC', 'parent_organization']
+
+Iteration: 593
+API      : ['Aemetis Biogas', 'September 2020', 'first_gas_production']
+Correct  : ['digester', 'biogas', 'product_or_material_produced']
+
+Iteration: 594
+API      : ['His Highness Shaikh Mohammed bin Rashid Al Maktoum', 'Decree No.41', 'issued']
+Correct  : ['Dubai', 'Mohammed bin Rashid Al Maktoum', 'owned_by']
+
+Iteration: 595
+API      : ['Tutor Perini Corporation', 'Michael J. Kershaw', 'executive_position_held']
+Correct  : ['Tutor Perini', 'construction', 'industry']
+
+Iteration: 596
+API      : ['GenNext Innovation Hub', 'RIL (Rashtriya Ispat Nigam Limited)', 'owned_by']
+Correct  : ['Accelerator', 'Microsoft', 'developer']
+
+Iteration: 597
+API      : ['Citigroup', 'New York City', 'location_of_formation.']
+Correct  : ['Citigroup', 'financial services', 'industry']
+
+Iteration: 598
+API      : ['']
+Correct  : ['Gmail', 'Google', 'developer\nGmail', 'Google', 'owned_by']
+
+Iteration: 599
+API      : ['3D Systems', 'Naval Sea Systems Command', 'partner_of.']
+Correct  : ['3D Systems', '3D printing', 'industry']
+
+Iteration: 600
+API      : ['owners', 'Populous architecture firm', 'working_on']
+Correct  : ['Populous', 'architecture', 'industry']
+
+Iteration: 601
+API      : ['Permira', 'GFKL Group, Lowell Group', 'owned_by']
+Correct  : ['Permira', 'private equity', 'industry']
+
+Iteration: 602
+API      : ['']
+Correct  : ['Wallis', 'London', 'headquarters_location']
+
+Iteration: 603
+API      : ["Exxon Mobil's Antwerp refinery", '320,000 bpd', 'legal_form : Exxon Mobil']
+Correct  : ['Exxon', 'diesel', 'product_or_material_produced\nExxon', 'gasoline', 'product_or_material_produced']
+
+Iteration: 604
+API      : ['Aurizon', 'nil', 'finding_itself_in_a_battle']
+Correct  : ['Aurizon', 'coal', 'product_or_material_produced']
+
+Iteration: 605
+API      : ['Louie Douvis', 'Michael Smith', 'publisher']
+Correct  : ['Brian Hartzer', 'Westpac', 'employer']
+
+Iteration: 606
+API      : ['Triplet 1: Vodafone', 'its US joint venture with Verizon', 'sold']
+Correct  : ['Vodafone', 'Verizon', 'subsidiary\nVerizon', 'Vodafone', 'parent_organization']
+
+Iteration: 607
+API      : ['Wynn', 'Encore at Wynn Macau', 'created']
+Correct  : ['Wynn Macau', 'Macau', 'headquarters_location']
+
+Iteration: 608
+API      : ['Mark Zuckerberg', 'Facebook', 'CEO_of.']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 609
+API      : ['Greg Craven', 'Australian Catholic University', 'employer']
+Correct  : ['Greg Craven', 'Australian Catholic University', 'employer']
+
+ERROR:   There is no triplet present in the given sentence as it does not contain any clear relation between entities. The sentence is primarily giving advice to students regarding the use of different types of payment methods.
+
+Iteration: 611
+API      : ['department store chain', '177-year-old', 'age_of_formation']
+Correct  : ['department store chain', 'retail', 'industry']
+
+Iteration: 612
+API      : ['Chrysler', 'Daimler AG', 'owned_by']
+Correct  : ['Daimler AG', 'Chrysler', 'subsidiary']
+
+Iteration: 613
+API      : ['Facebook', 'John Shinal', 'creator.']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 614
+API      : ['Taylor Wimpey', '184.9p', 'has_stock_price']
+Correct  : ['Taylor Wimpey', 'London', 'headquarters_location']
+
+Iteration: 615
+API      : ['']
+Correct  : ['Glencore', 'mining', 'industry']
+
+ERROR:   There is no triplets present in the given sentence. The sentence only describes an increase in sales for the GMC truck line.
+
+Iteration: 617
+API      : ["Geographical location of General Electric's site", 'Belfort', 'location_of_GE_site']
+Correct  : ['General Electric', 'conglomerate', 'industry']
+
+Iteration: 618
+API      : ["Macy's", 'department store', 'announcer of closure']
+Correct  : ['Best Buy', 'consumer electronics', 'product_or_material_produced']
+
+Iteration: 619
+API      : ['BorgWarner Inc.', 'manufactures', 'producer:manufacturer']
+Correct  : ['BorgWarner', 'powertrain', 'product_or_material_produced']
+
+Iteration: 620
+API      : ['Marissa Mayer', 'Chief Executive Officer of Yahoo', 'head']
+Correct  : ['Marissa Mayer', 'Yahoo', 'employer']
+
+Iteration: 621
+API      : ['GOOGL', 'Larry Page', 'CEO']
+Correct  : ['Larry Page', 'Google', 'employer']
+
+Iteration: 622
+API      : ['Vivendi', 'Universal Music Group', 'owns']
+Correct  : ['Vivendi', 'Universal Music Group', 'subsidiary\nUniversal Music Group', 'Vivendi', 'owned_by\nUniversal Music Group', 'Vivendi', 'parent_organization']
+
+Iteration: 623
+API      : ['International Airlines Group (IAG)', 'British Airways', 'owned_by']
+Correct  : ['British Airways', 'International Airlines Group', 'owned_by\nBritish Airways', 'International Airlines Group', 'parent_organization']
+
+Iteration: 624
+API      : ['SABMiller', 'Xetra: BRW1.DE', 'stock_exchange.']
+Correct  : ['SABMiller', 'beer', 'product_or_material_produced']
+
+Iteration: 625
+API      : ['manufacturing_process', 'Autodesk software', 'used_for_manufacturing: manufacturing_process', 'our_technology', 'used_for_manufacturing.']
+Correct  : ['Autodesk', 'software', 'product_or_material_produced']
+
+Iteration: 626
+API      : ['Rome', 'Italy', 'government_of']
+Correct  : ['eu', 'European Union', 'operator']
+
+Iteration: 627
+API      : ['Washington Prime Group', 'a retail REIT', 'type : legal_form']
+Correct  : ['Prime', 'retail', 'industry']
+
+Iteration: 628
+API      : ['Zia Haq', 'Hindustan Times', 'publisher.']
+Correct  : ['Hindustan Times', 'New Delhi', 'headquarters_location']
+
+ERROR:   There is no triplet present in the sentence. The sentence describes a relationship between shares of two different companies (comScore and Rentrak) being exchanged in a proposed transaction, but it does not provide enough information to determine the specific relations of 'owner_of', 'parent_organization', or any other relation that was mentioned in the question.
+
+ERROR:   There is no triplet present in the given sentence. The sentence is merely describing an event that took place and does not contain any explicit triplet relationship between entities.
+
+Iteration: 631
+API      : ['Petrobras', 'Petrobras Distribuidora SA', 'owned_by']
+Correct  : ['Petrobras', 'Petrobras Distribuidora', 'owner_of']
+
+Iteration: 632
+API      : ['Shiv Sena', 'Ghulam Ali', 'threatened']
+Correct  : ['Shiv Sena', 'Mumbai', 'location_of_formation\nShiv Sena', 'Mumbai', 'headquarters_location']
+
+Iteration: 633
+API      : ['Primerica Corp.', 'She', 'career_started_at']
+Correct  : ['Primerica', 'financial services', 'industry']
+
+Iteration: 634
+API      : ['Mattel', 'Mattel Girls & Brands : legal_form "Mattel Girls & Brands"', 'head']
+Correct  : ['Mattel', 'Fisher-Price', 'owner_of\nMattel', 'Barbie', 'owner_of\nMattel', 'Fisher-Price', 'subsidiary']
+
+Iteration: 635
+API      : ['Prof. Eugene Fama', 'The University of Chicago', 'affiliation_with_organization, professor_at.']
+Correct  : ['Eugene Fama', 'University of Chicago', 'employer']
+
+ERROR:   There is no clearly identified triplet in this sentence. The sentence contains a question and a statement about Neal Christen, who is a Santa Cruz native and a teacher. However, there are no explicitly stated relations between entities such as 'legal_form', 'publisher', 'owner_of', etc. Therefore, no answer can be provided based on this sentence.
+
+Iteration: 637
+API      : ['Vikram Pandit', 'Citigroup', 'owned_by (or: employed_by, depending on the context)']
+Correct  : ['Vikram Pandit', 'Citigroup', 'employer']
+
+Iteration: 638
+API      : ['Shell-BG Group', ':supply_side', '']
+Correct  : ['JERA', 'Tokyo', 'headquarters_location']
+
+Iteration: 639
+API      : ['Philip Morris International Inc', 'PT Hanjaya Mandala Sampoerna Tbk', 'owned_by']
+Correct  : ['Sampoerna', 'Philip Morris International', 'parent_organization']
+
+Iteration: 640
+API      : ['Hong Kong garment manufacturer', 'Artigas factory', 'supplier_of.']
+Correct  : ['UNIQLO', 'clothing', 'product_or_material_produced']
+
+Iteration: 641
+API      : ['Anglo American', 'LSE: AAL.L', 'legal_form']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 642
+API      : ['ArcelorMittal', 'null', 'null']
+Correct  : ['ArcelorMittal', 'mining', 'industry']
+
+Iteration: 643
+API      : ['Gou', 'Foxconn', 'discussing_locations_for_electronics_manufacturing_facilities_with']
+Correct  : ['Foxconn', 'electronics', 'industry']
+
+Iteration: 644
+API      : ['Business in Australia', 'CUB', 'owner_of']
+Correct  : ['SABMiller', 'Anheuser-Busch InBev', 'parent_organization\nStella Artois', 'Anheuser-Busch InBev', 'manufacturer\nSABMiller', 'Anheuser-Busch InBev', 'owned_by']
+
+Iteration: 645
+API      : ['It', 'funding large mining and energy projects', 'has_relation_of_type_project_funding']
+Correct  : ['Pilbara Iron', 'mining', 'industry']
+
+Iteration: 646
+API      : ['Germany', 'auto industry', 'industry']
+Correct  : ['Joe Kaeser', 'Siemens', 'employer']
+
+Iteration: 647
+API      : ['Aman Malik', 'Hindustan Times', 'publisher']
+Correct  : ['Hindustan Times', 'New Delhi', 'headquarters_location']
+
+Iteration: 648
+API      : ['Deloitte', 'a firm', 'found_the_survey']
+Correct  : ['Deloitte', 'London', 'headquarters_location\nDeloitte', 'London', 'location_of_formation']
+
+ERROR:   There are no explicit triplet relations in the provided text. The text only mentions the names of luxury vehicles and their fuel efficiencies, which do not establish any relationships between entities based on the given relations.
+
+Iteration: 650
+API      : ['Australian milk processors', 'Fonterra, New Zealand dairy farmers', 'await_response']
+Correct  : ['Fonterra', 'milk', 'product_or_material_produced\nDairy Farmers', 'dairy', 'product_or_material_produced']
+
+Iteration: 651
+API      : ['Stratasys Ltd. (SSYS)', '$120.36', 'price_high']
+Correct  : ['Stratasys', '3D printing', 'product_or_material_produced\n3D Systems', '3D printing', 'industry\nStratasys', '3D printing', 'industry']
+
+Iteration: 652
+API      : ['General Motors Co.', 'Electronic Data Systems Corp.', 'introduced_product_or_material_produced']
+Correct  : ['Hughes Electronics', 'General Motors', 'parent_organization']
+
+Iteration: 653
+API      : ['co-owners [Mirvac, Perron Group]', 'plan', '_']
+Correct  : ['Mirvac', 'Sydney', 'headquarters_location']
+
+Iteration: 654
+API      : ['']
+Correct  : ['Hilton Worldwide', 'hotel', 'product_or_material_produced']
+
+Iteration: 655
+API      : ['Mahindra and Mahindra', 'Pininfarina', 'owned_by']
+Correct  : ['Pininfarina', 'car designer', 'industry']
+
+Iteration: 656
+API      : ['Mr Bovey', 'MSTY', 'believes']
+Correct  : ['music industry', 'music', 'product_or_material_produced']
+
+Iteration: 657
+API      : ['Microsoft', 'Windows 10', 'launched']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 658
+API      : ['e-commerce site', 'Shopify', 'provider_of_solution']
+Correct  : ['Shopify', 'e-commerce', 'industry']
+
+Iteration: 659
+API      : ['HDFC Bank', 'none', 'none']
+Correct  : ['hdfc', 'HDFC Bank', 'owned_by\nhdfc', 'HDFC Bank', 'operator']
+
+Iteration: 660
+API      : ['Jeff Bezos', 'Amazon (NASDAQ: AMZN)', 'chief_executive_officer.']
+Correct  : ['Jeff Bezos', 'Amazon', 'employer\nJeff Bezos', 'Amazon', 'owner_of']
+
+Iteration: 661
+API      : ['Hood', 'competitors (Kroger, Publix, H-E-B, Jewel-Osco)', 'investor_in']
+Correct  : ['grocery', 'Walmart', 'operator']
+
+Iteration: 662
+API      : ['iOS 14', 'radical redesign', 'head']
+Correct  : ['CLIPS', 'iOS', 'platform']
+
+Iteration: 663
+API      : ['BT Group', 'Openreach', 'invested_capital_of']
+Correct  : ['Openreach', 'BT Group', 'parent_organization']
+
+Iteration: 664
+API      : ['Penn', 'Foxtel', 'provider_of']
+Correct  : ['Telstra', 'Foxtel', 'owner_of\nFoxtel', 'Telstra', 'owned_by']
+
+Iteration: 665
+API      : ['Teunissen', 'Cimpress N.V.', 'executive_vice_president, chief_financial_officer.']
+Correct  : ['Vistaprint', 'Cimpress', 'parent_organization']
+
+Iteration: 666
+API      : ['MoneyGram', 'MGI', 'legal_form: corporation']
+Correct  : ['MoneyGram', 'Dallas', 'headquarters_location']
+
+Iteration: 667
+API      : ['Xinhua', 'Beijing-based bank', 'reporter']
+Correct  : ['veto power', 'veto', 'product_or_material_produced']
+
+Iteration: 668
+API      : ['Customer1', 'E-Business Suite, PeopleSoft, JD Edwards', 'uses_technology']
+Correct  : ['PeopleSoft', 'JD Edwards', 'subsidiary']
+
+Iteration: 669
+API      : ['Piper Jaffray', '[Piper Jaffray]', 'believes_in_improving_sentiment_for_brands']
+Correct  : ['Mattel', 'Barbie', 'owner_of']
+
+Iteration: 670
+API      : ['Vodafone M-Pesa', 'size : over 90,000', 'agents']
+Correct  : ['Vodafone', 'M-Pesa', 'owner_of']
+
+Iteration: 671
+API      : ['Air India', 'Mumbai to New York flight', 'legal_form']
+Correct  : ['Air India', 'Mumbai', 'headquarters_location\nAir India', 'Mumbai', 'location_of_formation']
+
+Iteration: 672
+API      : ['Mark Little', 'Storyful', 'founded_by.']
+Correct  : ['Storyful', 'Mark Little', 'founded_by']
+
+Iteration: 673
+API      : ['Microsoft', 'Windows 10', 'brought_back']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 674
+API      : ['The Times', 'Santander', 'publisher']
+Correct  : ['Ana Botín', 'Santander', 'employer']
+
+Iteration: 675
+API      : ['Matthew Cote', 'Kaplan University', 'spoke_at (or said_at)']
+Correct  : ['Susan Collins', 'United States senator', 'position_held']
+
+Iteration: 676
+API      : ['Kingsport, Tennessee', 'mills', 'manufacturing']
+Correct  : ['paper machine', 'paper', 'product_or_material_produced']
+
+Iteration: 677
+API      : ['Modi', 'India', 'joining : rel_joining_agreement']
+Correct  : ['Turkmenistan', 'Ashgabat', 'headquarters_location']
+
+Iteration: 678
+API      : ['CLSA', 'nothing', 'nothing (This sentence does not contain any identified triplet relations.)']
+Correct  : ['CLSA', 'Hong Kong', 'headquarters_location']
+
+ERROR:   There are no explicit triplets present in the given sentence as it does not contain any mentioned entities related by a specific relation. The sentence only discusses the actions taken by "we" in relation to their exposure to certain types of properties and where losses were highest in the past.
+
+Iteration: 680
+API      : ['Jeff Bezos', 'Amazon', 'founder.']
+Correct  : ['Jeff Bezos', 'Amazon', 'employer\nJeff Bezos', 'Amazon', 'owner_of']
+
+Iteration: 681
+API      : ['Dismaland', "Banksy's website", 'publisher']
+Correct  : ['Dismaland', 'Banksy', 'creator']
+
+Iteration: 682
+API      : ['USJ', 'Japan Post group', 'crowded_out_by']
+Correct  : ['Japan Post', 'Tokyo', 'headquarters_location']
+
+Iteration: 683
+API      : ['']
+Correct  : ['Keio', 'Tokyo', 'location_of_formation\nBegin', 'Tokyo', 'location_of_formation']
+
+Iteration: 684
+API      : ['Trulia', 'the guide of Q3', 'has_year_over_year_leverage']
+Correct  : ['Trulia', 'Zillow', 'parent_organization']
+
+Iteration: 685
+API      : ['']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 686
+API      : ['Alan Joyce', 'Qantas', 'says']
+Correct  : ['Qantas', 'Alan Joyce', 'chief_executive_officer\nAlan Joyce', 'Qantas', 'employer']
+
+Iteration: 687
+API      : ['Harrods', '(some Britons)', 'concerns_about']
+Correct  : ['Hamleys', 'toy', 'product_or_material_produced']
+
+Iteration: 688
+API      : ['RSA Insurance Group plc', 'Fool.co.uk', 'publisher']
+Correct  : ['Amlin', 'insurance', 'industry\nHiscox', 'insurance', 'industry']
+
+Iteration: 689
+API      : ['FreeCharge', 'Snapdeal', 'acquired']
+Correct  : ['Freecharge', 'Snapdeal', 'owned_by']
+
+Iteration: 690
+API      : ['John Legere', 'T-Mobile US', 'CEO']
+Correct  : ['go90', 'Verizon', 'owned_by']
+
+Iteration: 691
+API      : ['Buick', '919582', 'sold']
+Correct  : ['Buick', 'General Motors', 'parent_organization\nBuick', 'General Motors', 'owned_by']
+
+Iteration: 692
+API      : ['']
+Correct  : ['Enter', 'Spotify', 'distributed_by']
+
+Iteration: 693
+API      : ['"we"', 'Navistar', 'relationship_of_many_years.']
+Correct  : ['Traton', 'Scania', 'subsidiary']
+
+Iteration: 694
+API      : ['Oz Minerals', 'none', 'none']
+Correct  : ['OZ Minerals', 'copper', 'product_or_material_produced']
+
+Iteration: 695
+API      : ['Airbus', 'A350', 'has_newest_commercial_model']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 696
+API      : ['Vikram Pandit', 'Transferwise', 'invested_in']
+Correct  : ['Vikram Pandit', 'Citigroup', 'employer']
+
+Iteration: 697
+API      : ['Alan Joyce', 'Qantas', 'chief_executive_officer.']
+Correct  : ['Qantas', 'Alan Joyce', 'chief_executive_officer\nAlan Joyce', 'Qantas', 'employer']
+
+Iteration: 698
+API      : ['Panasonic Corporation', 'Bellagio Hotel', 'owned_by']
+Correct  : ['Panasonic Corporation', 'Panasonic', 'owner_of']
+
+Iteration: 699
+API      : ['Ferrari', '$US1.4 million', 'has_revenue']
+Correct  : ['LaFerrari', 'Ferrari', 'brand\nLaFerrari', 'Ferrari', 'manufacturer']
+
+Iteration: 700
+API      : ['Reserve Bank of India (head)', 'Raghuram Rajan (tail)', 'told (none)']
+Correct  : ['Raghuram Rajan', 'Reserve Bank of India', 'employer']
+
+Iteration: 701
+API      : ['Ebix, Inc.', 'leading international supplier of On-Demand software and E-commerce services to the insurance, financial and healthcare industries, Ebix, Inc.', 'provider of end-to-end solutions']
+Correct  : ['software development', 'software', 'product_or_material_produced']
+
+ERROR:   There are no explicit triples mentioned in the given text. Triples require the mention of three distinct entities and a relation between them. The text only mentions 'ZIA deals' and 'financial services customers', but no specific entities or relations are stated. Therefore, it's not possible to determine the head, tail, or relation for any triplets based on the provided text.
+
+Iteration: 703
+API      : ['Eddy Cue', ':person:', 'wrote']
+Correct  : ['Twitter', 'Internet', 'industry']
+
+Iteration: 704
+API      : ['TELUS Corporation', 'net proceeds', 'used_for_refining']
+Correct  : ['TELUS', 'corporation', 'legal_form']
+
+Iteration: 705
+API      : ['Michael Horn', 'Volkswagen Group of America', 'president_and_ceo.']
+Correct  : ['Volkswagen Group', 'Volkswagen', 'business_division']
+
+Iteration: 706
+API      : ['Costa Coffee', 'experience and capabilities', 'has_developed']
+Correct  : ['Costa Coffee', 'coffee', 'product_or_material_produced']
+
+Iteration: 707
+API      : ['Grosvenor', 'Living Cities', 'philosophy_of']
+Correct  : ['Balfour Beatty', 'construction', 'industry']
+
+Iteration: 708
+API      : ['FTSE 100', 'Glencore', 'member_of']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 709
+API      : ['IBM', 'Berkshire Hathaway', 'owned_by']
+Correct  : ['Berkshire Hathaway', 'IBM', 'owner_of']
+
+Iteration: 710
+API      : ['Pawan Munjal', 'Hero MotoCorp', 'chairman_and_md']
+Correct  : ['Hero MotoCorp', 'Pawan Munjal', 'chief_executive_officer']
+
+Iteration: 711
+API      : ['South32', '21.65 million ounces', 'full_year_guidance']
+Correct  : ['South32', 'silver', 'product_or_material_produced']
+
+Iteration: 712
+API      : ['HDFC', 'SmartBuy', 'publisher']
+Correct  : ['hdfc', 'HDFC Bank', 'owned_by\nhdfc', 'HDFC Bank', 'operator']
+
+Iteration: 713
+API      : ['Europe', 'indexes', 'dragged_down']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 714
+API      : ['Marissa Mayer', 'CMO Today', 'publisher.']
+Correct  : ['Marissa Mayer', 'Yahoo', 'employer']
+
+Iteration: 715
+API      : ['Solera Holdings Inc', '(no tail)', 'legal_form (mention of a company)']
+Correct  : ['Solera Holdings', 'software', 'industry']
+
+Iteration: 716
+API      : ['Spire', 'mobile Internet channel', 'publisher']
+Correct  : ['Seamless', 'Internet', 'industry']
+
+Iteration: 717
+API      : ['Wesfarmers', 'Coles', 'accounts_for_percentage_of_profit']
+Correct  : ['Officeworks', 'Wesfarmers', 'parent_organization\nWesfarmers', 'Officeworks', 'subsidiary']
+
+Iteration: 718
+API      : ['Scotiabank', 'JPMorgan Chase', 'owned_by']
+Correct  : ['Mastercard', 'credit card', 'product_or_material_produced\nScotiabank', 'bank', 'industry']
+
+Iteration: 719
+API      : ['']
+Correct  : ['Boston Pizza', 'restaurant', 'product_or_material_produced']
+
+Iteration: 720
+API      : ['Kindra Hall', 'KindraHall.com', 'website_owner_of']
+Correct  : ['Moz', 'marketing', 'industry']
+
+Iteration: 721
+API      : ['41-year-old', 'Oxford Economics', 'employer']
+Correct  : ['Oxford Analytica', 'Oxford', 'headquarters_location']
+
+Iteration: 722
+API      : ['CEO(Doug McMillon)', 'company', 'defended']
+Correct  : ['Doug McMillon', 'Walmart', 'employer']
+
+Iteration: 723
+API      : ['Yes Bank', 'Mumbai', 'location_of_operations']
+Correct  : ['Yes Bank', 'Mumbai', 'headquarters_location']
+
+Iteration: 724
+API      : ['Worldpay Group', 'London Stock Exchange', 'listed_on']
+Correct  : ['WorldPay', 'London', 'headquarters_location']
+
+Iteration: 725
+API      : ['PLDT Smart', "Philippines' only integrated telco", 'legal_form']
+Correct  : ['PLDT', 'mobile phone', 'product_or_material_produced']
+
+Iteration: 726
+API      : ['Goldwind', 'none', 'legal_form (wind turbine maker)']
+Correct  : ['Goldwind', 'wind turbine', 'product_or_material_produced']
+
+Iteration: 727
+API      : ['']
+Correct  : ['Fresh', 'retail', 'industry']
+
+Iteration: 728
+API      : ['State', 'Hawaii', 'has_highest_average_closing_cost']
+Correct  : ['Arizona', 'New Jersey', 'location_of_formation']
+
+Iteration: 729
+API      : ['CommonBond', 'Prodigy', 'determiner_of_terms_and_conditions_of_student_loans.']
+Correct  : ['CommonBond', 'student loan', 'product_or_material_produced']
+
+Iteration: 730
+API      : ['Route 66 motor lodge (head)', 'Albuquerque (tail)', 'located_in.']
+Correct  : ['Bill Gates', 'Microsoft', 'owner_of']
+
+Iteration: 731
+API      : ['Alexis Tsipras', 'Greek Prime Minister', '_']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson\nSYRIZA', 'Athens', 'headquarters_location']
+
+Iteration: 732
+API      : ['Jamie Dimon', 'JPMorgan Chase & Co', 'CEO']
+Correct  : ['Jamie Dimon', 'JPMorgan Chase', 'employer']
+
+Iteration: 733
+API      : ['Premier Farnell', 'nil', 'stock_exchange']
+Correct  : ['Premier Farnell', 'electronics', 'industry']
+
+Iteration: 734
+API      : ['Associated British Foods', 'null', 'null']
+Correct  : ['Primark', 'clothing', 'product_or_material_produced\nPrimark', 'Associated British Foods', 'parent_organization\nPrimark', 'Associated British Foods', 'owned_by']
+
+Iteration: 735
+API      : ['Managing Director (Jay Wang)', 'Vantage', 'commented']
+Correct  : ['Prime', 'retail', 'industry']
+
+Iteration: 736
+API      : ['Brown (N.) Group', 'Vertu Motors (LSE: VTU.L - news )', 'legal_form (Vertu Motors is a legal form of Brown (N.) Group)']
+Correct  : ['Vertu', 'retail', 'industry']
+
+Iteration: 737
+API      : ['']
+Correct  : ['We', 'Avon', 'publisher']
+
+ERROR:   There is no specified relation in the given sentence. It only mentions the names of the people in the Monty Python team in a descriptive manner. Therefore, there are no triplets present in the sentence.
+
+Iteration: 739
+API      : ['Till Capital Ltd.', 'Bermuda', 'location_of_formation.']
+Correct  : ['fronting', 'insurance industry', 'industry\ninsurance company', 'insurance industry', 'industry']
+
+Iteration: 740
+API      : ['Lyft', 'Hertz Global Holdings Inc', 'partnered_with']
+Correct  : ['Lyft', 'San Francisco', 'headquarters_location']
+
+Iteration: 741
+API      : ['']
+Correct  : ['Quentin Purdy', 'district judge', 'position_held']
+
+Iteration: 742
+API      : ['Clarges Mayfair', 'British Land (LSE: BLND.L - news)', 'built_by']
+Correct  : ['British Land', 'London', 'headquarters_location\nApartment', 'London', 'location_of_formation']
+
+Iteration: 743
+API      : ['This multi-year initiative', 'our marketing campaigns', 'focusing_on']
+Correct  : ['Initiative', 'marketing', 'industry']
+
+Iteration: 744
+API      : ['Machinima Inc.', 'Microsoft Corp.', 'publisher']
+Correct  : ['Xbox', 'Microsoft', 'owned_by\nXbox One', 'Microsoft', 'developer']
+
+Iteration: 745
+API      : ['Vale', 'Glencore Plc, Bloomfield Group', 'seller']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 746
+API      : ['National Geographic Partners', 'National Geographic television channels', 'operates']
+Correct  : ['National Geographic Partners', 'joint venture', 'legal_form\nNational Geographic Partners', 'National Geographic', 'subsidiary']
+
+Iteration: 747
+API      : ['Samsung Electronics (005930.KS)', 'head quadrant', 'head of the organization']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 748
+API      : ['Airbus', 'Toulouse', 'location_of_formation.']
+Correct  : ['Airbus', 'Toulouse', 'headquarters_location']
+
+Iteration: 749
+API      : ['Oracle Data Cloud', 'Rentrak', 'partner_of.']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 750
+API      : ['e2b teknologies', 'developer', 'evel']
+Correct  : ['Epicor', 'software', 'industry']
+
+Iteration: 751
+API      : ['LexisNexis Legal & Professional', 'RELX Group plc', 'owned_by']
+Correct  : ['LexisNexis', 'RELX Group', 'owned_by\nLexisNexis', 'RELX Group', 'parent_organization']
+
+Iteration: 752
+API      : ['Himani Chandna', 'Hindustan Times', 'publisher.']
+Correct  : ['Hindustan Times', 'New Delhi', 'headquarters_location']
+
+Iteration: 753
+API      : ['General Motors Co', 'Buick', 'manufacturer']
+Correct  : ['Buick', 'General Motors', 'parent_organization\nBuick', 'General Motors', 'owned_by\nBuick', 'Detroit', 'headquarters_location']
+
+Iteration: 754
+API      : ['Comcast', 'NBC Universal', 'owned_by']
+Correct  : ['General Electric', 'NBC', 'subsidiary']
+
+Iteration: 755
+API      : ['Hero MotoCorp', 'none', 'none (This is the subject of the sentence, but it does not form a triplet as it is not linked to any other entity through a relation.)']
+Correct  : ['Hero MotoCorp', 'motorcycle', 'product_or_material_produced']
+
+Iteration: 756
+API      : ['Retailer1 (Target or Walmart or Office Depot or Staples)', 'Nothing', 'Nothing (Head)']
+Correct  : ['Office Depot', 'office supply', 'product_or_material_produced']
+
+ERROR:   There is no triplet present in the given sentence. The sentence is describing a directional trend, not making any statements about specific entities and their relations.
+
+Iteration: 758
+API      : ['Mary Barra', 'GM', 'CEO']
+Correct  : ['Mary Barra', 'General Motors', 'employer']
+
+Iteration: 759
+API      : ['We', '[Trulia, Zillow]', 'priority_of_support:']
+Correct  : ['Trulia', 'Zillow', 'parent_organization']
+
+Iteration: 760
+API      : ['Mark Zuckerberg', 'chief executive_of : Facebook']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 761
+API      : ['Prime minister Alexis Tsipras', 'Syriza party', 'guaranteeing']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 762
+API      : ['Areva (France)', 'EPRs (EPRs being built in France and Finland)', 'design_of']
+Correct  : ['Areva', 'France', 'parent_organization\nAreva', 'France', 'owned_by']
+
+Iteration: 763
+API      : ['Balfour Beatty Construction', 'Ronald McDonald House of San Diego', 'owner_of']
+Correct  : ['Balfour Beatty', 'construction', 'industry']
+
+Iteration: 764
+API      : ['Keller Rohrback', 'fishermen, landowners, businesses', 'representation.']
+Correct  : ['Exxon Valdez', 'Exxon', 'owned_by']
+
+ERROR:   There is no explicit triplet relation present in the given sentence. The sentence only provides comparative information about the percentage gain of specific companies (FireEye and CyberArk) and the Nasdaq Composite Index. No entities or relations are mentioned directly. If additional context or relations could be inferred from the given sentence, please let me know and I'll do my best to help.
+
+Iteration: 766
+API      : ['SAB Miller', 'Anheuser-Busch InBev SA', 'potential_bidder_for']
+Correct  : ['SABMiller', 'Anheuser-Busch InBev', 'parent_organization\nSABMiller', 'Anheuser-Busch InBev', 'owned_by']
+
+Iteration: 767
+API      : ['Federal parliament', 'film crew', 'legal_form:film_crew']
+Correct  : ['Secret City', 'Foxtel', 'distributed_by']
+
+Iteration: 768
+API      : ['deal', 'Dassault Aviation (French manufacturer)', 'manufacturer']
+Correct  : ['Rafale', 'Dassault Aviation', 'developer\nRafale', 'Dassault Aviation', 'manufacturer']
+
+Iteration: 769
+API      : ['local (Aboriginal community)', 'Mining company (Glencore)', 'had_no_right_to_contaminate']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 770
+API      : ['Technip', 'oil industry engineering and construction group', 'industry']
+Correct  : ['Technip', 'engineering', 'industry']
+
+Iteration: 771
+API      : ['Companies', "LVMH, Gucci owner Kering, L'Oreal", 'holding_company_or_parent_organization']
+Correct  : ['Gucci', 'Kering', 'parent_organization']
+
+ERROR:   This sentence does not provide enough information to form triples as there are no explicit entities or relations mentioned beyond "Fed Chair Janet Yellen and her colleagues" and "Federal Open Market Committee" which are not enough to determine the specific roles or relationships they hold. Therefore, no answer can be provided based on the given text.
+
+Iteration: 773
+API      : ['Continuing operations', '[the former Coty less Wella]', 'owned_by']
+Correct  : ['Wella', 'Coty', 'parent_organization\nWella', 'Coty', 'owned_by']
+
+Iteration: 774
+API      : ['Buffett', 'Kraft Heinz Company', 'formed_by.']
+Correct  : ['3G Capital', 'Heinz Company', 'owner_of']
+
+Iteration: 775
+API      : ['We', 'Intel', 'collaboration.']
+Correct  : ['Intel', 'software', 'product_or_material_produced']
+
+Iteration: 776
+API      : ['Unify Square', 'Microsoft Skype for Business/Lync', 'legal_form : partner']
+Correct  : ['skype', 'Microsoft', 'operator']
+
+Iteration: 777
+API      : ['Analyst', 'Patrick Moorhead', 'writes_about_company_offerings']
+Correct  : ['Samsung', 'electronics', 'product_or_material_produced']
+
+Iteration: 778
+API      : ['Isetan Mitsukoshi Holdings', 'Department store', '_']
+Correct  : ['Shiseido', 'cosmetics', 'product_or_material_produced']
+
+Iteration: 779
+API      : ['Warner Bros', 'event', 'hosted']
+Correct  : ['Warner Bros', 'Los Angeles', 'location_of_formation']
+
+Iteration: 780
+API      : ['Freecharge', 'Snapdeal', 'legal_form (or publisher)']
+Correct  : ['Snapdeal', 'e-commerce', 'industry\nFreecharge', 'e-commerce', 'industry\nFreecharge', 'Snapdeal', 'owned_by']
+
+Iteration: 781
+API      : ['Lauda', 'fleet', 'has_size : 30']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 782
+API      : ['']
+Correct  : ['Xstrata', 'Glencore', 'owned_by']
+
+Iteration: 783
+API      : ['We (head)', 'Recognized as an eight-time Gartner Magic Quadrant leader (tail)', 'leader (relation)']
+Correct  : ['Magic Quadrant', 'Gartner', 'creator\nMagic Quadrant', 'Gartner', 'owned_by']
+
+Iteration: 784
+API      : ['Triplet 1: Hikma Pharmaceuticals', 'HIK.L', 'legal_form (stock exchange ticker)']
+Correct  : ['Debenhams', 'retail', 'industry']
+
+Iteration: 785
+API      : ['Gigi Hadid', 'Seafolly', 'office_of']
+Correct  : ['Louis Vuitton', 'LVMH', 'parent_organization\nLVMH', 'Louis Vuitton', 'owner_of\nLouis Vuitton', 'LVMH', 'owned_by']
+
+Iteration: 786
+API      : ['Microsoft Corp.', 'Skype', 'owned_by.']
+Correct  : ['skype', 'Microsoft', 'operator']
+
+ERROR:   No explicit triplets can be identified in the given sentence based on the provided relations. The sentence describes a general property of Equinix data centers without establishing any specific triplet relationships between entities.
+
+Iteration: 788
+API      : ['Fluff, HOKA, Teva', 'work-from-home environment', 'seeks_out_/_desires']
+Correct  : ['UGG', 'footwear', 'product_or_material_produced']
+
+Iteration: 789
+API      : ['Airline customers', 'Boeing, Airbus', 'supplier']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 790
+API      : ['RBI', 'Raghuram Rajan', 'governor_of']
+Correct  : ['Raghuram Rajan', 'Reserve Bank of India', 'employer']
+
+Iteration: 791
+API      : ['Shell (LSE: RDSB.L - news )', 'Royal Dutch Shell (Xetra: R6C1.DE - news )', 'owner_of']
+Correct  : ['BG Group', 'Royal Dutch Shell', 'parent_organization']
+
+Iteration: 792
+API      : ['']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 793
+API      : ['Max Schrems', 'Austrian activist', 'initiation_of_case.']
+Correct  : ['Edward Snowden', 'National Security Agency', 'employer']
+
+Iteration: 794
+API      : ['chipmaker Intel', 'Altera', 'acquired_by']
+Correct  : ['Altera', 'Intel', 'parent_organization']
+
+Iteration: 795
+API      : ['Wipro Ltd', 'Bengaluru', 'location_of_formation']
+Correct  : ['Wipro', 'Bengaluru', 'headquarters_location']
+
+Iteration: 796
+API      : ['Apple Inc', 'Ad blockers', 'has_technology_that_helps_in']
+Correct  : ['Facebook', 'Facebook Inc', 'operator\nFacebook', 'Facebook Inc', 'owned_by\nFacebook Inc', 'Facebook', 'product_or_material_produced']
+
+Iteration: 797
+API      : ['Antonis Samaras', 'New Democracy', 'resigned_as_leader']
+Correct  : ['New Democracy', 'Antonis Samaras', 'chairperson']
+
+ERROR:   There are no explicitly stated triplets in the given sentence. The sentence is simply a question and does not contain any clear subject-predicate-object triplet structure. Additionally, none of the provided relations appear in the sentence.
+
+Iteration: 799
+API      : ['Western Digital', 'SanDisk', 'paid_cash:$67.50']
+Correct  : ['SanDisk', 'Western Digital', 'owned_by\nWestern Digital', 'SanDisk', 'owner_of\nSanDisk', 'Western Digital', 'parent_organization\nWestern Digital', 'SanDisk', 'subsidiary']
+
+Iteration: 800
+API      : ['Glencore', 'Mining and trading giant', 'self (head)']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 801
+API      : ['CLSA', 'Hong Kong', 'has_lost_advantage_as']
+Correct  : ['CLSA', 'Hong Kong', 'headquarters_location']
+
+Iteration: 802
+API      : ['Embraer', '59 aircraft', 'deferred_until_may_2022']
+Correct  : ['Airbus', 'aircraft', 'product_or_material_produced']
+
+Iteration: 803
+API      : ['Wesfarmers', 'Goyder', 'chief_executive_officer.']
+Correct  : ['Wesfarmers', 'conglomerate', 'industry']
+
+Iteration: 804
+API      : ['Burger King', 'McWhopper', 'created_by.']
+Correct  : ['Whopper', 'Burger King', 'manufacturer']
+
+Iteration: 805
+API      : ['Emmanuel Saez', 'University of California', 'professor_at']
+Correct  : ['58', 'California', 'location_of_formation']
+
+Iteration: 806
+API      : ['RBI', 'S. S. Mundra', 'spoke_about']
+Correct  : ['Raghuram Rajan', 'Reserve Bank of India', 'employer']
+
+Iteration: 807
+API      : ['Lloyd Blankfein', 'Goldman Sachs Group Inc', 'chief_executive_officer.']
+Correct  : ['Goldman Sachs', 'Lloyd Blankfein', 'chief_executive_officer\nLloyd Blankfein', 'Goldman Sachs', 'employer']
+
+Iteration: 808
+API      : ['Citigroup Inc', 'S&P 100 companies (excluding oil businesses)', 'highest_tax_rate.']
+Correct  : ['Citigroup', 'financial services', 'industry']
+
+Iteration: 809
+API      : ['He', 'father', 'owner_of (or: created_by)']
+Correct  : ['BASIC Programming', 'Atari 2600', 'platform']
+
+Iteration: 810
+API      : ['Forewind', 'RWE Innogy UK, SSE, Statkraft, Statoil', 'member_of']
+Correct  : ['Statkraft', 'energy', 'product_or_material_produced']
+
+Iteration: 811
+API      : ['Chey Tae-won', 'SK Holdings, SK Innovation, SK Hynix', 'chairperson, CEO']
+Correct  : ['SK Group', 'SK', 'owned_by']
+
+Iteration: 812
+API      : ['John', 'Canada’s next best to gold mine', 'builder']
+Correct  : ['gold mine', 'gold', 'product_or_material_produced']
+
+Iteration: 813
+API      : ['Oz Minerals', 'none', 'none']
+Correct  : ['OZ Minerals', 'copper', 'product_or_material_produced']
+
+Iteration: 814
+API      : ['Anheuser-Busch InBev ("Anheuser-Busch InBev")', 'SABMiller ("SABMiller")', 'merchant_of_goods_and_services :merger_or_acquisition:has_buyer.']
+Correct  : ['SABMiller', 'Anheuser-Busch InBev', 'parent_organization\nSABMiller', 'Anheuser-Busch InBev', 'owned_by']
+
+Iteration: 815
+API      : ['European business', 'mobility and seating', 'has_business_division.']
+Correct  : ['mobility', 'scooter', 'product_or_material_produced']
+
+Iteration: 816
+API      : ['LVMH', 'Louis Vuitton brand', 'sales_affected_by']
+Correct  : ['Louis Vuitton', 'LVMH', 'parent_organization\nLVMH', 'Louis Vuitton', 'owner_of\nLouis Vuitton', 'LVMH', 'owned_by']
+
+Iteration: 817
+API      : ['Marcus Banks, Ashton de Silva, Roslyn Russell', 'report', 'writer']
+Correct  : ['Roslyn Russell', 'RMIT University', 'employer']
+
+Iteration: 818
+API      : ['']
+Correct  : ['Gameloft', 'Vivendi', 'owned_by\nGameloft', 'Vivendi', 'parent_organization\nVivendi', 'Gameloft', 'subsidiary']
+
+Iteration: 819
+API      : ['Swissport', 'approx:700', 'aviation_customers']
+Correct  : ['Swissport', 'aviation', 'industry']
+
+Iteration: 820
+API      : ['Dean Foods Co', 'largest U.S. milk processor', 'company']
+Correct  : ['Dean Foods', 'milk', 'product_or_material_produced']
+
+Iteration: 821
+API      : ['Anglo American (LSE: AAL.L - news )', 'null', 'legal_form']
+Correct  : ['Direct Line', 'insurance', 'product_or_material_produced']
+
+Iteration: 822
+API      : ['Sony BRAVIA 4K LED', 'nothing', 'nothing.']
+Correct  : ['Bravia', 'Sony', 'owned_by']
+
+Iteration: 823
+API      : ['Glenn Stevens', 'Reserve Bank of Australia', 'governor']
+Correct  : ['Glenn Stevens', 'Reserve Bank of Australia', 'employer']
+
+Iteration: 824
+API      : ['Apple Inc.', 'Information Technology', 'publisher.']
+Correct  : ['Apple Inc', 'information technology', 'industry']
+
+Iteration: 825
+API      : ['Canaccord Genuity', 'Premier Oil', 'legal_form: "upgraded its recommendation"']
+Correct  : ['Premier Oil', 'London', 'headquarters_location']
+
+Iteration: 826
+API      : ['Marissa Mayer', 'CEO', 'Yahoo']
+Correct  : ['Marissa Mayer', 'Yahoo', 'employer']
+
+Iteration: 827
+API      : ['Zeta Interactive (Zeta)', 'NEW YORK', 'location_of_formation']
+Correct  : ['Zeta Interactive', 'New York', 'headquarters_location']
+
+Iteration: 828
+API      : ['Metal and mining stocks', 'Glencore', 'saw_a_slump_of (30 per cent)', 'slump']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 829
+API      : ['Sergio Marchionne', 'Fiat Chrysler', 'ceo']
+Correct  : ['Sergio Marchionne', 'Fiat', 'employer']
+
+Iteration: 830
+API      : ['Matthias Kroll', 'ECB', 'argues_for']
+Correct  : ['Eurozone', 'euro', 'currency']
+
+Iteration: 831
+API      : ['Mattel', 'Mattel Girls & Boys Brands', 'has_brand : Barbie']
+Correct  : ['Mattel', 'Fisher-Price', 'owner_of\nMattel', 'Barbie', 'owner_of\nMattel', 'Fisher-Price', 'subsidiary']
+
+Iteration: 832
+API      : ['Arun Jaitley', 'Bandhan Bank', 'inaugurates.']
+Correct  : ['Bandhan Bank', 'Kolkata', 'headquarters_location\nBandhan Bank', 'Finance', 'industry']
+
+Iteration: 833
+API      : ['Target Corp.', 'Instacart', 'partner_with']
+Correct  : ['Instacart', 'delivery', 'industry']
+
+Iteration: 834
+API      : ['GoPro Hero 3+ camera', 'Nasdaq Market Site', 'location_of_appearance']
+Correct  : ['GoPro', 'NASDAQ', 'stock_exchange']
+
+Iteration: 835
+API      : ['Tata Motors', 'Senior Vice President, Commercial Vehicles Business Unit, Tata Motors', 'relation_not_identified']
+Correct  : ['Tata Magic', 'Tata Motors', 'manufacturer']
+
+Iteration: 836
+API      : ['TURIN', 'Reuters', 'publisher']
+Correct  : ['Sergio Marchionne', 'Fiat', 'employer']
+
+Iteration: 837
+API      : ['FedEx', 'TNT', 'acquired_by']
+Correct  : ['FedEx', 'TNT', 'owner_of']
+
+Iteration: 838
+API      : ['JetLease Capital', '$2,000,000', 'legal_form:loan_financing']
+Correct  : ['Citation', 'Cessna', 'manufacturer']
+
+Iteration: 839
+API      : ['Kinross Gold Corporation', 'Kinross Gold Corporation or its subsidiaries', 'identity']
+Correct  : ['Kinross Gold', 'corporation', 'legal_form']
+
+Iteration: 840
+API      : ['Bank of America', 'Brian Moynihan', 'chairperson']
+Correct  : ['Brian Moynihan', 'Bank of America', 'employer']
+
+Iteration: 841
+API      : ['Phillips 66', '$79.97', 'price']
+Correct  : ['Berkshire Hathaway', 'Phillips 66', 'owner_of\nPhillips 66', 'Berkshire Hathaway', 'owned_by']
+
+Iteration: 842
+API      : ['Petra Diamonds', "Sovereign's Sceptre", 'legal_form']
+Correct  : ['Petra Diamonds', 'diamond', 'industry']
+
+Iteration: 843
+API      : ['Triplet 1: Evraz (EVR)', 'none', 'legal_form (company)']
+Correct  : ['Lonmin', 'mining', 'industry']
+
+Iteration: 844
+API      : ['Athens General Index', "tsipras's newly elected Syriza government", 'fluctuated']
+Correct  : ['SYRIZA', 'Athens', 'headquarters_location']
+
+Iteration: 845
+API      : ['']
+Correct  : ['BayernLB', 'Bavaria', 'owned_by\nBayernLB', 'Munich', 'headquarters_location']
+
+Iteration: 846
+API      : ['Committee', 'YLE', 'reporter']
+Correct  : ['Yle', 'Helsinki', 'location_of_formation']
+
+Iteration: 847
+API      : ['Gunvor', 'co-founder', 'Gunvor']
+Correct  : ['Gunvor', 'Gennady Timchenko', 'founded_by']
+
+Iteration: 848
+API      : ['Dixons', 'Sprint', 'supplier_of']
+Correct  : ['Dixons', 'retail', 'industry']
+
+Iteration: 849
+API      : ['Bitstamp', 'Bitcoins', 'customer_of']
+Correct  : ['Bitstamp', 'bitcoin', 'industry']
+
+Iteration: 850
+API      : ['Kimberly-Clark', 'Brands(:Kleenex, :Scott, :Huggies, :Pull-Ups, :Kotex, :Depend)', 'holds.']
+Correct  : ['Kotex', 'Kimberly-Clark', 'manufacturer']
+
+Iteration: 851
+API      : ['Amazon', 'Prime Video', 'legal_form (or platform)']
+Correct  : ['Prime Video', 'Amazon', 'developer\nPrime Video', 'Amazon', 'founded_by\nPrime Video', 'Amazon', 'parent_organization']
+
+Iteration: 852
+API      : ['FedEx', 'TNT', 'acquired_by']
+Correct  : ['FedEx', 'TNT', 'owner_of']
+
+ERROR:   There is no triplet present in the given sentence. The sentence only mentions the name of two companies and their stock price percentage change.
+
+Iteration: 854
+API      : ['Telstra TV', 'Foxtel', 'potentially_an_instance_of : another_nail_in_the_ Coffin']
+Correct  : ['Foxtel', 'Telstra', 'owned_by\nTelstra', 'Foxtel', 'owner_of']
+
+Iteration: 855
+API      : ['IBM Services', '2400', 'has_number_of_clients']
+Correct  : ['Red Hat', 'IBM', 'parent_organization']
+
+Iteration: 856
+API      : ['Bayer', 'Covestro', 'owned_by']
+Correct  : ['Covestro', 'Bayer', 'owned_by']
+
+Iteration: 857
+API      : ['Chrysler Group', 'Auburn Hills, Michigan', 'location_of_headquarters']
+Correct  : ['Chrysler', 'Fiat Chrysler Automobiles', 'owned_by']
+
+Iteration: 858
+API      : ['Toyota', 'Lexus Rx, Lexus NX, Toyota Sequoia', 'winner_of : This triplet represents that Toyota is the winner of the seat heater awards for the mentioned car models.']
+Correct  : ['Lexus RX', 'Toyota', 'manufacturer\nLexus', 'Toyota', 'parent_organization\nLexus', 'Toyota', 'owned_by']
+
+Iteration: 859
+API      : ['Apple', 'Apple Music', 'launched_music_streaming_service.']
+Correct  : ['Launched', 'music streaming', 'distribution_format']
+
+Iteration: 860
+API      : ['Triplet 1: Amec Foster Wheeler (AMFW)', 'Other OTC: AMCBF - news', 'legal_form']
+Correct  : ['Electrocomponents', 'Oxford', 'headquarters_location']
+
+Iteration: 861
+API      : ['Glencore', 'FTSE : top_FTSE_stock']
+Correct  : ['Glencore', 'mining', 'industry']
+
+Iteration: 862
+API      : ['CalPERS', 'Peabody Energy', 'investment_in']
+Correct  : ['Peabody Energy', 'coal mining', 'industry']
+
+Iteration: 863
+API      : ['Intel', 'Altera', 'acquired_by']
+Correct  : ['Altera', 'Intel', 'parent_organization']
+
+Iteration: 864
+API      : ['Apple Inc', 'Apple Pay', 'payment_system :legal_form: Apple Inc']
+Correct  : ['Apple Inc', 'Apple Pay', 'product_or_material_produced\nApple Pay', 'Apple Inc', 'developer\nApple Pay', 'Apple Inc', 'owned_by']
+
+Iteration: 865
+API      : ['head : Kavin Bharti Mittal', 'tail : none', 'rel : none']
+Correct  : ['Hike', 'Kavin Bharti Mittal', 'founded_by']
+
+Iteration: 866
+API      : ['Yum Brands', '$86.11', 'price']
+Correct  : ['Yum Brands', 'KFC', 'subsidiary\nYum Brands', 'Pizza Hut', 'owner_of\nYum Brands', 'Pizza Hut', 'subsidiary\nYum Brands', 'KFC', 'owner_of']
+
+Iteration: 867
+API      : ['General Mills', '"General Mills sets ambitious goal for greenhouse gas cuts"', 'sets_goal_for']
+Correct  : ['Steve', 'Associated Press', 'employer']
+
+Iteration: 868
+API      : ['Aam Aadmi Party', 'Bharatiya Janata Party', 'manages_or_controls']
+Correct  : ['Narendra Modi', 'Bharatiya Janata Party', 'member_of']
+
+Iteration: 869
+API      : ['Alan Joyce', 'Qantas', 'chief_executive_officer.']
+Correct  : ['Qantas', 'Alan Joyce', 'chief_executive_officer\nAlan Joyce', 'Qantas', 'employer']
+
+Iteration: 870
+API      : ['']
+Correct  : ['Impact', 'CD', 'distribution_format']
+
+Iteration: 871
+API      : ['Microsoft', 'Windows 10', 'says_about', 'cumulative_updates.']
+Correct  : ['Windows 10', 'Microsoft', 'developer']
+
+Iteration: 872
+API      : ['Willis Group Holdings', 'Towers Watson', 'merger_of']
+Correct  : ['Willis Group', 'insurance broker', 'industry']
+
+ERROR:   There is no triplet present in the given sentence. The sentence just mentions the leader of Plaid Cymru and what her party has campaigned for. There are no entities and relations explicitly stated.
+
+Iteration: 874
+API      : ['Telefónica Infra', ':developer.']
+Correct  : ['Telefónica Deutschland', 'Telefónica', 'parent_organization\nTelefónica', 'Telefónica Deutschland', 'subsidiary']
+
+Iteration: 875
+API      : ['888 Holdings', 'Bwin.party Digital Entertainment', 'acquired']
+Correct  : ['888 Holdings', 'gambling', 'industry']
+
+Iteration: 876
+API      : ['Prime Minister Narendra Modi', 'finance minister Arun Jaitley', 'realised_an_option']
+Correct  : ['Prime', 'retail', 'industry']
+
+Iteration: 877
+API      : ['Instacart', '2,400 locations', 'expanded']
+Correct  : ['Instacart', 'delivery', 'industry']
+
+Iteration: 878
+API      : ['Mimecast', 'Nasdaq Global Market', 'listed_on']
+Correct  : ['Mimecast', 'NASDAQ', 'stock_exchange']
+
+Iteration: 879
+API      : ['Weight Watchers', 'Havas Worldwide', 'engaged_in_developing_work_for']
+Correct  : ['Havas Worldwide', 'advertising', 'industry']
+
+Iteration: 880
+API      : ['Jobs', 'Los Altos, California', 'location_of_formation']
+Correct  : ['Apple II', 'Steve Wozniak', 'developer']
+
+Iteration: 881
+API      : ['Media companies', 'US media', 'stock_exchange']
+Correct  : ['TO', 'video on demand', 'distribution_format\nResults', 'video on demand', 'distribution_format\nTanked', 'video on demand', 'distribution_format\nTelevision', 'video on demand', 'distribution_format']
+
+Iteration: 882
+API      : ['KKR', 'Marshall Wace', 'backed_by']
+Correct  : ['Marshall Wace', 'hedge fund', 'industry']
+
+Iteration: 883
+API      : ['General Electric', 'U.S. conglomerate', 'legal_form:conglomerate.']
+Correct  : ['General Electric', 'conglomerate', 'industry']
+
+Iteration: 884
+API      : ['comScore', 'Rentrak', 'acquires']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 885
+API      : ['Hormel Foods', ':earned:']
+Correct  : ['Dinty Moore', 'Hormel', 'owned_by']
+
+Iteration: 886
+API      : ['']
+Correct  : ['Eurozone', 'euro', 'currency']
+
+ERROR:   There is no triplet present in the given sentence. The sentence only expresses a comparison between two entities (Premier Farnell and an unspecified electronics provider) and a statement about the dividend outlook at Premier Farnell.
+
+Iteration: 888
+API      : ['Thomson Reuters', 'paramount intelligent information and analytics providers', "industry's leading provider of intelligent information and analytics"]
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 889
+API      : ['The NASDAQ OMX Group, Inc.', 'Nasdaq', 'publisher.']
+Correct  : ['Medigus', 'NASDAQ', 'stock_exchange']
+
+Iteration: 890
+API      : ['Suresh Sethi', 'Vodafone M-pesa', 'business_head.']
+Correct  : ['Vodafone', 'M-Pesa', 'owner_of']
+
+Iteration: 891
+API      : ['Ray Dalio', 'Bridgewater Associates', 'owner_of']
+Correct  : ['Bridgewater Associates', 'Ray Dalio', 'founded_by\nBridgewater Associates', 'Ray Dalio', 'director_/_manager']
+
+Iteration: 892
+API      : ['Alan Joyce', 'Qantas', 'total_salary']
+Correct  : ['Qantas', 'Alan Joyce', 'chief_executive_officer\nAlan Joyce', 'Qantas', 'employer']
+
+Iteration: 893
+API      : ['Austrian', 'Dubai', "terminate (relation not explicitly stated, but can be inferred as 'owned_by' or 'operated_by' since Austrian is terminating Dubai route)"]
+Correct  : ['SunExpress', 'Lufthansa', 'owned_by\nLufthansa', 'SunExpress', 'subsidiary\nLufthansa', 'Lufthansa Cargo', 'subsidiary']
+
+Iteration: 894
+API      : ['Fortum', 'none', 'none']
+Correct  : ['Uniper', 'Fortum', 'owned_by\nFortum', 'Uniper', 'owner_of']
+
+Iteration: 895
+API      : ['Kimberly-Clark', ': disclaimer', 'has_relation_of : note_of']
+Correct  : ['Huggies', 'Kimberly-Clark', 'owned_by\nHuggies', 'Kimberly-Clark', 'parent_organization']
+
+Iteration: 896
+API      : ['']
+Correct  : ['Eurozone', 'euro', 'currency']
+
+ERROR:   There is no explicit triplet relationship stated in the given text. The text only mentions the location and date of the 2015 Platts Global Energy Awards dinner where the winners will be announced.
+
+Iteration: 898
+API      : ['CEO of Westpac', 'Brian Hartzer', 'head']
+Correct  : ['Brian Hartzer', 'Westpac', 'employer']
+
+Iteration: 899
+API      : ['JPMorgan Chase & Co', 'Jamie Dimon', 'chairperson']
+Correct  : ['Jamie Dimon', 'JPMorgan Chase', 'employer']
+
+Iteration: 900
+API      : ['Sanofi', 'Regeneron Pharmaceuticals Inc.', 'partner']
+Correct  : ['Sanofi', 'Regeneron Pharmaceuticals', 'owner_of']
+
+Iteration: 901
+API      : ['Twitter', 'co-founder Jack Dorsey', 'replaced_as_CEO']
+Correct  : ['Dick Costolo', 'Twitter', 'employer']
+
+Iteration: 902
+API      : ['Jeroen Dijsselbloem', 'Eurogroup', 'head']
+Correct  : ['Eurogroup', 'Jeroen Dijsselbloem', 'chairperson']
+
+ERROR:   There is no triplet relation in the given sentence. The sentence only mentions the name of three entities and their percentage of decrease. Therefore, there is no head, tail, or relation present in this sentence.
+
+Iteration: 904
+API      : ['Twenth Century Fox', 'Rupert Murdoch', 'owner_of.']
+Correct  : ['News Corporation', 'Rupert Murdoch', 'founded_by\nNews Corporation', 'Rupert Murdoch', 'chief_executive_officer\nRupert Murdoch', '21st Century Fox', 'owner_of']
+
+Iteration: 905
+API      : ['Platts', 'figure', 'published']
+Correct  : ['Platts', 'Global', 'parent_organization\nPlatts', 'Global', 'owned_by']
+
+Iteration: 906
+API      : ['Standard Chartered', 'London Metals Exchange', 'signed\\_agreement.']
+Correct  : ['Standard Chartered', 'London', 'location_of_formation\nStandard Chartered', 'London', 'headquarters_location']
+
+Iteration: 907
+API      : ['Abcam', 'LSE: ABC.L', 'legal_form (or listed_company)']
+Correct  : ['Games Workshop', 'London', 'location_of_formation']
+
+Iteration: 908
+API      : ['Hulu', "Lions Gate Entertainment Corp, MGM Studios Inc, Viacom Inc's Paramount Pictures", 'distributor_of']
+Correct  : ['Paramount Pictures', 'Viacom', 'owned_by']
+
+Iteration: 909
+API      : ['Nektar', 'BXCL701', 'legal_form']
+Correct  : ['Avelumab', 'Merck KGaA', 'manufacturer\nAvelumab', 'Pfizer', 'manufacturer']
+
+Iteration: 910
+API      : ['ComScore', 'Rentrak', 'merged_entities (or merged_companies)']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 911
+API      : ['Carl Icahn', 'Pershing Square', 'investor_of']
+Correct  : ['JANA Partners', 'Barry Rosenstein', 'founded_by\nBarry Rosenstein', 'JANA Partners', 'employer']
+
+Iteration: 912
+API      : ['Klaus Kleinfeld', 'Alcoa Inc', 'CEO']
+Correct  : ['Alcoa', 'Klaus Kleinfeld', 'director_/_manager\nKlaus Kleinfeld', 'chief executive officer', 'position_held']
+
+Iteration: 913
+API      : ['GE Capital Commercial Distribution Finance', 'General Electric Capital', 'has_parent_organization.']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 914
+API      : ['Amazon', 'AmazonFresh', 'service_offered']
+Correct  : ['AmazonFresh', 'retail', 'industry\nAmazonFresh', 'Amazon', 'parent_organization']
+
+Iteration: 915
+API      : ['Steve Ballmer', 'Twitter (TWTR.N)', 'owns_by']
+Correct  : ['Steve Ballmer', 'Microsoft', 'employer\nSteve Ballmer', 'Microsoft', 'owner_of']
+
+Iteration: 916
+API      : ['Tokyo', 'stocks', 'leader']
+Correct  : ['Lead', 'Japan', 'location_of_formation']
+
+Iteration: 917
+API      : ['Google Inc', 'Google Authenticator app', 'app_is', '']
+Correct  : ['Google Authenticator', 'Google', 'manufacturer\nGoogle Authenticator', 'Google', 'developer']
+
+Iteration: 918
+API      : ['Base metals producers', 'London Metal Exchange', 'legal_form (or: platform)']
+Correct  : ['Producers', 'London', 'location_of_formation']
+
+Iteration: 919
+API      : ['P&G', 'Duracell battery division', 'employer']
+Correct  : ['Duracell', 'Berkshire Hathaway', 'owned_by\nDuracell', 'battery', 'product_or_material_produced\nDuracell', 'Berkshire Hathaway', 'parent_organization']
+
+ERROR:   This sentence does not contain any explicitly stated triplets with the given relations. Therefore, there is no answer to provide.
+
+Iteration: 921
+API      : ['Redmi 2 Prime', 'India', 'assembled_in']
+Correct  : ['Redmi', 'Xiaomi', 'parent_organization\nRedmi', 'Xiaomi', 'manufacturer']
+
+Iteration: 922
+API      : ['Visa', 'PayPal', 'partner_of.']
+Correct  : ['iZettle', 'PayPal', 'parent_organization']
+
+Iteration: 923
+API      : ['comScore', 'WPP PLC', 'has_significant_shareholder.']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 924
+API      : ['Arkhom Termpittayapaisith', 'Thai Transport Minister', 'head']
+Correct  : ['Thai Airways', 'Bangkok', 'location_of_formation']
+
+Iteration: 925
+API      : ['iBiquity', 'USA Digital Radio', 'merged_with.']
+Correct  : ['WHEN', 'iHeartMedia', 'owned_by\nCBS Radio', 'radio', 'industry']
+
+Iteration: 926
+API      : ['Mr. Levick', 'PlayStation users', 'has_audience_of']
+Correct  : ['Create', 'PlayStation', 'platform']
+
+Iteration: 927
+API      : ['Italian oil and gas group Eni (Swiss: ENI.SW)', '', 'producer_of_news']
+Correct  : ['Saipem', 'Eni', 'parent_organization']
+
+Iteration: 928
+API      : ['Catherine', 'Minneapolis', 'location_of_finding']
+Correct  : ['Come', 'Boston', 'location_of_formation']
+
+Iteration: 929
+API      : ['Bank of America Merrill Lynch', '', '']
+Correct  : ['Citigroup', 'BlackRock', 'owned_by']
+
+Iteration: 930
+API      : ['He', 'computer program', 'developed']
+Correct  : ['program', 'computer', 'platform']
+
+Iteration: 931
+API      : ['Kingsoft Cloud', 'subsidiary', 'owned_by (or: operated_by)']
+Correct  : ['Cheetah Mobile', 'Kingsoft', 'owned_by\nCheetah Mobile', 'Kingsoft', 'parent_organization']
+
+Iteration: 932
+API      : ['Le Peigne', 'LVMH boss Bernard Arnault, his family', 'manages_money_on_behalf_of']
+Correct  : ['LVMH', 'Bernard Arnault', 'director_/_manager\nLVMH', 'Bernard Arnault', 'chief_executive_officer']
+
+ERROR:   There are no explicit triples mentioned in the given sentence. The sentence appears to be describing some initiatives performed by Vivo and Fundacao Telefónica Vivo without specifying any particular relationships between the entities involved.
+
+Iteration: 934
+API      : ['companies', 'Chicago, South Dallas, South Atlanta', 'location_of_formation']
+Correct  : ['Amazon Prime', 'Amazon', 'owned_by']
+
+Iteration: 935
+API      : ['Andy Penn', 'Chief executive officer of Telstra', 'head']
+Correct  : ['David Thodey', 'Telstra', 'employer\nTelstra', 'David Thodey', 'chief_executive_officer']
+
+Iteration: 936
+API      : ['General Electric Company', 'GE Capital', 'owned_by']
+Correct  : ['GE Capital', 'General Electric', 'owned_by\nGE Capital', 'General Electric', 'parent_organization\nGeneral Electric', 'GE Capital', 'owner_of']
+
+Iteration: 937
+API      : ['Anheuser-Busch InBev', 'SABMiller', 'asking_for_debt_financing']
+Correct  : ['SABMiller', 'Anheuser-Busch InBev', 'parent_organization\nSABMiller', 'Anheuser-Busch InBev', 'owned_by']
+
+Iteration: 938
+API      : ['Google', 'Chromecast', 'seller_or_vendor']
+Correct  : ['Chromecast', 'Google', 'manufacturer\nChromecast', 'Google', 'developer']
+
+Iteration: 939
+API      : ['eBay', 'PayPal', 'will_trade_as_an_independent']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+ERROR:   The given sentence does not contain sufficient information to form any valid triplets based on the given relations. It only mentions 'Sky Italia', 'Sky Deutschland', and 'firm' in a context of an acquisition that might lead to further growth. However, it does not provide any information about who is the legal form or publisher of the firm, or who are the publishers or owners of Sky Italia and Sky Deutschland. It also does not mention any relations such as 'employer', 'manufacturer', 'chairperson', 'industry', and others. Therefore, no valid triplets can be extracted from this sentence.
+
+Iteration: 941
+API      : ['I. Lysol', 'Reckitt Benckiser', 'owned_by']
+Correct  : ['Lysol', 'Reckitt', 'owned_by\nLysol', 'Reckitt', 'manufacturer']
+
+Iteration: 942
+API      : ['Triplet 1: MGM', 'Hannibal (film)', 'legal_form (or: distribution_format)']
+Correct  : ['Hannibal Lecter', 'Thomas Harris', 'creator\nOrion Pictures', 'film', 'product_or_material_produced\nClarice Starling', 'Thomas Harris', 'creator']
+
+Iteration: 943
+API      : ['David Thodey', 'Telstra', 'announcer_of']
+Correct  : ['David Thodey', 'Telstra', 'employer\nTelstra', 'David Thodey', 'chief_executive_officer']
+
+Iteration: 944
+API      : ['Transurban', 'this category', 'has_forecasted_increase_in_net_debt: $6.2_million']
+Correct  : ['Queensland Motorways', 'Transurban', 'owned_by']
+
+Iteration: 945
+API      : ['private equity industry', 'decades', 'changed']
+Correct  : ['David Rubenstein', 'Carlyle Group', 'employer\nCarlyle Group', 'David Rubenstein', 'chief_executive_officer\nCarlyle Group', 'David Rubenstein', 'founded_by']
+
+Iteration: 946
+API      : ['Timo Soini', "Finland's eurosceptic Finns Party", 'publisher']
+Correct  : ['Finns Party', 'Timo Soini', 'chairperson\nFinns Party', 'Timo Soini', 'founded_by']
+
+Iteration: 947
+API      : ['Zovio', 'University of Arizona Global Campus', 'enter_into_agreement.']
+Correct  : ['Zovio', 'The University of Arizona Global Campus', 'subsidiary']
+
+Iteration: 948
+API      : ['']
+Correct  : ['| hdfc', 'HDFC Bank', 'owned_by\nhdfc', 'HDFC Bank', 'operator']
+
+Iteration: 949
+API      : ['Worldpay', 'Royal Bank of Scotland', 'owned_by']
+Correct  : ['WorldPay', 'Advent International', 'parent_organization']
+
+Iteration: 950
+API      : ['TCL', 'Transurban', 'stock_exchange : $9.91']
+Correct  : ['Queensland Motorways', 'Transurban', 'owned_by']
+
+Iteration: 951
+API      : ['KFC', 'Paramus, New Jersey', 'location_of_formation']
+Correct  : ['Yum Brands', 'KFC', 'subsidiary\nYum Brands', 'KFC', 'owner_of']
+
+Iteration: 952
+API      : ['I', 'Mylan and Viatris', 'employer, owner_of']
+Correct  : ['Viatris', 'Mylan', 'subsidiary\nMylan', 'Viatris', 'parent_organization']
+
+Iteration: 953
+API      : ['she', 'report', 'informed_about_the_findings_of']
+Correct  : ['Google Docs', 'Google', 'owned_by\nGoogle Hangouts', 'Google', 'creator\nGoogle Docs', 'Google', 'developer\nGoogle Hangouts', 'Google', 'developer']
+
+Iteration: 954
+API      : ['Jeroen Dijsselbloem', 'Eurogroup', 'saying']
+Correct  : ['Eurogroup', 'Jeroen Dijsselbloem', 'chairperson']
+
+Iteration: 955
+API      : ['']
+Correct  : ['Swoosh', 'Nike', 'owned_by']
+
+Iteration: 956
+API      : ['Visa Inc', 'Visa Europe', 'discussed_deal_terms_for']
+Correct  : ['Visa Inc', 'Visa Europe', 'subsidiary\nVisa Europe', 'Visa Inc', 'parent_organization']
+
+Iteration: 957
+API      : ['Boeing', 'Dennis Muilenburg', 'not related_to', 'price Increases (annual exercise)']
+Correct  : ['Boeing', 'Dennis Muilenburg', 'chief_executive_officer\nDennis Muilenburg', 'Boeing', 'employer']
+
+Iteration: 958
+API      : ['Anheuser-Busch InBev', 'SABMiller', 'acquired_by']
+Correct  : ['SABMiller', 'Anheuser-Busch InBev', 'parent_organization\nSABMiller', 'Anheuser-Busch InBev', 'owned_by']
+
+Iteration: 959
+API      : ['BlackRock Inc.', 'Prosper', 'sold_by']
+Correct  : ['Citigroup', 'BlackRock', 'owned_by']
+
+Iteration: 960
+API      : ['Italian shipbuilder', 'Fincantieri', 'head']
+Correct  : ['Fincantieri', 'Rome', 'location_of_formation']
+
+Iteration: 961
+API      : ['']
+Correct  : ['Viacom', 'CBS', 'owned_by\nViacom', 'CBS', 'subsidiary\nViacom', 'CBS', 'parent_organization']
+
+Iteration: 962
+API      : ['ACCC', 'News', 'considers']
+Correct  : ['Foxtel', 'News Corp', 'owned_by']
+
+Iteration: 963
+API      : ['we', 'Viacom CBS', 'has_agreement_for_multiyear_renewal']
+Correct  : ['Viacom', 'CBS', 'owned_by\nViacom', 'CBS', 'subsidiary\nViacom', 'CBS', 'parent_organization']
+
+Iteration: 964
+API      : ['Mark Zuckerberg', 'Facebook co-founder', 'type: person, legal_form']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 965
+API      : ['FIAT Chrysler', 'about two-dozen recalls', 'has_resulted_in_deal_with_safety_regulators']
+Correct  : ['Ram Pickup', 'Chrysler', 'manufacturer']
+
+ERROR:   There is no clear triplet in the given sentence as it does not include specific entities or relations mentioned in the provided list. The sentence only talks about increasing the share of checkout using PayPal or Venmo.
+
+Iteration: 967
+API      : ['Lavazza', 'Carte Noire', 'owned_by']
+Correct  : ['Lavazza', 'Carte Noire', 'owner_of']
+
+Iteration: 968
+API      : ['Deezer', '300 million euros', 'fundraising']
+Correct  : ['Deezer', 'Paris', 'headquarters_location\nRaise', 'music streaming', 'distribution_format']
+
+Iteration: 969
+API      : ['Stringer', 'British man running the Sony American operations', 'head']
+Correct  : ['Walkman', 'Sony', 'manufacturer']
+
+Iteration: 970
+API      : ['Reference U.S. Treasury Security', 'Series', 'reference_security']
+Correct  : ['Morgan Stanley', 'New York City', 'location_of_formation\nMorgan Stanley', 'New York City', 'headquarters_location\nCitigroup', 'New York City', 'location_of_formation\nCitigroup', 'New York City', 'headquarters_location']
+
+Iteration: 971
+API      : ['Alexis Tsipras', 'prime minister of Greece', 'legal_form.']
+Correct  : ['SYRIZA', 'Alexis Tsipras', 'chairperson']
+
+Iteration: 972
+API      : ['IAG', 'Aer Lingus', 'owned_by']
+Correct  : ['Aer Lingus', 'Dublin Airport', 'headquarters_location\nAer Lingus', 'Dublin', 'location_of_formation']
+
+Iteration: 973
+API      : ['Huawei', 'Nexus 6P', 'product_or_material_produced.']
+Correct  : ['Nexus 6P', 'Huawei', 'developer\nNexus 6P', 'Huawei', 'manufacturer\nNexus 6P', 'Google', 'developer']
+
+Iteration: 974
+API      : ['Dewa', 'Dubai World Central', 'location_of_construction']
+Correct  : ['Dubai World', 'Dubai', 'location_of_formation\nDubai World', 'Dubai', 'headquarters_location']
+
+Iteration: 975
+API      : ['Vodafone Spain', 'None', 'legal_form (following Ono purchase)']
+Correct  : ['Vodafone', 'ONO', 'subsidiary']
+
+Iteration: 976
+API      : ['Vodafone', ':none:', 'none']
+Correct  : ['Vodafone', 'ONO', 'subsidiary\nVodafone', 'London', 'headquarters_location']
+
+Iteration: 977
+API      : ['Vodafone Group', 'Vodafone Ghana', 'communicated_information']
+Correct  : ['Vodafone Ghana', 'Vodafone', 'parent_organization\nVodafone', 'Vodafone Ghana', 'subsidiary']
+
+Iteration: 978
+API      : ['Rackspace Technology', 'leader', 'named_as_a_leader_in']
+Correct  : ['Magic Quadrant', 'Gartner', 'creator\nMagic Quadrant', 'Gartner', 'owned_by']
+
+Iteration: 979
+API      : ['Jim Cramer', 'TheStreet', 'speaker_or_author_of']
+Correct  : ['Nordstrom Rack', 'Nordstrom', 'parent_organization']
+
+Iteration: 980
+API      : ['I', 'Spotify', 'question_on']
+Correct  : ['Answer', 'Spotify', 'distributed_by']
+
+Iteration: 981
+API      : ['Oracle Corporation', 'Rimini Street, Inc.', 'legal_form (Oracle vs. Rimini Street)']
+Correct  : ['PeopleSoft', 'JD Edwards', 'subsidiary']
+
+Iteration: 982
+API      : ['Seven', 'Foxtel', 'not_published_customer_numbers']
+Correct  : ['Presto', 'Foxtel', 'owned_by']
+
+Iteration: 983
+API      : ['Enel Green Power', 'Enel Finance International', 'legal_form: renegotiation']
+Correct  : ['Enel', 'Enel Green Power', 'owner_of\nEnel', 'Enel Green Power', 'subsidiary']
+
+Iteration: 984
+API      : ['Google Chromecast', 'a small computer', 'type: legal_form ("Android streaming device" or "Android box") or publisher']
+Correct  : ['Chromecast', 'Google', 'manufacturer\nChromecast', 'Google', 'developer']
+
+Iteration: 985
+API      : ['Dimitrios', 'Universal Pictures International', 'led']
+Correct  : ['NBCUniversal', 'Universal Pictures', 'subsidiary']
+
+Iteration: 986
+API      : ['']
+Correct  : ['Chevrolet Aveo', 'General Motors', 'manufacturer']
+
+Iteration: 987
+API      : ['Nestlé', ':brand', 'Nescafé Chilled Latte.']
+Correct  : ['Nescafé', 'Nestlé', 'owned_by\nNescafé', 'Nestlé', 'manufacturer']
+
+Iteration: 988
+API      : ['Triplet 1: Seven West Media', 'Foxtel', 'formed_joint_venture.']
+Correct  : ['Foxtel', 'joint venture', 'legal_form\nPresto', 'Foxtel', 'owned_by']
+
+Iteration: 989
+API      : ['Mattel', 'Bratz doll brand', 'employer']
+Correct  : ['Mattel', 'doll', 'product_or_material_produced\nMattel', 'Barbie', 'owner_of']
+
+Iteration: 990
+API      : ['ComScore Inc', 'Rentrak Corp', 'owned_by']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 991
+API      : ['Uniper', 'Fortum Group', 'subsidiary.']
+Correct  : ['Uniper', 'Fortum', 'owned_by\nFortum', 'Uniper', 'owner_of']
+
+Iteration: 992
+API      : ['Facebook Inc', 'NASDAQ: FB', 'stock_exchange']
+Correct  : ['Facebook Inc', 'NASDAQ', 'stock_exchange']
+
+Iteration: 993
+API      : ['You (agent)', 'this (implicit)', 'can_provide :']
+Correct  : ['Magic Quadrant', 'Gartner', 'creator\nMagic Quadrant', 'Gartner', 'owned_by']
+
+Iteration: 994
+API      : ['Amazon', 'Jet.com', 'competitor']
+Correct  : ['Amazon Prime', 'Amazon', 'owned_by']
+
+Iteration: 995
+API      : ['Whitbread', 'nil', 'owner_of']
+Correct  : ['Costa Coffee', 'Whitbread', 'parent_organization\nWhitbread', 'Costa Coffee', 'subsidiary']
+
+Iteration: 996
+API      : ['United Airlines Holdings', 'United Airlines', 'filed_with']
+Correct  : ['United Airlines', 'United Airlines Holdings', 'parent_organization\nUnited Airlines Holdings', 'United Airlines', 'subsidiary\nUnited Airlines', 'United Airlines Holdings', 'owned_by']
+
+Iteration: 997
+API      : ['Ryanair', 'International Airlines Group (IAG)', 'sold_by']
+Correct  : ['Aer Lingus', 'International Airlines Group', 'parent_organization']
+
+Iteration: 998
+API      : ['Mattel', 'none', 'none (This is the sentence subject and does not contain a triplet.)']
+Correct  : ['Mattel', 'Barbie', 'owner_of']
+
+Iteration: 999
+API      : ['ComScore', 'Rentrak', 'owned_by (or: shares_of)']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 1000
+API      : ['CBD', 'Harvey, Gerry', 'attendee_of (or: waiting_for)']
+Correct  : ['Harvey Norman', 'Gerry Harvey', 'founded_by']
+
+Iteration: 1001
+API      : ['Coty Inc.', 'Bourjois', 'brand.']
+Correct  : ['Bourjois', 'Coty', 'parent_organization\nBourjois', 'Coty', 'owned_by']
+
+Iteration: 1002
+API      : ['Lufthansa', 'Eurowings', 'brand']
+Correct  : ['Lufthansa', 'Eurowings', 'subsidiary']
+
+Iteration: 1003
+API      : ['PayPal', 'eBay', 'sold_to']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary']
+
+Iteration: 1004
+API      : ['CDP Private Cloud', 'IBM Red Hat', 'joint_preview']
+Correct  : ['Red Hat', 'IBM', 'parent_organization']
+
+Iteration: 1005
+API      : ['Pete Cashmore', 'Mashable', 'founded_by.']
+Correct  : ['Mashable', 'Pete Cashmore', 'founded_by']
+
+Iteration: 1006
+API      : ['Carsten Spohr', 'Lufthansa Group', 'chairman_and_CEO.']
+Correct  : ['Eurowings', 'Lufthansa Group', 'parent_organization\nLufthansa', 'Eurowings', 'subsidiary\nLufthansa', 'Carsten Spohr', 'chief_executive_officer']
+
+Iteration: 1007
+API      : ['ProSieben', 'Germany’s biggest commercial broadcaster', 'legal_form: broadcaster']
+Correct  : ['Bild', 'Axel Springer', 'founded_by']
+
+Iteration: 1008
+API      : ['Toymaker Mattel Inc', ':network_graph:', 'company']
+Correct  : ['Mattel', 'Barbie', 'owner_of']
+
+Iteration: 1009
+API      : ['Markus Persson', 'Minecraft', 'creator']
+Correct  : ['Minecraft', 'Markus Persson', 'founded_by']
+
+Iteration: 1010
+API      : ['Intel', 'Mobileye', 'Brings_to :']
+Correct  : ['Intel', 'Mobileye', 'subsidiary\nMobileye', 'Intel', 'parent_organization\nMobileye', 'Intel', 'legal_form']
+
+Iteration: 1011
+API      : ['triplet 1: Rahul Bajja', 'nothing', 'legal_form (assuming "Top industrialists" is a legal formation)']
+Correct  : ['Biocon', 'Kiran Mazumdar-Shaw', 'director_/_manager\nBiocon', 'Kiran Mazumdar-Shaw', 'founded_by']
+
+ERROR:   There is no relation between the two entities in the given sentence as it consists of a repetition of the same entity.
+
+Iteration: 1013
+API      : ['Jeremy Stoppelman', 'Yelp', 'said.']
+Correct  : ['Yelp', 'Jeremy Stoppelman', 'chief_executive_officer\nYelp', 'Jeremy Stoppelman', 'founded_by']
+
+Iteration: 1014
+API      : ['']
+Correct  : ['National Semiconductor', 'Texas Instruments', 'parent_organization\nTexas Instruments', 'National Semiconductor', 'owner_of\nNational Semiconductor', 'Texas Instruments', 'owned_by\nTexas Instruments', 'National Semiconductor', 'subsidiary']
+
+Iteration: 1015
+API      : ['Jeep Renegade', 'Europe', 'location_of_sales']
+Correct  : ['Jeep Renegade', 'Jeep', 'brand\nJeep Renegade', 'Jeep', 'manufacturer']
+
+Iteration: 1016
+API      : ['Ivan Glasenberg', 'chief executive_officer of Glencore', 'described']
+Correct  : ['Glencore', 'Ivan Glasenberg', 'chief_executive_officer\nGlencore', 'Ivan Glasenberg', 'owned_by\nIvan Glasenberg', 'Glencore', 'owner_of']
+
+Iteration: 1017
+API      : ['Volvo Financial Services', 'Scott Rafkin', 'EVP_and_Global_President']
+Correct  : ['Volvo', 'Volvo Trucks', 'owner_of\nVolvo', 'Volvo Trucks', 'subsidiary\nVolvo Trucks', 'Volvo', 'owned_by\nVolvo Trucks', 'Volvo', 'parent_organization']
+
+ERROR:   There is no triplet present in the given sentence. The sentence describes the size relationship between two different car models (Envision and Buick Encore, Buick Enclave), but it doesn't explicitly mention any head, tail, or relation entities.
+
+Iteration: 1019
+API      : ['Mattel', 'MAT', 'manufacturer']
+Correct  : ['Mattel', 'American Girl', 'subsidiary\nMattel', 'Barbie', 'owner_of']
+
+Iteration: 1020
+API      : ['Fortune Global 500', 'null', 'employment_num : 65_000_000 .']
+Correct  : ['Global 500', 'Fortune', 'creator']
+
+Iteration: 1021
+API      : ['Mr Elliott', 'ANZ', 'downplayed_suggestions']
+Correct  : ['Macquarie Group', 'Esanda', 'subsidiary']
+
+Iteration: 1022
+API      : ['Amy Bohutinsky', 'Zillow Group', 'owned_by']
+Correct  : ['Zillow', 'NASDAQ', 'stock_exchange']
+
+ERROR:   There is no relation present in this sentence as it only consists of a single entity mentioned twice.
+
+ERROR:   There is no triplet in the given sentence. The sentence only mentions the presence of a manufacturer in Fortune Global 500 and its absence in our case, and the presence of five such manufacturers in Scandinavia. No specific entities or relations are stated explicitly in the sentence.
+
+Iteration: 1025
+API      : ['Disney', 'Star Tours attraction', 'opened_date=1987']
+Correct  : ['Lucasfilm', 'film', 'product_or_material_produced\nStar Wars', 'Lucasfilm', 'owned_by\nLucasfilm', 'Star Wars', 'owner_of']
+
+Iteration: 1026
+API      : ['FedEx', 'TNT', 'acquired_by']
+Correct  : ['FedEx', 'TNT', 'owner_of']
+
+Iteration: 1027
+API      : ['FedEx Freight', 'FedEx Ground', 'provided_support']
+Correct  : ['FedEx', 'FedEx Ground', 'subsidiary\nFedEx Ground', 'FedEx', 'parent_organization']
+
+Iteration: 1028
+API      : ['2016 Chevrolet Volt', 'new', 'comes_to (or: is_released)']
+Correct  : ['Chevrolet Volt', 'Chevrolet', 'brand']
+
+Iteration: 1029
+API      : ['Scott Garberding', 'Chrysler', 'said']
+Correct  : ['Chrysler Executive', 'Chrysler', 'brand\nChrysler Executive', 'Chrysler', 'manufacturer']
+
+Iteration: 1030
+API      : ['Tencent', '0700-OL.HK', 'stock_exchange']
+Correct  : ['WeChat', 'Tencent', 'developer\nTencent', 'WeChat', 'subsidiary']
+
+Iteration: 1031
+API      : ['Mattel', 'Barbie line', 'diversified_line_of_product']
+Correct  : ['Mattel', 'Barbie', 'owner_of']
+
+Iteration: 1032
+API      : ['SingTel', 'Optus', 'parent_organization.']
+Correct  : ['SingTel', 'Optus', 'subsidiary\nOptus', 'SingTel', 'parent_organization\nOptus', 'SingTel', 'owned_by']
+
+Iteration: 1033
+API      : ['Triplet 1: ComScore Inc.', '$45.02', 'price_increase']
+Correct  : ['Comscore', 'Rentrak', 'owner_of']
+
+Iteration: 1034
+API      : ['Orbital', 'United Launch Alliance', 'bought_from']
+Correct  : ['Lockheed Martin', 'United Launch Alliance', 'owner_of']
+
+Iteration: 1035
+API      : ['Twitter', 'Steve Ballmer', 'owner_of']
+Correct  : ['Steve Ballmer', 'Microsoft', 'employer\nSteve Ballmer', 'Microsoft', 'owner_of']
+
+Iteration: 1036
+API      : ['Igor Sechin', 'Rosneft', 'chairperson.']
+Correct  : ['Rosneft', 'Igor Sechin', 'chief_executive_officer\nRosneft', 'Igor Sechin', 'director_/_manager']
+
+Iteration: 1037
+API      : ['Paramount', 'movies', 'legal_form']
+Correct  : ['Viacom', 'CBS', 'owned_by\nViacom', 'CBS', 'subsidiary\nViacom', 'CBS', 'parent_organization']
+
+Iteration: 1038
+API      : ['Western Digital (WDC)', 'SanDisk (SNDK)', 'owned_by']
+Correct  : ['SanDisk', 'Western Digital', 'owned_by\nWestern Digital', 'SanDisk', 'owner_of\nSanDisk', 'Western Digital', 'parent_organization\nWestern Digital', 'SanDisk', 'subsidiary']
+
+Iteration: 1039
+API      : ['triplet 1: electric car', 'Chevrolet Volt', 'model_of']
+Correct  : ['Chevrolet Volt', 'Chevrolet', 'brand']
+
+Iteration: 1040
+API      : ['McDonnell Douglas', '717', 'developed_by']
+Correct  : ['Boeing', 'McDonnell Douglas', 'subsidiary']
+
+Iteration: 1041
+API      : ['Comcast', 'NBCUniversal', 'parent_organization.']
+Correct  : ['NBCUniversal', 'Comcast', 'parent_organization\nNBCUniversal', 'Comcast', 'owned_by\nComcast', 'NBCUniversal', 'subsidiary\nNBCUniversal', 'Comcast', 'founded_by']
+
+Iteration: 1042
+API      : ['TSYS', '1300 FI customers', 'have']
+Correct  : ['TSYS', 'Global Payments', 'subsidiary']
+
+Iteration: 1043
+API      : ['Phil Weisberg', 'Thomson Reuters', 'employer.']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 1044
+API      : ['Mark Zuckerberg', 'CEO', 'FB']
+Correct  : ['Facebook', 'Mark Zuckerberg', 'founded_by\nFacebook', 'Mark Zuckerberg', 'creator']
+
+Iteration: 1045
+API      : ['Nikkei', '0.4 pct', 'slips']
+Correct  : ['Fast Retailing', 'UNIQLO', 'subsidiary\nUNIQLO', 'Fast Retailing', 'parent_organization\nUNIQLO', 'Fast Retailing', 'owned_by']
+
+Iteration: 1046
+API      : ['David Tepper', 'Appaloosa Management', 'manager_of']
+Correct  : ['David Tepper', 'Appaloosa Management', 'owner_of\nAppaloosa Management', 'David Tepper', 'owned_by\nAppaloosa Management', 'David Tepper', 'director_/_manager\nAppaloosa Management', 'David Tepper', 'founded_by']
+
+Iteration: 1047
+API      : ['eBay (EBAY)', 'PayPal Holdings Inc. (PYPLV)', 'spun_off_by']
+Correct  : ['PayPal', 'eBay', 'owned_by\neBay', 'PayPal', 'owner_of\neBay', 'PayPal', 'subsidiary\neBay', 'corporation', 'legal_form']
+
+Iteration: 1048
+API      : ['Drew Houston', 'Dropbox', 'founder_of.']
+Correct  : ['Dropbox', 'Drew Houston', 'creator']
+
+Iteration: 1049
+API      : ['Lufthansa Passenger Airlines', 'SWISS', 'network_carriers.']
+Correct  : ['Lufthansa', 'Austrian Airlines', 'subsidiary']
+
+Iteration: 1050
+API      : ['Lucinelia de Jesus Souza', 'Thomson Reuters', 'poses_for']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 1051
+API      : ['Nasdaq 100 index', 'U.S. technology stocks', 'dominated_by']
+Correct  : ['Apple Inc', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1052
+API      : ['Citigroup', 'none', 'legal_form']
+Correct  : ['eBay', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1053
+API      : ['PayNet', 'Small Businesses', 'publisher']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+ERROR:   There is no relation present in the given sentence as it only consists of the repetition of the same entity. Therefore, no answer is required for this sentence.
+
+Iteration: 1055
+API      : ['Nasdaq', 'NDAQG', 'legal_form']
+Correct  : ['Natera', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1056
+API      : ['Masayoshi Son', 'SoftBank', 'founder_of.']
+Correct  : ['SoftBank', 'Tokyo Stock Exchange', 'stock_exchange\nSoftBank', 'Tokyo', 'headquarters_location']
+
+Iteration: 1057
+API      : ['Glencore', 'London Stock Exchange', 'listed_on']
+Correct  : ['Glencore', 'London Stock Exchange', 'stock_exchange\nGlencore', 'mining', 'industry\nXstrata', 'Glencore', 'owned_by']
+
+Iteration: 1058
+API      : ['Bengaluru-based Independent and Public Spirited Media Trust', 'Azim Premji', 'owner_of']
+Correct  : ['Wipro', 'Azim Premji', 'founded_by\nWipro', 'Azim Premji', 'owned_by\nWipro', 'Azim Premji', 'director_/_manager']
+
+Iteration: 1059
+API      : ['Lonmin Group', 'London Stock Exchange', 'listed_on']
+Correct  : ['Lonmin', 'London', 'headquarters_location\nLonmin', 'London Stock Exchange', 'stock_exchange']
+
+Iteration: 1060
+API      : ['Dan Schulman', 'PayPal', 'CEO.']
+Correct  : ['PayPal', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1061
+API      : ['Apple Inc', 'Health Care Industry', 'industry']
+Correct  : ['Apple Inc', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1062
+API      : ['Goldman Sachs', 'New York Stock Exchange', 'owner_of']
+Correct  : ['Goldman Sachs', 'New York Stock Exchange', 'stock_exchange']
+
+Iteration: 1063
+API      : ['Thomson Reuters', 'a data visualization offering for currencies', 'has_launch_announcement']
+Correct  : ['Thomson Reuters', 'Reuters', 'subsidiary\nThomson Reuters', 'Reuters', 'business_division']
+
+Iteration: 1064
+API      : ['Apple Inc', 'AAPL.O', 'legal_form']
+Correct  : ['Apple Inc', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1065
+API      : ['EveBase ("Reuters")', 'eBay', 'reported_results']
+Correct  : ['eBay', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1066
+API      : ['BWise', 'Nasdaq', 'owned_by']
+Correct  : ['Forrester', 'NASDAQ', 'stock_exchange']
+
+Iteration: 1067
+API      : ['Saputo', 'Toronto Stock Exchange', 'listed_on.']
+Correct  : ['Saputo', 'Toronto Stock Exchange', 'stock_exchange']
+
+Processing complete.
+Total processing time: 10332.35 seconds.
+Micro F1:  0.17959183673469387
+Macro F1:  0.1818771152104484

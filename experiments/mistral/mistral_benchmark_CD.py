@@ -7,6 +7,7 @@ from sklearn.metrics import f1_score
 import torch, time
 import re
 tp, fp, fn = 0, 0, 0
+label_set = set("B-CAUSE I-CAUSE B-EFFECT I-EFFECT O".split())
 statistics = {
         "B-CAUSE": {'tp': 0, 'fp': 0, 'fn': 0},
         "I-CAUSE": {'tp': 0, 'fp': 0, 'fn': 0},
@@ -46,14 +47,18 @@ def parse_label(answer):
 
 def F1_score(correct_labels, api_labels,statistics):
     
+
+
     # Initialize overall tp, fp, fn
     overall_tp, overall_fp, overall_fn = 0, 0, 0
 
     # Iterate through both label lists
     for correct, predicted in zip(correct_labels, api_labels):
+        correct = correct.strip().strip('.')
+        predicted = predicted.strip().strip('.')
         if correct in statistics:
             # Count true positives and false negatives
-            if predicted == correct:
+            if predicted in correct:
                 statistics[correct]['tp'] += 1
                 overall_tp += 1
             else:
@@ -88,6 +93,7 @@ if tokenizer.pad_token is None:
 start_time = time.time()
 # Prepare the message
 message = [{"role": "user", "content": ""}]
+iter_count = 0
 try:
     while True:
 
@@ -103,14 +109,19 @@ try:
         generated_ids = model.generate(model_inputs, max_new_tokens=1000, do_sample=True)
         decoded = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)
         answer_labels = parse_label(decoded[0])
+        answer_labels = [label.strip().strip('.') for label in answer_labels if label.strip().strip('.') in label_set]
         correct_labels = parse_label(answer)
         tp_, fp_, fn_, statistics = F1_score(correct_labels, answer_labels,statistics)
         tp += tp_
         fp += fp_
         fn += fn_
+        print("Iteration: {}".format(iter_count))
+
         print("CORRECT: {}\n\
 API    : {}\n".format(correct_labels, answer_labels))
-
+        iter_count += 1
+        # if iter_count >10:
+        #     raise StopIteration
 
 
 except StopIteration:
