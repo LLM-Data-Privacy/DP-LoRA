@@ -1,6 +1,6 @@
 #!/bin/bash
 
-server_file="mistral_benchmark.py"
+server_file="mistral_CD.log"
 script_file="server_script.sh"
 username="FNAIkqbe"
 remote_host="blp04.ccni.rpi.edu"
