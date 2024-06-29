@@ -45,3 +45,24 @@ training_args = TrainingArguments(
     num_train_epochs=3,            # number of training epochs
     weight_decay=0.01,             # strength of weight decay
 )
+
+# trainer
+trainer = Trainer(
+    model=model,
+    args=training_args,
+    train_dataset=train_dataset,
+    eval_dataset=test_dataset,
+)
+
+# training
+trainer.train()
+
+# evaluation
+predictions, labels, _ = trainer.predict(test_dataset)
+preds = predictions.argmax(-1)
+
+accuracy = accuracy_score(labels, preds)
+f1 = f1_score(labels, preds)
+
+print(f"Accuracy: {accuracy}")
+print(f"F1 Score: {f1}")
