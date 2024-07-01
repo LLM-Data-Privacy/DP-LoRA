@@ -23,7 +23,7 @@ from functools import partial
 from pathlib import Path
 
 def parseData():
-    instructions = load_dataset("TheFinAI/en-fpb")
+    instructions = load_dataset("TheFinAI/flare-multifin-en")
     test = instructions["test"].to_pandas()
     query = test['query'].tolist()
     gt = test['answer'].tolist()
@@ -31,7 +31,6 @@ def parseData():
 
 def get_model(model_name="mistralai/Mistral-7B-Instruct-v0.1"):
     login(token=token, add_to_git_credential=True)
-
     print("Loading model...")
     model = AutoModelForCausalLM.from_pretrained(model_name)
     print("Model loaded successfully")
@@ -52,18 +51,24 @@ def format_example(example: dict) -> dict:
     return {"context": context, "target": target}
 
 def change_target(x):
-    if 'positive' in x or 'Positive' in x:
-        return 'positive'
-    elif 'negative' in x or 'Negative' in x:
-        return 'negative'
-    else:
-        return 'neutral'
+    ans = [ "finance", "technology", "tax & accounting", "business & management", "government & controls", "industry",
+            "Finance", "Technology", "Tax & Accounting", "Business & Management", "Government & Controls", "Industry" ]
+    for i in range(len(ans)):
+        if ans[i] in x:
+            return ans[i].lower()
 
-def fpb(model, tokenizer):
+def multifin(model, tokenizer):
     batch_size = 8
     test, query, gt = parseData()
 
     print(f"\n\nPrompt example:\n{query[0]}\n\n")
+
+    test_prompt = query[0]
+    inputs = tokenizer(test_prompt, return_tensors="pt", padding=True, max_length=512, truncation=True, return_token_type_ids=False).to(device)
+    # print(inputs)
+    res = model.generate(**inputs, max_new_tokens=100, do_sample=True, eos_token_id=tokenizer.eos_token_id)
+    print(tokenizer.batch_decode(res)[0])
+    print("Ground Truth Answer:", gt[0])
 
     total_steps = test.shape[0]//batch_size + 1
     print(f"Total len: {len(query)}. Batchsize: {batch_size}. Total steps: {total_steps}")
@@ -98,8 +103,6 @@ def fpb(model, tokenizer):
     with open(output_file, 'w') as f:
         f.write(metrics)
 
-    return stats
-
 if __name__ == "__main__":
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
@@ -108,7 +111,7 @@ if __name__ == "__main__":
 
     model, tokenizer = get_model()
     model.to(device)
-    fpb(model, tokenizer)
+    multifin(model, tokenizer)
 
     # example_prompt = "Analyze the sentiment of this statement extracted from a financial news article. Provide your answer as either negative, positive, or neutral. Text: The company expects its net sales for the whole 2009 to remain below the 2008 level . Answer:"
     # example_prompt = "Analyze the sentiment of this statement extracted from a financial news article. Provide your answer as either negative, positive, or neutral. Text: According to Sepp+ñnen , the new technology UMTS900 solution network building costs are by one-third lower than that of the building of 3.5 G networks , operating at 2,100 MHz frequency . Answer:"
