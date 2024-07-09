@@ -25,6 +25,7 @@ from pathlib import Path
 def parseData():
     instructions = load_dataset("TheFinAI/flare-multifin-en")
     test = instructions["test"].to_pandas()
+    test['query'] = test['query'].apply(format)
     query = test['query'].tolist()
     gt = test['answer'].tolist()
     return test, query, gt
@@ -42,20 +43,30 @@ def get_model(model_name="mistralai/Mistral-7B-Instruct-v0.1"):
 
     return model, tokenizer
 
-def format_example(example: dict) -> dict:
-    context = f"Instruction: {example['instruction']}\n"
-    if example.get("input"):
-        context += f"Input: {example['input']}\n"
-    context += "Answer: "
-    target = example["output"]
-    return {"context": context, "target": target}
+def format(x):
+    halves = x.split("\nText: ")
+
+    test = "In this task, you're working with English headlines from the MULTIFIN dataset. " \
+            "This dataset is made up of real-world article headlines from a large accounting firm's websites. " \
+            "Your objective is to categorize each headline according to its primary topic. The potential categories are " \
+            "'Finance', 'Technology', 'Tax & Accounting', 'Business & Management', 'Government & Controls', and 'Industry'. " \
+            "Provide your answer as only one of the following categories: Finance, Technology, Tax & Accounting, Business & Management, " \
+            "Government & Controls, and Industry. Do not provide an answer not from the previously mentioned categories. Choose only one of the categories." \
+            "\nText: " + halves[1]
+
+    return test
 
 def change_target(x):
-    ans = [ "finance", "technology", "tax & accounting", "business & management", "government & controls", "industry",
-            "Finance", "Technology", "Tax & Accounting", "Business & Management", "Government & Controls", "Industry" ]
-    for i in range(len(ans)):
-        if ans[i] in x:
-            return ans[i].lower()
+    ans = [ "finance", "technology", "tax & accounting", "business & management", "government & controls", "industry" ]
+    x = x.lower()
+    if x in ans:
+        return x
+    elif x == "tax" or x == "accounting":
+        return "tax & accounting"
+    elif x == "business" or x == "management":
+        return "business & management"
+    elif x == "government" or x == "controls":
+        return "government & controls"
 
 def multifin(model, tokenizer):
     batch_size = 8
@@ -63,17 +74,11 @@ def multifin(model, tokenizer):
 
     print(f"\n\nPrompt example:\n{query[0]}\n\n")
 
-    test_prompt = query[0]
-    inputs = tokenizer(test_prompt, return_tensors="pt", padding=True, max_length=512, truncation=True, return_token_type_ids=False).to(device)
-    # print(inputs)
-    res = model.generate(**inputs, max_new_tokens=100, do_sample=True, eos_token_id=tokenizer.eos_token_id)
-    print(tokenizer.batch_decode(res)[0])
-    print("Ground Truth Answer:", gt[0])
-
     total_steps = test.shape[0]//batch_size + 1
     print(f"Total len: {len(query)}. Batchsize: {batch_size}. Total steps: {total_steps}")
 
     out_text_list = []
+    full_output = []
     for i in tqdm(range(total_steps)):
         tmp_context = query[i* batch_size:(i+1)* batch_size]
         tokens = tokenizer(tmp_context, return_tensors='pt', padding=True, max_length=512, return_token_type_ids=False)
@@ -83,23 +88,25 @@ def multifin(model, tokenizer):
         res_sentences = [tokenizer.decode(i, skip_special_tokens=True) for i in res]
         # print(f'{i}: {res_sentences[0]}')
         out_text = [o.split("Answer: ")[1] for o in res_sentences]
+        full_text = [o for o in res_sentences]
+        full_output += full_text
         out_text_list += out_text
         torch.cuda.empty_cache()
 
-    stats = pd.DataFrame({'query': query, 'answer': gt, 'output': out_text_list})
+    stats = pd.DataFrame({'query': query, 'answer': gt, 'output': out_text_list, 'full_output': full_output})
     stats['new_answer'] = stats['answer'].apply(change_target)
     stats['new_output'] = stats['output'].apply(change_target)
     print(stats)
 
-    stats.to_csv('/gpfs/u/home/FNAI/FNAIchpn/barn/DP-LoRA/mistral/fpb/fpb.csv', encoding='utf-8', index=False)
+    stats.to_csv('/gpfs/u/home/FNAI/FNAIchpn/barn/DP-LoRA/mistral/multifin/multifin.csv', encoding='utf-8', index=False)
 
-    acc = accuracy_score(stats['answer'], stats['new_output'])
-    f1_macro = f1_score(stats['answer'], stats['new_output'], average = "macro")
-    f1_micro = f1_score(stats['answer'], stats['new_output'], average = "micro")
-    f1_weighted = f1_score(stats['answer'], stats['new_output'], average = "weighted")
+    acc = accuracy_score(stats['new_answer'], stats['new_output'])
+    f1_macro = f1_score(stats['new_answer'], stats['new_output'], average = "macro")
+    f1_micro = f1_score(stats['new_answer'], stats['new_output'], average = "micro")
+    f1_weighted = f1_score(stats['new_answer'], stats['new_output'], average = "weighted")
 
     metrics = f"Acc: {acc}. F1 macro: {f1_macro}. F1 micro: {f1_micro}. F1 weighted: {f1_weighted}.\n"
-    output_file = '/gpfs/u/home/FNAI/FNAIchpn/barn/DP-LoRA/mistral/fpb/fpb_stats.txt'
+    output_file = '/gpfs/u/home/FNAI/FNAIchpn/barn/DP-LoRA/mistral/multifin/multifin_stats.txt'
     with open(output_file, 'w') as f:
         f.write(metrics)
 

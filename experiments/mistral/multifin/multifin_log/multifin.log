@@ -1,0 +1,40 @@
+Transformer Version: 4.41.2
+Device: cuda
+Token is valid (permission: fineGrained).
+[1m[31mCannot authenticate through git-credential as no helper is defined on your machine.
+You might have to re-authenticate when pushing to the Hugging Face Hub.
+Run the following command in your terminal in case you want to set the 'store' credential helper as default.
+
+git config --global credential.helper store
+
+Read https://git-scm.com/book/en/v2/Git-Tools-Credential-Storage for more details.[0m
+Token has not been saved to git credential helper.
+Your token has been saved to /gpfs/u/home/FNAI/FNAIchpn/scratch/huggingface/token
+Login successful
+Loading model...
+Model loaded successfully
+Loading tokenizer...
+Tokenizer loaded successfully
+
+
+Prompt example:
+In this task, you're working with English headlines from the MULTIFIN dataset. This dataset is made up of real-world article headlines from a large accounting firm's websites. Your objective is to categorize each headline according to its primary topic. The potential categories are 'Finance', 'Technology', 'Tax & Accounting', 'Business & Management', 'Government & Controls', and 'Industry'. Provide your answer as only one of the following categories: Finance, Technology, Tax & Accounting, Business & Management, Government & Controls, and Industry. Do not provide an answer not from the previously mentioned categories. Choose only one of the categories.
+Text: Deal summary Helen Oy / Infratek Finland Oy
+Answer:
+
+
+Total len: 546. Batchsize: 8. Total steps: 69
+                                                 query  ...             new_output
+0    In this task, you're working with English head...  ...                finance
+1    In this task, you're working with English head...  ...                finance
+2    In this task, you're working with English head...  ...             technology
+3    In this task, you're working with English head...  ...             technology
+4    In this task, you're working with English head...  ...               industry
+..                                                 ...  ...                    ...
+541  In this task, you're working with English head...  ...  business & management
+542  In this task, you're working with English head...  ...       tax & accounting
+543  In this task, you're working with English head...  ...       tax & accounting
+544  In this task, you're working with English head...  ...             technology
+545  In this task, you're working with English head...  ...                finance
+
+[546 rows x 6 columns]
