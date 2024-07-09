@@ -2,11 +2,20 @@
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score, f1_score
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
 from datasets import Dataset
 import torch
+import os
+from dotenv import load_dotenv
+from huggingface_hub import HfApi, HfFolder
+
+# huggingface setup
+load_dotenv()
+api_token = os.getenv("HUGGINGFACE_API_TOKEN")
+HfFolder.save_token(api_token)
+api = HfApi()
+api.set_access_token(api_token)
 
 # load data
 data_path = 'train.parquet'
@@ -63,6 +72,8 @@ preds = predictions.argmax(-1)
 
 accuracy = accuracy_score(labels, preds)
 f1 = f1_score(labels, preds)
+f1_macro = f1_score(labels, preds, average='macro')
 
 print(f"Accuracy: {accuracy}")
 print(f"F1 Score: {f1}")
+print(f"F1 Macro Score: {f1_macro}")
