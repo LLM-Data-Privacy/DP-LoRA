@@ -3,23 +3,22 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, f1_score
-from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
+from transformers import AutoModelForCausalLM, AutoTokenizer, Trainer, TrainingArguments
 from datasets import Dataset
 import torch
 import os
 from dotenv import load_dotenv
-from huggingface_hub import HfApi, HfFolder
+from huggingface_hub import login
 
 # huggingface setup
 load_dotenv()
 api_token = os.getenv("HUGGINGFACE_API_TOKEN")
-HfFolder.save_token(api_token)
-api = HfApi()
-api.set_access_token(api_token)
+login(api_token)
 
 # load data
-data_path = 'train.parquet'
-df = pd.read_parquet(data_path)
+splits = {'train': 'data/train.parquet', 'validation': 'data/valid.parquet', 'test': 'data/test.parquet'}
+df = pd.read_parquet("hf://datasets/daishen/cra-ccfraud/" + splits["train"])
+
 
 # Data prep
 X = df.drop(columns=['gold'])
@@ -33,9 +32,9 @@ train_dataset = Dataset.from_pandas(pd.concat([X_train.reset_index(drop=True), y
 test_dataset = Dataset.from_pandas(pd.concat([X_test.reset_index(drop=True), y_test.reset_index(drop=True)], axis=1))
 
 # load model
-model_name = "mistralai/Mistral-7B-Instruct-v0.3"
+model_name = "mistralai/Mistral-7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=2)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
 # tokenization function
 def tokenize_function(examples):
