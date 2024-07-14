@@ -5,7 +5,7 @@ import torch
 from huggingface_hub import login
 from datasets import load_dataset
 import os
-import re
+import sys
 
 # Set the environment variables to avoid disk caching
 os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIhrnb/scratch/huggingface'
@@ -39,17 +39,12 @@ def sentiment_classification(output):
         return 1
     else:
         return 0
-
-# Extract the answer from the output, if not found return -1
-def extract_answer(output_raw):
-    try:
-        output = float(re.findall(r'Answer: (.*)', output_raw)[0])
-    except:
-        output = -1
-    return output
     
 
 if __name__ == '__main__':
+    # Taking argument from commandline as the sentence entry
+    # entry = int(sys.argv[1])
+    
     # Load the model and tokenizer
     # Load Mistro-7b model
     # Load model directly
@@ -63,36 +58,9 @@ if __name__ == '__main__':
 
     # Generate the prompt for the dataset
     sentences = dataset['sentence']
+    for sentence in sentences:
+    	sample_prompt = preprocess_prompt(sentence)
     
-    outputs = []
-    
-    for text in sentences:
-        messages = preprocess_prompt(text)
-        output_raw = generater(messages, max_length=100)[0]['generated_text']
-        
-        # Only keep the field after "Answer: "
-        output = extract_answer(output_raw)
-        outputs.append(output)
-    
-    # Store the prediction to new csv file
-    # with open('predictions.csv', 'w') as f:
-    #    for output in outputs:
-    #        f.write(output + '\n')
+    	sample_output = generater(sample_prompt, max_length=100)
+    	print(sample_output)
 
-    
-    # outputs = [float(output.split("Answer: ")[1]) for output in outputs]
-        
-    # Transform the output to sentiment classification
-    output_label = [sentiment_classification(output) for output in outputs]
-    ground_truth = [sentiment_classification(score) for score in dataset['score']]
-    
-    # Evaluate the Accuracy and F1 score
-    accuracy = sum([1 for i in range(len(output_label)) if output_label[i] == ground_truth[i]]) / len(output_label)
-    f1_macro = f1_score(ground_truth, output_label, average='macro')
-    f1_micro = f1_score(ground_truth, output_label, average='micro')
-    
-    print("Accuracy: ", accuracy)
-    print("F1 Score (Macro): ", f1_macro)
-    print("F1 Score (Micro): ", f1_micro)
-    
-    

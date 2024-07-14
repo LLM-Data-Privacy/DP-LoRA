@@ -1,11 +1,10 @@
 from sklearn.metrics import f1_score
 import transformers
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
+from transformers import AutoModelForCausalLM, AutoTokenizer
 import torch
 from huggingface_hub import login
 from datasets import load_dataset
 import os
-import re
 
 # Set the environment variables to avoid disk caching
 os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIhrnb/scratch/huggingface'
@@ -26,10 +25,10 @@ login(token=TOKEN)
 
 # preprocess the dataset from the benchmark
 def preprocess_prompt(text):
-    prompt = "Please classify the sentiment of the following text, just output a floating point, scaling from -1 to 1, -1 is negative, 0 is neutral, 1 is positive: \n"
-
-    # return combined_inputs
-    return prompt + text + "\nAnswer: "
+    combined_inputs = [ {"role": "system", "content": "Please classify the sentiment of the following text, just output a floating point, scaling from -1 to 1, -1 is negative, 0 is neutral, 1 is positive: \n"},
+                        {"role": "user", "content": "Britain's FTSE steadies, supported by Dixons Carphone"}]
+    
+    return combined_inputs
 
 # set up the threshold for the sentiment classification
 def sentiment_classification(output):
@@ -39,23 +38,14 @@ def sentiment_classification(output):
         return 1
     else:
         return 0
-
-# Extract the answer from the output, if not found return -1
-def extract_answer(output_raw):
-    try:
-        output = float(re.findall(r'Answer: (.*)', output_raw)[0])
-    except:
-        output = -1
-    return output
     
 
 if __name__ == '__main__':
     # Load the model and tokenizer
-    # Load Mistro-7b model
+    # Load Llama3-8B model
     # Load model directly
-    tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
-    model = AutoModelForCausalLM.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1").to("cuda")
-    generater = pipeline('text-generation', model=model, tokenizer=tokenizer)
+    tokenizer = AutoTokenizer.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct")
+    model = AutoModelForCausalLM.from_pretrained("meta-llama/Meta-Llama-3-8B-Instruct",torch_dtype=torch.bfloat16)
 
     # Load the FinQASA dataset for benchmarking
     dataset = load_dataset("TheFinAI/fiqa-sentiment-classification")
@@ -68,20 +58,21 @@ if __name__ == '__main__':
     
     for text in sentences:
         messages = preprocess_prompt(text)
-        output_raw = generater(messages, max_length=100)[0]['generated_text']
-        
-        # Only keep the field after "Answer: "
-        output = extract_answer(output_raw)
+        model_inputs = tokenizer.apply_chat_template(messages,
+                                                     add_generation_prompt=True,
+                                                     return_tensors='pt').to("cuda")
+        generated_ids = model.generate(model_inputs, max_new_tokens=100, do_sample=True)     
+        output = tokenizer.batch_decode(generated_ids)[0]
         outputs.append(output)
     
-    # Store the prediction to new csv file
-    # with open('predictions.csv', 'w') as f:
-    #    for output in outputs:
-    #        f.write(output + '\n')
-
+    outputs = [float(output) for output in outputs]
     
-    # outputs = [float(output.split("Answer: ")[1]) for output in outputs]
-        
+    # Store the prediction to new csv file
+    with open('llama3_predictions.csv', 'w') as f:
+        f.write("sentence, prediction\n")
+        for i in range(len(sentences)):
+            f.write(sentences[i] + "," + str(outputs[i]) + "\n")
+            
     # Transform the output to sentiment classification
     output_label = [sentiment_classification(output) for output in outputs]
     ground_truth = [sentiment_classification(score) for score in dataset['score']]
