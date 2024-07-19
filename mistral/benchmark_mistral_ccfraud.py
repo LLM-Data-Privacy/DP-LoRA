@@ -27,7 +27,7 @@ os.environ['HF_HOME'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 os.makedirs('/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface', exist_ok=True)
 
 # load dataset
-dataset = load_dataset("TheFinAI/cra-ccfraud", split="test")
+dataset = load_dataset("TheFinAI/cra-ccfraud")
 dataset = dataset['test']
 
 #preprocess prompt function
@@ -55,9 +55,6 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name).to("cuda")
 generator = pipeline('text-generation', model=model, tokenizer=tokenizer)
 
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
 # convert to pandas
 test_data = dataset.to_pandas()
 print(test_data.head())
@@ -72,7 +69,10 @@ outputs = []
 for i in range(0, len(test_prompts), batch_size):
     batch_prompts = test_prompts[i:i+batch_size].tolist()
     batch_outputs_raw = generator(batch_prompts, max_new_tokens=50, return_full_text=False)
-    batch_outputs = [derive_answer(output['generated_text']) for output in batch_outputs_raw]
+    print(batch_outputs_raw) 
+    flat_outputs = [item for sublist in batch_outputs_raw for item in sublist]
+
+    batch_outputs = [derive_answer(output['generated_text']) for output in flat_outputs]
     outputs.extend(batch_outputs)
 
 # ground truth
