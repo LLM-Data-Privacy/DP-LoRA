@@ -1,11 +1,14 @@
 # benchmark mistral-7b on credit card fraud dataset
 
+import os
+os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
+os.environ['HF_DATASETS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
+os.environ['HF_HOME'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 from datasets import load_dataset
 import torch
-import os
 from dotenv import load_dotenv
 from huggingface_hub import login
 import re
@@ -14,29 +17,25 @@ import re
 load_dotenv()
 api_token = os.getenv("HUGGINGFACE_API_TOKEN")
 login(api_token)
-
-
+'''
 # setup env variables
 os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 os.environ['HF_DATASETS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 os.environ['HF_HOME'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-
+'''
 # ensure dir exists
 os.makedirs('/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface', exist_ok=True)
 
 # load dataset
-dataset = load_dataset("daishen/cra-ccfraud", split='test')
+dataset = load_dataset("TheFinAI/cra-ccfraud", split="test")
+dataset = dataset['test']
 
 #preprocess prompt function
 def prep_prompt(row):
     prompt = """Detect the credit card fraud with the following financial profile.\n
               Respond with only 'good' or 'bad', and do not provide any additional information.\n
               enclose your output with the token [OTPT] and [CTPT]."""
-    profile = f"""The client is a {row['sex']}, the state number is {row['state']}, 
-               the number of cards is {row['cards']}, the credit balance is {row['balance']}, 
-               the number of transactions is {row['transactions']}, 
-               the number of international transactions is {row['international_transactions']}, 
-               the credit limit is {row['limit']}"""
+    profile = row['text']
     answer = "\nAnswer: "
 
     return prompt + profile + answer
@@ -56,21 +55,25 @@ tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name).to("cuda")
 generator = pipeline('text-generation', model=model, tokenizer=tokenizer)
 
-# check for padding token
 if tokenizer.pad_token is None:
     tokenizer.pad_token = tokenizer.eos_token
 
-# prepare test prompt
+# convert to pandas
 test_data = dataset.to_pandas()
-test_prompts = test_data().apply(prep_prompt, axis=1)
+print(test_data.head())
+
+# prepare prompts
+test_data['prompt'] = test_data.apply(prep_prompt, axis=1)
+test_prompts = test_data['prompt']
 
 # generate predictions
+batch_size = 16
 outputs = []
-
-for prompt in test_prompts:
-    output_raw = generator(prompt, max_length=100)[0]['generated_text']
-    output = derive_answer(output_raw)
-    outputs.append(output)
+for i in range(0, len(test_prompts), batch_size):
+    batch_prompts = test_prompts[i:i+batch_size].tolist()
+    batch_outputs_raw = generator(batch_prompts, max_new_tokens=50, return_full_text=False)
+    batch_outputs = [derive_answer(output['generated_text']) for output in batch_outputs_raw]
+    outputs.extend(batch_outputs)
 
 # ground truth
 ground_truth = test_data['gold']
