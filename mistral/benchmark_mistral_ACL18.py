@@ -1,4 +1,4 @@
-#benchmark mistral-7b on FinQA dataset
+#benchmark mistral-7b on ACL18 dataset
 
 import pandas as pd
 from sklearn.model_selection import train_test_split
