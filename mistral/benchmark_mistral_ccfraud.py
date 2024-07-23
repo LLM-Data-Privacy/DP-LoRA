@@ -1,92 +1,112 @@
-# benchmark mistral-7b on credit card fraud dataset
-
 import os
-os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-os.environ['HF_DATASETS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-os.environ['HF_HOME'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-from datasets import load_dataset
+from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline, logging
+from datasets import load_dataset, Dataset
 import torch
 from dotenv import load_dotenv
 from huggingface_hub import login
 import re
 
-# huggingface setup
-load_dotenv()
-api_token = os.getenv("HUGGINGFACE_API_TOKEN")
-login(api_token)
-'''
-# setup env variables
+# Set up environment variables for caching
 os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 os.environ['HF_DATASETS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
 os.environ['HF_HOME'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-'''
-# ensure dir exists
+
+# Hugging Face setup
+load_dotenv()
+api_token = os.getenv("HUGGINGFACE_API_TOKEN")
+login(api_token)
+
+# Ensure directories exist
 os.makedirs('/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface', exist_ok=True)
 
-# load dataset
-dataset = load_dataset("TheFinAI/cra-ccfraud")
-dataset = dataset['test']
+# for logs
+logging.set_verbosity_error()
 
-#preprocess prompt function
+# Load the entire dataset
+try:
+    dataset = load_dataset("TheFinAI/cra-ccfraud", split="test")
+    print(dataset)
+except Exception as e:
+    print(f"Error loading dataset: {e}")
+    exit(1)
+
+print(dataset)
+print(dataset.column_names)
+
+# Preprocess prompt function
 def prep_prompt(row):
     prompt = """Detect the credit card fraud with the following financial profile.\n
               Respond with only 'good' or 'bad', and do not provide any additional information.\n
-              enclose your output with the token [OTPT] and [CTPT]."""
+              Enclose your output with the token [OTPT] and [CTPT]."""
     profile = row['text']
     answer = "\nAnswer: "
-
     return prompt + profile + answer
 
 def derive_answer(output_raw):
+    # print(f"Output raw: {output_raw}")  # Debug print
     match = re.search(r'\[OTPT\](.*?)\[CTPT\]', output_raw)
     if match:
         answer = match.group(1).strip().lower()
+        # print(f"Extracted answer: {answer}")  # Debug print
         if answer in {"good", "bad"}:
             return answer
-    else:
-        return None
+    output_raw = output_raw.strip().lower()
+    if "good" in output_raw:
+        return "good"
+    if "bad" in output_raw:
+        return "bad"
+    return None
 
-# load model
+# Load model
 model_name = "mistralai/Mistral-7B-Instruct-v0.1"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForCausalLM.from_pretrained(model_name).to("cuda")
-generator = pipeline('text-generation', model=model, tokenizer=tokenizer)
+generator = pipeline('text-generation', model=model, tokenizer=tokenizer, device=0)
 
-# convert to pandas
+# Ensure tokenizer uses a padding token
+if tokenizer.pad_token is None:
+    tokenizer.add_special_tokens({'pad_token': '[PAD]'})
+tokenizer.pad_token_id = tokenizer.convert_tokens_to_ids('[PAD]')
+
+# Convert test dataset to pandas DataFrame
 test_data = dataset.to_pandas()
 print(test_data.head())
 
-# prepare prompts
+# Prepare test prompt
 test_data['prompt'] = test_data.apply(prep_prompt, axis=1)
 test_prompts = test_data['prompt']
 
-# generate predictions
-batch_size = 16
+# Generate predictions
 outputs = []
-for i in range(0, len(test_prompts), batch_size):
-    batch_prompts = test_prompts[i:i+batch_size].tolist()
-    batch_outputs_raw = generator(batch_prompts, max_new_tokens=50, return_full_text=False)
-    print(batch_outputs_raw) 
-    flat_outputs = [item for sublist in batch_outputs_raw for item in sublist]
+for prompt in test_prompts:
+    batch_outputs_raw = generator(prompt, max_new_tokens=50, return_full_text=False)
+    if isinstance(batch_outputs_raw, list):
+        if isinstance(batch_outputs_raw[0], dict):
+            flat_outputs = batch_outputs_raw
+        else:
+            flat_outputs = [{'generated_text': item} for item in batch_outputs_raw]
+    elif isinstance(batch_outputs_raw, dict):
+        flat_outputs = [batch_outputs_raw]
+    else:
+        flat_outputs = [{'generated_text': str(batch_outputs_raw)}]
 
     batch_outputs = [derive_answer(output['generated_text']) for output in flat_outputs]
     outputs.extend(batch_outputs)
 
-# ground truth
-ground_truth = test_data['gold']
 
-# remove None values
-valid_outputs = [o for o in outputs if o is not None]
-valid_ground_truth = [g for o, g in zip(outputs, ground_truth) if o is not None]
+# Ground truth
+ground_truth = test_data['answer'].tolist()
 
-# evaluate scores
-accuracy = sum([1 for i in range(len(valid_outputs)) if valid_outputs[i] == valid_ground_truth[i]]) / len(valid_outputs)
-f1_macro = f1_score(valid_ground_truth, valid_outputs, average='macro')
-f1_micro = f1_score(valid_ground_truth, valid_outputs, average='micro')
+if len(outputs) == 0:
+    print("No valid outputs found.")
+else:
+    # Evaluate scores
+    accuracy = sum([1 for i in range(len(outputs)) if outputs[i] == ground_truth[i]]) / len(outputs)
+    f1_macro = f1_score(ground_truth, outputs, average='macro')
+    f1_micro = f1_score(ground_truth, outputs, average='micro')
 
-print(f"Accuracy: {accuracy}")
-print(f"F1 Score: {f1_macro}")
-print(f"F1 Macro Score: {f1_macro}")
+    print(f"Accuracy: {accuracy}")
+    print(f"F1 Score (Macro): {f1_macro}")
+    print(f"F1 Score (Micro): {f1_micro}")
