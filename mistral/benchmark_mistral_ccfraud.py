@@ -1,3 +1,5 @@
+#benchmark mistral-7b on ccfraud dataset
+
 import os
 import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
