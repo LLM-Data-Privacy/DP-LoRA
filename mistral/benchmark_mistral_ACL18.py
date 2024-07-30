@@ -23,3 +23,16 @@ login(api_token)
 # Ensure directories exist
 os.makedirs('/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface', exist_ok=True)
 
+# for logs
+logging.set_verbosity_error()
+
+# Load the entire dataset
+try:
+    dataset = load_dataset("TheFinAI/flare-sm-acl", split="test")
+    print(dataset)
+except Exception as e:
+    print(f"Error loading dataset: {e}")
+    exit(1)
+
+print(dataset)
+print(dataset.column_names)
