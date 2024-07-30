@@ -47,11 +47,9 @@ def prep_prompt(row):
     return prompt + profile + answer
 
 def derive_answer(output_raw):
-    # print(f"Output raw: {output_raw}")  # Debug print
     match = re.search(r'\[OTPT\](.*?)\[CTPT\]', output_raw)
     if match:
         answer = match.group(1).strip().lower()
-        # print(f"Extracted answer: {answer}")  # Debug print
         if answer in {"good", "bad"}:
             return answer
     output_raw = output_raw.strip().lower()
