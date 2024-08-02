@@ -34,8 +34,8 @@ except Exception as e:
     print(f"Error loading dataset: {e}")
     exit(1)
 
-print(dataset)
-print(dataset.column_names)
+#print(dataset)
+#print(dataset.column_names)
 
 # Preprocess prompt function
 def prep_prompt(row):
