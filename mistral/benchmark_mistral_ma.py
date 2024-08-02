@@ -34,8 +34,8 @@ except Exception as e:
     print(f"Error loading dataset: {e}")
     exit(1)
 
-print(dataset)
-print(dataset.column_names)
+#print(dataset)
+#print(dataset.column_names)
 
 # Preprocess prompt function
 def prep_prompt(row):
@@ -98,7 +98,7 @@ for prompt in test_prompts:
     outputs.extend(batch_outputs)
 
 # Ground truth
-ground_truth = test_data['label'].tolist()
+ground_truth = test_data['answer'].tolist()
 
 # Ensure valid labels
 valid_labels = {"rumour", "complete"}
