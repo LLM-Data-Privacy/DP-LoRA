@@ -28,7 +28,7 @@ logging.set_verbosity_error()
 
 # Load the entire dataset
 try:
-    dataset = load_dataset("TheFinAI/flare-sm-acl", split="test")
+    dataset = load_dataset("TheFinAI/flare-ma", split="test")
     print(dataset)
 except Exception as e:
     print(f"Error loading dataset: {e}")
@@ -115,7 +115,9 @@ else:
     
     # Evaluate scores
     accuracy = sum([1 for i in range(len(outputs)) if outputs[i] == ground_truth[i]]) / len(outputs)
+    f1_macro = f1_score(ground_truth, outputs, average='macro')
     f1_micro = f1_score(ground_truth, outputs, average='micro')
 
     print(f"Accuracy: {accuracy}")
+    print(f"F1 Score (Macro): {f1_macro}")
     print(f"F1 Score (Micro): {f1_micro}")
