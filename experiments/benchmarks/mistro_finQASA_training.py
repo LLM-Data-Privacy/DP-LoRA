@@ -94,6 +94,7 @@ if __name__ == "__main__":
     
     # Load the tokenizer and preprocess the dataset
     tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
+    tokenizer.pad_token = tokenizer.eos_token
     
     # Format the dataset
     # train_dataset = train_dataset.map(lambda x: format_dataset(x["sentence"], x["score"]))
