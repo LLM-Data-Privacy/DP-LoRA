@@ -98,7 +98,7 @@ if __name__ == "__main__":
     # Format the dataset
     # train_dataset = train_dataset.map(lambda x: format_dataset(x["sentence"], x["score"]))
     # train_dataset = train_dataset.map(lambda x: preprocess(tokenizer, x, 512))
-    train_dataset = [format_dataset(train_dataset["sentence"][idx], train_dataset["score"][idx]) for idx in len(train_dataset)]
+    train_dataset = [format_dataset(train_dataset["sentence"][idx], train_dataset["score"][idx]) for idx in range(len(train_dataset))]
     train_dataset = [preprocess(tokenizer, x, 512) for x in train_dataset]
     
     # Split the training dataset into 5 parts
