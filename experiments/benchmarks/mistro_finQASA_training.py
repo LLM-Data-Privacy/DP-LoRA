@@ -112,7 +112,7 @@ if __name__ == "__main__":
     model = AutoModelForCausalLM.from_pretrained(
         "mistralai/Mistral-7B-Instruct-v0.1",
         quantization_config = bnb_quantization_config
-        ).to("cuda")
+        )
     
     # Set up LoRA Config
     peft_config = LoraConfig(
