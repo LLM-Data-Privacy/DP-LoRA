@@ -13,6 +13,7 @@ import copy
 
 
 
+
 # Log in to the Hugging Face Hub
 TOKEN = "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"
 login(token=TOKEN)
@@ -95,8 +96,10 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
     
     # Format the dataset
-    train_dataset = train_dataset.map(lambda x: format_dataset(x["sentence"], x["score"]))
-    train_dataset = train_dataset.map(lambda x: preprocess(tokenizer, x, 512))
+    # train_dataset = train_dataset.map(lambda x: format_dataset(x["sentence"], x["score"]))
+    # train_dataset = train_dataset.map(lambda x: preprocess(tokenizer, x, 512))
+    train_dataset = [format_dataset(train_dataset["sentence"][idx], train_dataset["score"][idx]) for idx in len(train_dataset)]
+    train_dataset = [preprocess(tokenizer, x, 512) for x in train_dataset]
     
     # Split the training dataset into 5 parts
     train_dataset = train_dataset.train_test_split(test_size=0.2)
