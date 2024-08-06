@@ -103,7 +103,7 @@ if __name__ == "__main__":
     train_dataset = [preprocess(tokenizer, x, 512) for x in train_dataset]
     
     # Split the training dataset into 5 parts
-    train_dataset = train_dataset.train_test_split(test_size=0.2)
+    train_dataset = [train_dataset[i:i+int(len(train_dataset)/5)] for i in range(0, len(train_dataset), int(len(train_dataset)))]
     
     # Set up 8-bit quantization
     bnb_quantization_config = BitsAndBytesConfig(load_in_8bit=True)
