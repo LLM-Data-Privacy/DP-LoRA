@@ -9,6 +9,7 @@ import re
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from transformers.integrations import TensorBoardCallback
 from torch.utils.tensorboard import SummaryWriter
+from trl import SFTTrainer
 import copy
 
 
@@ -74,7 +75,13 @@ def average_weight(model_list):
 def local(model, training_args, train_dataset):
     writer = SummaryWriter()
     # Trainer Configuration
-    trainer = Trainer(
+    # trainer = Trainer(
+    #     model = model,
+    #     args = training_args,
+    #     train_dataset = train_dataset,
+    #     callbacks = [TensorBoardCallback(writer)],
+    # )
+    trainer = SFTTrainer(
         model = model,
         args = training_args,
         train_dataset = train_dataset,
@@ -120,7 +127,7 @@ if __name__ == "__main__":
         r = 64,
         lora_dropout = 0.1,
         lora_alpha = 16,
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+        #target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
         bias = "none"
     )
     
