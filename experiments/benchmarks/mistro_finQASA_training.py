@@ -20,7 +20,10 @@ TOKEN = "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"
 login(token=TOKEN)
 
 # preprocess the dataset from the benchmark
-def format_dataset(sentence, score):
+def format_dataset(sample):
+    sentence = sample["sentence"]
+    score = sample["score"]
+    
     system_instruction = "[INST]Please classify the sentiment of the following text, just output a floating point, scaling from -1 to 1, -1 is negative, 0 is neutral, 1 is positive:"
 
     full_prompt = ""
@@ -58,9 +61,22 @@ def extract_answer(output_raw):
     return output
 
 # Preprocess the training data into the format required by the model for each entry
-def preprocess(tokenizer, prompt, max_seq_length):
-    embedding = tokenizer(prompt, max_length=max_seq_length, padding="max_length", truncation=True)
-    return embedding    
+def split_dataset(dataset, num_splits = 5, seed = 42):
+    dataset = dataset.shuffle(seed = seed)
+    split_size = len(dataset) // num_splits
+
+    # Calculate the Index of the split
+    indices = [range(i * split_size, min((i + 1) * split_size, len(dataset))) for i in range(num_splits)]
+
+    # Add remaining data to last partition if not evenly divisible
+    if len(dataset) % num_splits != 0:
+        indices[-1] = range(indices[-1].start, len(dataset))
+    
+    # Create partitions using select
+    partitions = {f'split_{i+1}': dataset.select(idx) for i, idx in enumerate(indices)}
+    
+    return partitions
+
 
 # Average the weight of the model
 def average_weight(model_list):
@@ -72,7 +88,7 @@ def average_weight(model_list):
     return w_avg
 
 # Define the local training process
-def local(model, training_args, train_dataset):
+def local(model, training_args, train_dataset, tokenizer, peft_config):
     writer = SummaryWriter()
     # Trainer Configuration
     # trainer = Trainer(
@@ -83,8 +99,11 @@ def local(model, training_args, train_dataset):
     # )
     trainer = SFTTrainer(
         model = model,
+        peft_config = peft_config,
         args = training_args,
+        tokenizer = tokenizer,
         train_dataset = train_dataset,
+        formatting_func = format_dataset,
         callbacks = [TensorBoardCallback(writer)],
     )
     trainer.train()
@@ -103,14 +122,8 @@ if __name__ == "__main__":
     tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
     tokenizer.pad_token = tokenizer.eos_token
     
-    # Format the dataset
-    # train_dataset = train_dataset.map(lambda x: format_dataset(x["sentence"], x["score"]))
-    # train_dataset = train_dataset.map(lambda x: preprocess(tokenizer, x, 512))
-    train_dataset = [format_dataset(train_dataset["sentence"][idx], train_dataset["score"][idx]) for idx in range(len(train_dataset))]
-    train_dataset = [preprocess(tokenizer, x, 512) for x in train_dataset]
-    
-    # Split the training dataset into 5 parts
-    train_dataset = [train_dataset[i:i+int(len(train_dataset)/5)] for i in range(0, len(train_dataset), int(len(train_dataset)))]
+    # Split the training dataset into 5 partitions
+    train_dataset = split_dataset(train_dataset)
     
     # Set up 8-bit quantization
     bnb_quantization_config = BitsAndBytesConfig(load_in_8bit=True)
@@ -157,7 +170,7 @@ if __name__ == "__main__":
     model_list = []
     for e in range(50):
         for n in range(5):
-            model_list.append(local(model, training_args, train_dataset[n]))
+            model_list.append(local(model, training_args, train_dataset[f'split_{n+1}'], tokenizer, peft_config))
             
         model = average_weight(model_list)
     
