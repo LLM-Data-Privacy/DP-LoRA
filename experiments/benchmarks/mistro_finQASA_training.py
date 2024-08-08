@@ -132,7 +132,7 @@ if __name__ == "__main__":
     tokenizer.padding_side = "right"
     
     # Split the training dataset into 5 partitions
-    train_dataset = split_dataset(train_dataset)
+    train_dataset = split_dataset(train_dataset, num_splits = 3)
     
     # Set up 4-bit quantization
     nf4_config = BitsAndBytesConfig(
@@ -181,7 +181,7 @@ if __name__ == "__main__":
     # Call the local training along with aggregation
     model_list = []
     for e in range(50):
-        for n in range(5):
+        for n in range(3):
             model_list.append(local(model, training_args, train_dataset[f'split_{n+1}'], tokenizer, peft_config))
             
         model = average_weight(model_list)
