@@ -89,6 +89,7 @@ def average_weight(model_list):
     # Create a new model instance to load the averaged weights into
     new_model = copy.deepcopy(model_list[0])
     new_model.load_state_dict(w_avg)
+    prepare_model_for_kbit_training(new_model)
     
     return new_model
 
@@ -106,7 +107,7 @@ def local(model, training_args, train_dataset, tokenizer, peft_config):
         model = model,
         peft_config = peft_config,
         args = training_args,
-        max_seq_length = 2048, 
+        #max_seq_length = 2048, 
         tokenizer = tokenizer,
         packing = True,
         train_dataset = train_dataset,
@@ -128,13 +129,12 @@ if __name__ == "__main__":
     # Load the tokenizer and preprocess the dataset
     tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.1")
     tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.padding_side = "right"
     
     # Split the training dataset into 5 partitions
     train_dataset = split_dataset(train_dataset)
     
-    # Set up 8-bit quantization
-    #bnb_quantization_config = BitsAndBytesConfig(load_in_8bit=True)
-    
+    # Set up 4-bit quantization
     nf4_config = BitsAndBytesConfig(
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
@@ -147,7 +147,7 @@ if __name__ == "__main__":
         "mistralai/Mistral-7B-Instruct-v0.1",
         device_map = "auto",
         quantization_config = nf4_config
-        )
+    )
     
     # Set up LoRA Config
     peft_config = LoraConfig(
@@ -172,9 +172,6 @@ if __name__ == "__main__":
         logging_steps=10,
         save_strategy="no",
         logging_dir="./results",
-        #evaluation_strategy="epoch",
-        #evaluation_strategy="steps",
-        #eval_steps=20,
         learning_rate=2e-4,
         bf16=True,
         lr_scheduler_type='constant',
@@ -188,6 +185,7 @@ if __name__ == "__main__":
             model_list.append(local(model, training_args, train_dataset[f'split_{n+1}'], tokenizer, peft_config))
             
         model = average_weight(model_list)
+        model_list = []
     
     
     # Evaluate the model
