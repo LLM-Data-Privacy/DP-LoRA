@@ -128,12 +128,20 @@ if __name__ == "__main__":
     train_dataset = split_dataset(train_dataset)
     
     # Set up 8-bit quantization
-    bnb_quantization_config = BitsAndBytesConfig(load_in_8bit=True)
+    #bnb_quantization_config = BitsAndBytesConfig(load_in_8bit=True)
+    
+    nf4_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_compute_dtype=torch.bfloat16
+    )
     
     # Load the model with quantization
     model = AutoModelForCausalLM.from_pretrained(
         "mistralai/Mistral-7B-Instruct-v0.1",
-        quantization_config = bnb_quantization_config
+        device_map = "auto",
+        quantization_config = nf4_config
         )
     
     # Set up LoRA Config
