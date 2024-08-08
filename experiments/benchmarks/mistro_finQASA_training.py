@@ -154,7 +154,7 @@ if __name__ == "__main__":
         output_dir = "./results",
         num_train_epochs=1,
         max_steps = 100, 
-        per_device_train_batch_size = 2,
+        per_device_train_batch_size = 1,
         warmup_steps = 0.03,
         logging_steps=10,
         save_strategy="epoch",
