@@ -80,12 +80,17 @@ def split_dataset(dataset, num_splits = 5, seed = 42):
 
 # Average the weight of the model
 def average_weight(model_list):
-    w_avg = copy.deepcopy(model_list[0])
+    w_avg = copy.deepcopy(model_list[0].state_dict())
     for key in w_avg.keys():
         for i in range(1, len(model_list)):
-            w_avg[key] += model_list[i][key]
+            w_avg[key] += model_list[i].state_dict()[key]
         w_avg[key] = torch.div(w_avg[key], len(model_list))
-    return w_avg
+        
+    # Create a new model instance to load the averaged weights into
+    new_model = copy.deepcopy(model_list[0])
+    new_model.load_state_dict(w_avg)
+    
+    return new_model
 
 # Define the local training process
 def local(model, training_args, train_dataset, tokenizer, peft_config):
@@ -165,7 +170,8 @@ if __name__ == "__main__":
         per_device_train_batch_size = 1,
         warmup_steps = 0.03,
         logging_steps=10,
-        save_strategy="epoch",
+        save_strategy="no",
+        logging_dir="./results",
         #evaluation_strategy="epoch",
         #evaluation_strategy="steps",
         #eval_steps=20,
