@@ -101,7 +101,9 @@ def local(model, training_args, train_dataset, tokenizer, peft_config):
         model = model,
         peft_config = peft_config,
         args = training_args,
+        max_seq_length = 2048, 
         tokenizer = tokenizer,
+        packing = True,
         train_dataset = train_dataset,
         formatting_func = format_dataset,
         callbacks = [TensorBoardCallback(writer)],
@@ -150,19 +152,18 @@ if __name__ == "__main__":
     # Define training args
     training_args = TrainingArguments(
         output_dir = "./results",
-        logging_steps = 1000,
-        num_train_epochs = 1,
+        num_train_epochs=1,
+        max_steps = 100, 
         per_device_train_batch_size = 4,
-        gradient_accumulation_steps = 8,
-        learning_rate = 1e-4,
-        weight_decay = 0.01,
-        warmup_steps = 500,
-        save_steps = 1000,
-        bf16 = True,
-        torch_compile = False,
-        load_best_model_at_end = True,
-        evaluation_strategy = "steps",
-        remove_unused_columns = True
+        warmup_steps = 0.03,
+        logging_steps=10,
+        save_strategy="epoch",
+        #evaluation_strategy="epoch",
+        #evaluation_strategy="steps",
+        #eval_steps=20,
+        learning_rate=2e-4,
+        bf16=True,
+        lr_scheduler_type='constant',
     )
     
     
