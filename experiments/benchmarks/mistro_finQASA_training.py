@@ -107,7 +107,7 @@ def local(model, training_args, train_dataset, tokenizer, peft_config):
         model = model,
         peft_config = peft_config,
         args = training_args,
-        #max_seq_length = 2048, 
+        max_seq_length = 2048, 
         tokenizer = tokenizer,
         packing = True,
         train_dataset = train_dataset,
