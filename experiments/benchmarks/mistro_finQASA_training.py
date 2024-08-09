@@ -189,7 +189,7 @@ if __name__ == "__main__":
         for n in range(3):
             model_list.append(local(model, training_args, train_dataset[f'split_{n+1}'], tokenizer, peft_config))
             
-        model = average_weight(model_list, nf4_config)
+        model = average_weight(model_list, nf4_config, peft_config=peft_config)
         model_list = []
     
     
