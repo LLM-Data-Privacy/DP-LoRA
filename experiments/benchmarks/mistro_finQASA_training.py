@@ -79,7 +79,7 @@ def split_dataset(dataset, num_splits = 5, seed = 42):
 
 
 # Average the weight of the model
-def average_weight(model_list):
+def average_weight(model_list, nf4_config, peft_config):
     w_avg = copy.deepcopy(model_list[0].state_dict())
     for key in w_avg.keys():
         for i in range(1, len(model_list)):
@@ -87,9 +87,14 @@ def average_weight(model_list):
         w_avg[key] = torch.div(w_avg[key], len(model_list))
         
     # Create a new model instance to load the averaged weights into
-    new_model = copy.deepcopy(model_list[0])
+    new_model = AutoModelForCausalLM.from_pretrained(
+        "mistralai/Mistral-7B-Instruct-v0.1",
+        device_map = "auto",
+        quantization_config = nf4_config
+    )
     new_model.load_state_dict(w_avg)
-    prepare_model_for_kbit_training(new_model)
+    new_model = prepare_model_for_kbit_training(model)
+    new_model = get_peft_model(model, peft_config)
     
     return new_model
 
@@ -184,7 +189,7 @@ if __name__ == "__main__":
         for n in range(3):
             model_list.append(local(model, training_args, train_dataset[f'split_{n+1}'], tokenizer, peft_config))
             
-        model = average_weight(model_list)
+        model = average_weight(model_list, nf4_config)
         model_list = []
     
     
