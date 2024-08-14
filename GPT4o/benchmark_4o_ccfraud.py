@@ -9,18 +9,10 @@ from huggingface_hub import login
 import re
 import openai
 
-# Set up environment variables for caching
-os.environ['TRANSFORMERS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-os.environ['HF_DATASETS_CACHE'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-os.environ['HF_HOME'] = '/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface'
-
 # Hugging Face setup
 load_dotenv()
 api_token = os.getenv("HUGGINGFACE_API_TOKEN")
 login(api_token)
-
-# Ensure directories exist
-os.makedirs('/gpfs/u/home/FNAI/FNAIdosa/scratch/huggingface', exist_ok=True)
 
 # Load the entire dataset
 try:
@@ -57,12 +49,12 @@ openai.api_key = os.getenv("OPENAI_API_TOKEN")
 
 def get_response(prompt):
     response = openai.ChatCompletion.create(
-        model="gpt-4-0613",
+        model="gpt-4o-mini",
         messages=[
             {"role": "user", "content": prompt}
         ]
     )
-    return response.choices[0].message['content']
+    return response.choices[0]['message']['content']
 
 # Convert test dataset to pandas DataFrame
 test_data = dataset.to_pandas()
