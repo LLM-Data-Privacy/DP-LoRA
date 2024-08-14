@@ -45,3 +45,30 @@ def derive_answer(output_raw):
     if "complete" in output_raw:
         return "complete"
     return None
+
+# OpenAI setup
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+def get_response(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-4-0613",  # Replace with the specific GPT-4o model if available
+        messages=[
+            {"role": "user", "content": prompt}
+        ]
+    )
+    return response.choices[0]['message']['content']
+
+# Convert test dataset to pandas DataFrame
+test_data = dataset.to_pandas()
+print(test_data.head())
+
+# Prepare test prompt
+test_data['prompt'] = test_data.apply(prep_prompt, axis=1)
+test_prompts = test_data['prompt']
+
+# Generate predictions
+outputs = []
+for prompt in test_prompts:
+    output_raw = get_response(prompt)
+    output = derive_answer(output_raw)
+    outputs.append(output)
