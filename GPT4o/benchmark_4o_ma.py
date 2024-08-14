@@ -72,3 +72,28 @@ for prompt in test_prompts:
     output_raw = get_response(prompt)
     output = derive_answer(output_raw)
     outputs.append(output)
+
+# Ground truth
+ground_truth = test_data['answer'].tolist()
+
+# Ensure valid labels
+valid_labels = {"rumour", "complete"}
+outputs = [o for o in outputs if o in valid_labels]
+ground_truth = [g for g in ground_truth if g in valid_labels]
+
+if len(outputs) == 0:
+    print("No valid outputs found.")
+else:
+    # Ensure both lists have the same length
+    min_len = min(len(outputs), len(ground_truth))
+    outputs = outputs[:min_len]
+    ground_truth = ground_truth[:min_len]
+    
+    # Evaluate scores
+    accuracy = sum([1 for i in range(len(outputs)) if outputs[i] == ground_truth[i]]) / len(outputs)
+    f1_macro = f1_score(ground_truth, outputs, average='macro')
+    f1_micro = f1_score(ground_truth, outputs, average='micro')
+
+    print(f"Accuracy: {accuracy}")
+    print(f"F1 Score (Macro): {f1_macro}")
+    print(f"F1 Score (Micro): {f1_micro}")
