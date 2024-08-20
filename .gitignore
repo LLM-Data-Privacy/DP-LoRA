@@ -1,0 +1,4 @@
+# Ignore data directory
+/data/
+/saved_model*
+/aggregated_model*
