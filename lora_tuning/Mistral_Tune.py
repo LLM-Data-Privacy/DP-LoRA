@@ -9,6 +9,28 @@ from huggingface_hub import login
 TOKEN = "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"
 login(token = TOKEN)
 
+def tokenize(prompt):
+    result = tokenizer(
+        prompt,
+        truncation=True,
+        max_length=512,
+        padding="max_length",
+    )
+    result["labels"] = result["input_ids"].copy()
+    return result
+def generate_and_tokenize_prompt(data_point):
+    full_prompt =f"""Given a target sentence construct the underlying meaning representation of the input sentence as a single function with attributes and attribute values.
+This function should describe the target string accurately and the function must be one of the following ['inform', 'request', 'give_opinion', 'confirm', 'verify_attribute', 'suggest', 'request_explanation', 'recommend', 'request_attribute'].
+The attributes must be one of the following: ['name', 'exp_release_date', 'release_year', 'developer', 'esrb', 'rating', 'genres', 'player_perspective', 'has_multiplayer', 'platforms', 'available_on_steam', 'has_linux_release', 'has_mac_release', 'specifier']
+
+### Target sentence:
+{data_point["target"]}
+
+### Meaning representation:
+{data_point["meaning_representation"]}
+"""
+    return tokenize(full_prompt)
+
 def print_trainable_parameters(model):
     """
     Prints the number of trainable parameters in the model.
@@ -23,27 +45,21 @@ def print_trainable_parameters(model):
         f"trainable params: {trainable_params} || all params: {all_param} || trainable%: {100 * trainable_params / all_param}"
     )
 # Load the model
-model_id = "mistralai/Mistral-7B-Instruct-v0.2"
-
+base_model_id = "mistralai/Mistral-7B-v0.1"
 bnb_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_use_double_quant=True,
     bnb_4bit_quant_type="nf4",
     bnb_4bit_compute_dtype=torch.bfloat16
 )
+model = AutoModelForCausalLM.from_pretrained(base_model_id, quantization_config=bnb_config)
 
-base_model = AutoModelForCausalLM.from_pretrained(
-    model_id,
-    quantization_config=bnb_config,
-    use_cache=False,
-    device_map="auto"
-)
-
-# Load the tokenizer
-tokenizer = AutoTokenizer.from_pretrained(model_id)
+tokenizer = AutoTokenizer.from_pretrained(
+    base_model_id,
+    model_max_length=512,
+    padding_side="left",
+    add_eos_token=True)
 tokenizer.pad_token = tokenizer.eos_token
-tokenizer.padding_side = "right"
-
 
 lora_config = LoraConfig(
     r=64,
@@ -57,3 +73,13 @@ lora_config = LoraConfig(
 base_model = prepare_model_for_kbit_training(base_model)
 model = get_peft_model(base_model, lora_config)
 print_trainable_parameters(model)
+
+
+from datasets import load_dataset
+train_dataset = load_dataset('gem/viggo', split='train')
+eval_dataset = load_dataset('gem/viggo', split='validation')
+test_dataset = load_dataset('gem/viggo', split='test')
+
+
+tokenized_train_dataset = train_dataset.map(generate_and_tokenize_prompt)
+tokenized_val_dataset = eval_dataset.map(generate_and_tokenize_prompt)
