@@ -44,6 +44,20 @@ def print_trainable_parameters(model):
     print(
         f"trainable params: {trainable_params} || all params: {all_param} || trainable%: {100 * trainable_params / all_param}"
     )
+
+def print_trainable_parameters(model):
+    """
+    Prints the number of trainable parameters in the model.
+    """
+    trainable_params = 0
+    all_param = 0
+    for _, param in model.named_parameters():
+        all_param += param.numel()
+        if param.requires_grad:
+            trainable_params += param.numel()
+    print(
+        f"trainable params: {trainable_params} || all params: {all_param} || trainable%: {100 * trainable_params / all_param}"
+    )
 # Load the model
 base_model_id = "mistralai/Mistral-7B-v0.1"
 bnb_config = BitsAndBytesConfig(
@@ -83,3 +97,30 @@ test_dataset = load_dataset('gem/viggo', split='test')
 
 tokenized_train_dataset = train_dataset.map(generate_and_tokenize_prompt)
 tokenized_val_dataset = eval_dataset.map(generate_and_tokenize_prompt)
+
+
+#Setup lora training
+from peft import prepare_model_for_kbit_training
+import accelerate as accelerator
+model.gradient_checkpointing_enable()
+model = prepare_model_for_kbit_training(model)
+
+from peft import LoraConfig, get_peft_model
+
+config = LoraConfig(
+    r=8,
+    lora_alpha=16,
+    target_modules=["q_proj","k_proj","v_proj","o_proj","gate_proj","up_proj",
+        "down_proj",
+        "lm_head",
+    ],
+    bias="none",
+    lora_dropout=0.05,  # Conventional
+    task_type="CAUSAL_LM",
+)
+
+model = get_peft_model(model, config)
+print_trainable_parameters(model)
+
+# Apply the accelerator. You can comment this out to remove the accelerator.
+model = accelerator.prepare_model(model)
